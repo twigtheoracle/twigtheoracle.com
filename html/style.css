@@ -26,3 +26,26 @@ body {
 #content {
     margin: 5px 0 5px 0;
 }
+
+.sidebar-item {
+    display: block;
+}
+
+#logo {
+    height: 100px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+#banner-image {
+    position: relative;
+    height: 100px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: calc(100% - 105px);
+}
+
+#wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
