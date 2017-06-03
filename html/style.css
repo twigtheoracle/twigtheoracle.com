@@ -1,5 +1,14 @@
+html {
+    background-color: beige;
+}
+
 body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .container {
@@ -45,7 +54,6 @@ body {
     width: calc(100% - 105px);
 }
 
-#wrapper {
-    width: 70%;
-    margin: 0 auto;
-}
+
+
+
