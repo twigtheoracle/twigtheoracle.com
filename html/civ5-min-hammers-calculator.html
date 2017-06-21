@@ -5,6 +5,7 @@
 <title>WIP</title>
     <link rel="stylesheet" href="style.css">
 </head>
+    
 <body>
     
     <div id="wrapper">
@@ -32,6 +33,71 @@
             <div id="content">
                 <p>This is a WIP site</p>
                 <p>in the future, there will be a civ 5 minimum hammer calculator for the various world congress tasks. It should take variuos inputs through js</p>
+                
+                <div id="hammer-calculator">
+                
+<!--
+                    <form action="/hammer_count.php">
+                    
+                        <input list="speed-type">
+                        
+                        <datalist id="speed-type">
+                        
+                            <option value="slow">slow</option>
+                            <option value="medium">medium</option>
+                            <option value="fast">fast</option>
+                        
+                        </datalist>
+                        
+                        <input type="submit">
+                    
+                    </form>
+-->
+                    
+<!--
+                    <input type="text" name="game-speed" list="speeds">
+                    <datalist id="speeds">
+                    
+                        <option value="slow">slow</option>
+                        <option value="medium">medium</option>
+                    
+                    </datalist>
+-->
+                    
+                    <form action="hammer_count.php" method="get">
+                    
+                        Game Speed:
+                        <input type="text" name="game-speed" list="speeds">
+                        <datalist id="speeds">
+                            <option value="slow">slow</option>
+                            <option value="medium">medium</option>
+                        </datalist>
+                        
+                        <br>
+                        
+                        Number of Players:
+                        <input type="number" name="num-players" value="8">
+                        
+                        <br>
+                        
+                        Congress Event:
+                        <input type="text" name="WC-event" list="WC-events">
+                        <datalist id="WC-events">
+                            <option value="World's Fair">World's Fair</option>
+                            <option value="International Games">International Games</option>
+                            <option value="International Space Station">International Space Station</option>
+                        </datalist>
+                        
+                        <br>
+                        
+                        <input type="submit">
+                    
+                    </form>
+                    
+                    
+                
+                </div>
+                
             </div>
 
 
