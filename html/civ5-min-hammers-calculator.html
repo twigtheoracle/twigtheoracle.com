@@ -36,65 +36,49 @@
                 
                 <div id="hammer-calculator">
                 
-<!--
-                    <form action="/hammer_count.php">
-                    
-                        <input list="speed-type">
-                        
-                        <datalist id="speed-type">
-                        
-                            <option value="slow">slow</option>
-                            <option value="medium">medium</option>
-                            <option value="fast">fast</option>
-                        
-                        </datalist>
-                        
-                        <input type="submit">
-                    
-                    </form>
--->
-                    
-<!--
-                    <input type="text" name="game-speed" list="speeds">
-                    <datalist id="speeds">
-                    
-                        <option value="slow">slow</option>
-                        <option value="medium">medium</option>
-                    
-                    </datalist>
--->
-                    
+                    <!--
                     <form action="hammer_count.php" method="get">
+                    -->
+
+                    <form id="hammer-calc">
                     
                         Game Speed:
                         <input type="text" name="game-speed" list="speeds">
                         <datalist id="speeds">
-                            <option value="slow">slow</option>
-                            <option value="medium">medium</option>
+                            <option value="Quick">
+                            <option value="Standard">
+                            <option value="Epic">
+                            <option value="Marathon">
                         </datalist>
                         
                         <br>
                         
                         Number of Players:
-                        <input type="number" name="num-players" value="8">
+                        <input type="number" name="num-players" min="2" value="8">
                         
                         <br>
                         
                         Congress Event:
                         <input type="text" name="WC-event" list="WC-events">
                         <datalist id="WC-events">
-                            <option value="World's Fair">World's Fair</option>
-                            <option value="International Games">International Games</option>
-                            <option value="International Space Station">International Space Station</option>
+                            <option value="World's Fair">
+                            <option value="International Games">
+                            <option value="International Space Station">
                         </datalist>
+                        
+                        <!--
                         
                         <br>
                         
                         <input type="submit">
                     
+                        -->
+
                     </form>
                     
+                    <button onclick="hammer_calculator()">Calculate</button>
                     
+                    <p id="hammer-value"></p>
                 
                 </div>
                 
@@ -109,6 +93,39 @@
         </div>
         
     </div>
+    
+    <script>
+        function hammer_calculator() {
+            var speed_name = document.getElementById("game-speed");
+            var speed_value = 0.0;
+            var num_players = document.getElementById("num-players");
+            var event_name = document.getElementById("WC-event");
+            var event_value = 0.0;
+
+            if(speed_name == "Quick") {
+                speed_value = 2.0/3.0;
+            } else if(speed_name == "Standard") {
+                speed_value = 1.0;
+            } else if(speed_name == "Epic") {
+                speed_value = 1.5;
+            } else {
+                speed_value = 3.0;
+            }
+
+            if(event_name == "World's Fair") {
+                event_value = 35.0;
+            } else if(event_name == "International Games") {
+                event_value = 72.0;
+            } else {
+                event_value = 85.0;
+            }
+
+            var return_text = 10.0 * event_value * num_players * speed_value;
+
+            document.getElementById("hammer-value").innerHTML = 10 * event_value * 8 * speed_value;
+        }
+
+    </script>
 
 </body> 
     
