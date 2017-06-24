@@ -42,16 +42,31 @@
                         Number of Players:
                         <input type="number" id="num-players" value="8">
 
-                        <br><br> Game Speed: <br>
-                        <input type="radio" name="game-speed" value=".6666666666"> Quick<br>
-                        <input type="radio" name="game-speed" value="1.0" checked> Standard <br>
-                        <input type="radio" name="game-speed" value="1.5"> Epic <br>
-                        <input type="radio" name="game-speed" value="3.0"> Marathon
-
-                        <br><br> Congress Event:<br>
-                        <input type="radio" name="WC-event" value="35.0" checked> World's Fair<br>
-                        <input type="radio" name="WC-event" value="72.0"> International Games<br>
-                        <input type="radio" name="WC-event" value="85.0"> International Space Station<br>
+                        <br><br> 
+                        
+                        <table class="table-border">
+                        
+                            <tr class="table-border">
+                                <th class="table-border">Game Speed</th>
+                                <th class="table-border">Congress Event</th>
+                            </tr>
+                            
+                            <tr class="table-border">
+                                <td class="table-border">
+                                    <input type="radio" name="game-speed" value=".6666666666"> Quick<br>
+                                    <input type="radio" name="game-speed" value="1.0" checked> Standard <br>
+                                    <input type="radio" name="game-speed" value="1.5"> Epic <br>
+                                    <input type="radio" name="game-speed" value="3.0"> Marathon
+                                </td>
+                                
+                                <td class="table-border">
+                                    <input type="radio" name="WC-event" value="35.0" checked> World's Fair<br>
+                                    <input type="radio" name="WC-event" value="72.0"> International Games<br>
+                                    <input type="radio" name="WC-event" value="85.0"> International Space Station<br>
+                                </td>
+                            </tr>
+                        
+                        </table>
 
                     </form>
 
@@ -59,34 +74,33 @@
 
                     <button onclick="hammer_calculator()">Calculate</button>
 
-                    <br>
-                    <h3>Results</h3>
+                    <br><br>
 
                     <table>
                         
                         <tr>
-                            <th></th>
+                            <th><h3 class="hammer-results-title">Results</h3></th>
                             <th>Number of Hammers</th>
                         </tr>
 
                         <tr>
                             <td>Total Hammers</td>
-                            <td id="max-hammer">N/A</td>
+                            <td id="max-hammer" class="table-centered">N/A</td>
                         </tr>
 
                         <tr>
                             <td>Gold Award</td>
-                            <td id="gold-hammer">N/A</td>
+                            <td id="gold-hammer" class="table-centered">N/A</td>
                         </tr>
 
                         <tr>
                             <td>Silver Award</td>
-                            <td id="silver-hammer">N/A</td>
+                            <td id="silver-hammer" class="table-centered">N/A</td>
                         </tr>
 
                         <tr>
                             <td>Bronze Award</td>
-                            <td id="bronze-hammer">N/A</td>
+                            <td id="bronze-hammer" class="table-centered">N/A</td>
                         </tr>
 
                     </table>
