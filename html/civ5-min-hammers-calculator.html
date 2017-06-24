@@ -8,32 +8,32 @@
 
 <body>
 
-    <div id="wrapper">
+    <div class="wrapper">
 
-        <div id="banner">
+        <div class="banner">
 
-            <img id="logo" src="https://image.ibb.co/ns4M8Q/placeholder_logo.jpg">
+            <img class="logo" src="https://image.ibb.co/ns4M8Q/placeholder_logo.jpg">
 
-            <img id="banner-image" src="https://image.ibb.co/eY2ma5/placeholder_banner.jpg">
+            <img class="banner-image" src="https://image.ibb.co/eY2ma5/placeholder_banner.jpg">
 
         </div>
 
         <div class="container">
 
-            <div id="sidebar">
+            <div class="sidebar">
                 <a class="sidebar-item" href="index.nginx-debian.html">Home</a>
                 <a class="sidebar-item" href="chemistry-naming.html">Naming</a>
                 <a class="sidebar-item" href="civ5-min-hammers-calculator.html">CIV V</a>
             </div>
 
-            <div id="header">
+            <div class="header">
                 <h1>CIV V Minimum Hammer Calculator </h1>
             </div>
 
-            <div id="content">
+            <div class="content">
 
                 <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply choose the relevant options below and click calculate!</p>
-                <p>The CIV V wiki has a more in depth explanation on how value are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
+                <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
 
                 <div id="hammer-calculator">
 
@@ -42,15 +42,15 @@
                         Number of Players:
                         <input type="number" id="num-players" value="8">
 
-                        <br><br> 
-                        
+                        <br><br>
+
                         <table class="table-border">
-                        
+
                             <tr class="table-border">
                                 <th class="table-border">Game Speed</th>
                                 <th class="table-border">Congress Event</th>
                             </tr>
-                            
+
                             <tr class="table-border">
                                 <td class="table-border">
                                     <input type="radio" name="game-speed" value=".6666666666"> Quick<br>
@@ -58,14 +58,14 @@
                                     <input type="radio" name="game-speed" value="1.5"> Epic <br>
                                     <input type="radio" name="game-speed" value="3.0"> Marathon
                                 </td>
-                                
+
                                 <td class="table-border">
                                     <input type="radio" name="WC-event" value="35.0" checked> World's Fair<br>
                                     <input type="radio" name="WC-event" value="72.0"> International Games<br>
                                     <input type="radio" name="WC-event" value="85.0"> International Space Station<br>
                                 </td>
                             </tr>
-                        
+
                         </table>
 
                     </form>
@@ -77,9 +77,11 @@
                     <br><br>
 
                     <table>
-                        
+
                         <tr>
-                            <th><h3 class="hammer-results-title">Results</h3></th>
+                            <th>
+                                <h3 class="hammer-results-title">Results</h3>
+                            </th>
                             <th>Number of Hammers</th>
                         </tr>
 
@@ -110,7 +112,7 @@
             </div>
 
 
-            <div id="footer">
+            <div class="footer">
                 <!-- there is nothing here :( -->
             </div>
 
