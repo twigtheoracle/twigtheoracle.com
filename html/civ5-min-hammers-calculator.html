@@ -32,7 +32,7 @@
 
             <div class="content">
 
-                <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply choose the relevant options below and click calculate!</p>
+                <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply choose the relevant options below and click calculate! <br>Note: for the number of players, use the up and down arrow keys that appear in the box to adjust the value</p>
                 <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
 
                 <div id="hammer-calculator">
@@ -40,7 +40,7 @@
                     <form id="hammer-calc">
 
                         Number of Players:
-                        <input type="number" id="num-players" value="8">
+                        <input type="number" id="num-players" value="8" onclick="hammer_calculator()">
 
                         <br><br>
 
@@ -53,16 +53,16 @@
 
                             <tr class="table-border">
                                 <td class="table-border">
-                                    <input type="radio" name="game-speed" value=".6666666666"> Quick<br>
-                                    <input type="radio" name="game-speed" value="1.0" checked> Standard <br>
-                                    <input type="radio" name="game-speed" value="1.5"> Epic <br>
-                                    <input type="radio" name="game-speed" value="3.0"> Marathon
+                                    <input type="radio" name="game-speed" value=".6666666666" onclick="hammer_calculator()"> Quick<br>
+                                    <input type="radio" name="game-speed" value="1.0"  onclick="hammer_calculator()" checked> Standard <br>
+                                    <input type="radio" name="game-speed" value="1.5" onclick="hammer_calculator()"> Epic <br>
+                                    <input type="radio" name="game-speed" value="3.0" onclick="hammer_calculator()"> Marathon
                                 </td>
 
                                 <td class="table-border">
-                                    <input type="radio" name="WC-event" value="35.0" checked> World's Fair<br>
-                                    <input type="radio" name="WC-event" value="72.0"> International Games<br>
-                                    <input type="radio" name="WC-event" value="85.0"> International Space Station<br>
+                                    <input type="radio" name="WC-event" value="35.0"  onclick="hammer_calculator()" checked> World's Fair<br>
+                                    <input type="radio" name="WC-event" value="72.0" onclick="hammer_calculator()"> International Games<br>
+                                    <input type="radio" name="WC-event" value="85.0" onclick="hammer_calculator()"> International Space Station<br>
                                 </td>
                             </tr>
 
@@ -72,17 +72,13 @@
 
                     <br>
 
-                    <button onclick="hammer_calculator()">Calculate</button>
-
-                    <br><br>
-
                     <table>
 
                         <tr>
                             <th>
                                 <h3 class="hammer-results-title">Results</h3>
                             </th>
-                            <th>Number of Hammers</th>
+                            <th>Number of Hammers<br>(minimum)</th>
                         </tr>
 
                         <tr>
