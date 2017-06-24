@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-<title>WIP</title>
+    <title>WIP</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    
+
 <body>
-    
+
     <div id="wrapper">
-    
+
         <div id="banner">
 
             <img id="logo" src="https://image.ibb.co/ns4M8Q/placeholder_logo.jpg">
@@ -19,7 +19,7 @@
         </div>
 
         <div class="container">
-            
+
             <div id="sidebar">
                 <a class="sidebar-item" href="index.nginx-debian.html">Home</a>
                 <a class="sidebar-item" href="chemistry-naming.html">Naming</a>
@@ -31,45 +31,68 @@
             </div>
 
             <div id="content">
-                <p>This is a WIP site</p>
-                <p>in the future, there will be a civ 5 minimum hammer calculator for the various world congress tasks. It should take variuos inputs through js</p>
-                
+
+                <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply choose the relevant options below and click calculate!</p>
+                <p>The CIV V wiki has a more in depth explanation on how value are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
+
                 <div id="hammer-calculator">
 
                     <form id="hammer-calc">
-                    
-                        Game Speed:
-                        <input type="text" name="game-speed" list="speeds">
-                        <datalist id="speeds">
-                            <option value="Quick">
-                            <option value="Standard">
-                            <option value="Epic">
-                            <option value="Marathon">
-                        </datalist>
-                        
-                        <br>
-                        
+
                         Number of Players:
-                        <input type="number" name="num-players" min="2" value="8">
-                        
-                        <br>
-                        
-                        Congress Event:
-                        <input type="text" name="WC-event" list="WC-events">
-                        <datalist id="WC-events">
-                            <option value="World's Fair">
-                            <option value="International Games">
-                            <option value="International Space Station">
-                        </datalist>
+                        <input type="number" id="num-players" value="8">
+
+                        <br><br> Game Speed: <br>
+                        <input type="radio" name="game-speed" value=".6666666666"> Quick<br>
+                        <input type="radio" name="game-speed" value="1.0" checked> Standard <br>
+                        <input type="radio" name="game-speed" value="1.5"> Epic <br>
+                        <input type="radio" name="game-speed" value="3.0"> Marathon
+
+                        <br><br> Congress Event:<br>
+                        <input type="radio" name="WC-event" value="35.0" checked> World's Fair<br>
+                        <input type="radio" name="WC-event" value="72.0"> International Games<br>
+                        <input type="radio" name="WC-event" value="85.0"> International Space Station<br>
 
                     </form>
-                    
+
+                    <br>
+
                     <button onclick="hammer_calculator()">Calculate</button>
-                
+
+                    <br>
+                    <h3>Results</h3>
+
+                    <table>
+                        
+                        <tr>
+                            <th></th>
+                            <th>Number of Hammers</th>
+                        </tr>
+
+                        <tr>
+                            <td>Total Hammers</td>
+                            <td id="max-hammer">N/A</td>
+                        </tr>
+
+                        <tr>
+                            <td>Gold Award</td>
+                            <td id="gold-hammer">N/A</td>
+                        </tr>
+
+                        <tr>
+                            <td>Silver Award</td>
+                            <td id="silver-hammer">N/A</td>
+                        </tr>
+
+                        <tr>
+                            <td>Bronze Award</td>
+                            <td id="bronze-hammer">N/A</td>
+                        </tr>
+
+                    </table>
+
                 </div>
-                
-                <p id="hammer-value"></p>
-                
+
             </div>
 
 
@@ -79,42 +102,24 @@
 
 
         </div>
-        
+
     </div>
-    
+
     <script>
         function hammer_calculator() {
-            var speed_name = document.getElementById("game-speed");
-            var speed_value = 0.0;
-            var num_players = document.getElementById("num-players");
-            var event_name = document.getElementById("WC-event");
-            var event_value = 0.0;
+            var speed = document.querySelector('input[name="game-speed"]:checked').value;
+            var event = document.querySelector('input[name="WC-event"]:checked').value;
+            var players = document.getElementById("num-players").value;
 
-            if(speed_name == "Quick") {
-                speed_value = 2.0/3.0;
-            } else if(speed_name == "Standard") {
-                speed_value = 1.0;
-            } else if(speed_name == "Epic") {
-                speed_value = 1.5;
-            } else {
-                speed_value = 3.0;
-            }
+            var max_hammers = Math.ceil(10 * speed * event * players);
 
-            if(event_name == "World's Fair") {
-                event_value = 35.0;
-            } else if(event_name == "International Games") {
-                event_value = 72.0;
-            } else {
-                event_value = 85.0;
-            }
-
-            var return_text = 10.0 * event_value * num_players * speed_value;
-
-            document.getElementById("hammer-value").innerHTML = 10 * event_value * 8 * speed_value;
+            document.getElementById("max-hammer").innerHTML = max_hammers;
+            document.getElementById("gold-hammer").innerHTML = Math.ceil(max_hammers / 2.0) + 1;
+            document.getElementById("silver-hammer").innerHTML = event * 10;
+            document.getElementById("bronze-hammer").innerHTML = event * 5;
         }
-
     </script>
 
-</body> 
-    
+</body>
+
 </html>
