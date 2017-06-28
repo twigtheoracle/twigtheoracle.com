@@ -123,4 +123,24 @@ a.sidebar-item:active {
     border-style: solid;
     
     margin: 5px 5px 5px 5px;
+    
+    display: inline-block;
+    
+    width: 48%;
+}
+
+#chemistry-naming-types {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    
+    margin: 5px 5px 5px 5px;
+    
+    display: inline-block;
+    
+    width: 48%;
+}
+
+#chemistry-naming-options {
+    text-align: center;
 }
