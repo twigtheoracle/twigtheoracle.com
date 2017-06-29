@@ -41,7 +41,7 @@
                     <div id="chemistry-answer-box">
                         Enter your answer here:<br>
                         <input type="text" id="chemistry-answer">
-                        <input type="submit" onclick="naming()">
+                        <input type="submit" onclick="check()">
                     </div>
                     
                     <div id="chemistry-feedback-box">
@@ -51,15 +51,15 @@
                     <div id="chemistry-naming-options">
                         <div id="chemistry-compund-types">
                             <form>
-                                <input type="checkbox" id="ionic"> Ionic<br>
-                                <input type="checkbox" id="molecular"> Molecular
+                                <input type="checkbox" id="ionic" onclick="newQuestion()" checked> Ionic<br>
+                                <input type="checkbox" id="molecular" onclick="newQuestion()" checked> Molecular
                             </form>
                         </div>
 
                         <div id="chemistry-naming-types">
                             <form>
-                                <input type="checkbox" id="formula"> Chemical Formula<br>
-                                <input type="checkbox" id="name"> Chemical Name
+                                <input type="checkbox" id="formula" onclick="newQuestion()" checked> Chemical Formula<br>
+                                <input type="checkbox" id="name" onclick="newQuestion()" checked> Chemical Name
                             </form>
                         </div>
                     </div>
@@ -77,15 +77,22 @@
         </div>
 
     </div>
-
+    
     <script>
-        function naming(){
+        function newQuestion(){
             var ionic = document.getElementById("ionic").checked;
             var molecular = document.getElementById("molecular").checked;
             var formula = document.getElementById("formula").checked;
             var name = document.getElementById("name").checked;
             
-            document.getElementById("feedback").innerHTML = ionic + " " + molecular + " " + formula + " " + name;
+            document.getElementById("chemistry-question-box-text").innerHTML = ionic + " " + molecular + " " + formula + " " + name;
+        }
+    </script>
+    
+    <script>
+        function check(){
+            document.getElementById("feedback").innerHTML = "I have no idea if that is correct :)";
+            newQuestion();
         }
     </script>
     
