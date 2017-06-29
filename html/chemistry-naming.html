@@ -35,25 +35,31 @@
                 <div id="naming-applet">
                     
                     <div id="chemistry-question-box">
-                        <p>The formula or name will go here</p>
+                        <p id="chemistry-question-box-text">The formula or name will go here</p>
                     </div>
                     
                     <div id="chemistry-answer-box">
-                        <p>The answer will be inputed here</p>
+                        Enter your answer here:<br>
+                        <input type="text" id="chemistry-answer">
+                        <input type="submit" onclick="naming()">
+                    </div>
+                    
+                    <div id="chemistry-feedback-box">
+                        <p id="feedback">feedback will go here</p>
                     </div>
                     
                     <div id="chemistry-naming-options">
                         <div id="chemistry-compund-types">
                             <form>
-                                <input type="checkbox" name="ionic"> Ionic<br>
-                                <input type="checkbox" name="molecular"> Molecular
+                                <input type="checkbox" id="ionic"> Ionic<br>
+                                <input type="checkbox" id="molecular"> Molecular
                             </form>
                         </div>
 
                         <div id="chemistry-naming-types">
                             <form>
-                                <input type="checkbox" name="formula"> Chemical Formula<br>
-                                <input type="checkbox" name="name"> Chemical Name
+                                <input type="checkbox" id="formula"> Chemical Formula<br>
+                                <input type="checkbox" id="name"> Chemical Name
                             </form>
                         </div>
                     </div>
@@ -72,6 +78,17 @@
 
     </div>
 
+    <script>
+        function naming(){
+            var ionic = document.getElementById("ionic").checked;
+            var molecular = document.getElementById("molecular").checked;
+            var formula = document.getElementById("formula").checked;
+            var name = document.getElementById("name").checked;
+            
+            document.getElementById("feedback").innerHTML = ionic + " " + molecular + " " + formula + " " + name;
+        }
+    </script>
+    
 </body>
 
 </html>

@@ -101,8 +101,10 @@ a.sidebar-item:active {
     border-color: black;
     border-width: 1px;
     border-style: solid;
-
+    
     margin: 5px 5px 5px 5px;
+    
+    padding: 5px 5px 5px 5px;
     
     text-align: center;
 }
@@ -113,6 +115,8 @@ a.sidebar-item:active {
     border-style: solid;
     
     margin: 5px 5px 5px 5px;
+    
+    padding: 5px 5px 5px 5px;
     
     text-align: center;
 }
@@ -142,5 +146,17 @@ a.sidebar-item:active {
 }
 
 #chemistry-naming-options {
+    text-align: center;
+}
+
+#chemistry-feedback-box {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    
+    margin: 5px 5px 5px 5px;
+    
+    padding: 5px 5px 5px 5px;
+    
     text-align: center;
 }
