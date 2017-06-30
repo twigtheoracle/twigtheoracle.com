@@ -78,6 +78,23 @@
 
     </div>
     
+    <script src="chemistry-data.js"></script>
+    
+    <script>
+        function format(formula){
+            var returnString = "";
+            for (var i = 0, len = formula.length; i < len; i ++){
+                if(isNaN(formula[i])){ /*If formula[i] is not a number */
+                    returnString += formula[i];
+                }
+                else{
+                    returnString += "<sub>" + formula[i] + "</sub>";
+                }
+            }
+            return returnString;
+        }
+    </script>
+    
     <script>
         function newQuestion(){
             var ionic = document.getElementById("ionic").checked;
@@ -85,7 +102,13 @@
             var formula = document.getElementById("formula").checked;
             var name = document.getElementById("name").checked;
             
-            document.getElementById("chemistry-question-box-text").innerHTML = ionic + " " + molecular + " " + formula + " " + name;
+            var keys = Object.keys(data.ionic.data);
+            
+            var randomKey = keys[Math.floor(Math.random() * keys.length)];
+            
+            var displayText = format(data.ionic.data[randomKey]);
+            
+            document.getElementById("chemistry-question-box-text").innerHTML = displayText;
         }
     </script>
     
