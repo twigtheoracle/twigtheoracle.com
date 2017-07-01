@@ -31,25 +31,25 @@
             </div>
 
             <div class="content">
-                
+
                 hi this section is still in development :D
-                
+
                 <div id="naming-applet">
-                    
+
                     <div id="chemistry-question-box">
                         <p id="chemistry-question-box-text">The formula or name will go here</p>
                     </div>
-                    
+
                     <div id="chemistry-answer-box">
                         Enter your answer here:<br>
                         <input type="text" id="chemistry-answer">
                         <input type="submit" onclick="check()">
                     </div>
-                    
+
                     <div id="chemistry-feedback-box">
                         <p id="feedback">feedback will go here</p>
                     </div>
-                    
+
                     <div id="chemistry-naming-options">
                         <div id="chemistry-compund-types">
                             <form>
@@ -65,9 +65,9 @@
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
 
@@ -79,48 +79,47 @@
         </div>
 
     </div>
-    
+
     <script src="chemistry-data.js"></script>
-    
+
     <script>
-        function format(formula){
+        function format(formula) {
             var returnString = "";
-            for (var i = 0, len = formula.length; i < len; i ++){
-                if(isNaN(formula[i])){ /*If formula[i] is not a number */
+            for (var i = 0, len = formula.length; i < len; i++) {
+                if (isNaN(formula[i])) { /*If formula[i] is not a number */
                     returnString += formula[i];
-                }
-                else{
+                } else {
                     returnString += "<sub>" + formula[i] + "</sub>";
                 }
             }
             return returnString;
         }
     </script>
-    
+
     <script>
-        function newQuestion(){
+        function newQuestion() {
             var ionic = document.getElementById("ionic").checked;
             var molecular = document.getElementById("molecular").checked;
             var formula = document.getElementById("formula").checked;
             var name = document.getElementById("name").checked;
-            
-            var keys = Object.keys(data.ionic.data);
-            
+
+            var keys = Object.keys(data.ionic.name_formula);
+
             var randomKey = keys[Math.floor(Math.random() * keys.length)];
-            
-            var displayText = format(data.ionic.data[randomKey]);
-            
+
+            var displayText = format(data.ionic.name_formula[randomKey]);
+
             document.getElementById("chemistry-question-box-text").innerHTML = displayText;
         }
     </script>
-    
+
     <script>
-        function check(){
+        function check() {
             document.getElementById("feedback").innerHTML = "I have no idea if that is correct :)";
             newQuestion();
         }
     </script>
-    
+
 </body>
 
 </html>

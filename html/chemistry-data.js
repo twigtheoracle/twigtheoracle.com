@@ -1,7 +1,7 @@
 var data = {
     "ionic": {
         "length": "249",
-        "data": {
+        "name_formula": {
             "Lithium Fluoride": "LiF",
             "Lithium Chloride": "LiCl",
             "Lithium Bromide": "LiBr",
