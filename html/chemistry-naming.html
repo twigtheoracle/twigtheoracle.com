@@ -95,6 +95,22 @@
             return returnString;
         }
     </script>
+    
+    <script>
+        function unformat(formula) {
+            var returnString = "";
+            for (var i = 0, len = formula.length; i < len; i ++){
+                if (formula.slice(i, i + 5) == "<sub>"){
+                    returnString += formula[i + 5];
+                    i += 11;
+                }
+                else {
+                    returnString += formula[i];
+                }
+            }
+            return returnString;
+        }
+    </script>
 
     <script>
         function newQuestion() {
@@ -115,8 +131,20 @@
 
     <script>
         function check() {
-            document.getElementById("feedback").innerHTML = "I have no idea if that is correct :)";
-            newQuestion();
+            var answer = document.getElementById("chemistry-answer").value;
+            
+            var correctAnswer = document.getElementById("chemistry-question-box-text").innerHTML;
+            correctAnswer = unformat(correctAnswer);
+            correctAnswer = data.ionic.formula_name[correctAnswer];
+            
+            var displayText = "The inputted answer is: " + answer;
+            displayText += "<br>The correct answer is: " + correctAnswer;
+            
+            document.getElementById("feedback").innerHTML = displayText;
+            
+            if(correctAnswer == answer){
+                newQuestion();
+            }
         }
     </script>
 
