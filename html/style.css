@@ -43,7 +43,7 @@ body {
     left: 0;
     width: 100px;
     height: auto;
-    background-color: aquamarine;
+    background-color: white;
 }
 
 .header {
@@ -55,12 +55,16 @@ body {
     text-align: center;
 }
 
-.content {
+.content-home {
     margin: 0 auto;
     
     text-align: center;
     
     font-family: 'Anton'
+}
+
+.content {
+    margin: 5px 0 5px 105px;
 }
 
 .wrapper {
@@ -124,4 +128,8 @@ a.table-of-contents:visited {
 
 .outside-link-logo {
     height: 100%
+}
+
+.footer {
+    margin-top: 20px
 }
