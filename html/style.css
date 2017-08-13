@@ -98,77 +98,21 @@ a.sidebar-item:active {
     color: black;
 }
 
-
 .banner {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
 }
 
-#chemistry-question-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
-}
-
-#chemistry-answer-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
-}
-
-#chemistry-compund-types {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    display: inline-block;
-    
-    width: 48%;
-}
-
-#chemistry-naming-types {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    display: inline-block;
-    
-    width: 48%;
-}
-
-#chemistry-naming-options {
-    text-align: center;
-}
-
-#chemistry-feedback-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
-}
-
 #front-page-face {
     border-radius: 100%;
     height: 300px
+}
+
+a.table-of-contents:link {
+    color:white;
+}
+
+a.table-of-contents:visited {
+    color:white;
+    text-decoration: none;
 }
