@@ -116,3 +116,12 @@ a.table-of-contents:visited {
     color:white;
     text-decoration: none;
 }
+
+#outside-links {
+    height: 25px;
+    text-align: center
+}
+
+.outside-link-logo {
+    height: 100%
+}
