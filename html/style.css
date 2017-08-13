@@ -1,14 +1,14 @@
 html {
-    background-color: beige;
+    background-color: black;
 }
 
 body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
+    color: white
 }
 
 .container {
     position: relative;
-    padding: 0 0 0 105px;
 }
 
 .sidebar-item {
@@ -43,17 +43,28 @@ body {
     left: 0;
     width: 100px;
     height: auto;
-    background-color: aquamarine;
+    background-color: white;
 }
 
 .header {
+    font-family: 'Anton';
     position: relative;
-    border: 1px;
-    margin: 5px 0 5px 0;
+
+    margin: 0 auto;
+    
+    text-align: center;
+}
+
+.content-home {
+    margin: 0 auto;
+    
+    text-align: center;
+    
+    font-family: 'Anton'
 }
 
 .content {
-    margin: 5px 0 5px 0;
+    margin: 5px 0 5px 105px;
 }
 
 .wrapper {
@@ -91,72 +102,34 @@ a.sidebar-item:active {
     color: black;
 }
 
-
 .banner {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
 }
 
-#chemistry-question-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
+#front-page-face {
+    border-radius: 100%;
+    height: 300px
 }
 
-#chemistry-answer-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
+a.table-of-contents:link {
+    color:white;
 }
 
-#chemistry-compund-types {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    display: inline-block;
-    
-    width: 48%;
+a.table-of-contents:visited {
+    color:white;
+    text-decoration: none;
 }
 
-#chemistry-naming-types {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    display: inline-block;
-    
-    width: 48%;
+#outside-links {
+    height: 25px;
+    text-align: center
 }
 
-#chemistry-naming-options {
-    text-align: center;
+.outside-link-logo {
+    height: 100%
 }
 
-#chemistry-feedback-box {
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    
-    margin: 5px 5px 5px 5px;
-    
-    padding: 5px 5px 5px 5px;
-    
-    text-align: center;
+.footer {
+    margin-top: 20px
 }
