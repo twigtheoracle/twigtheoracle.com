@@ -47,6 +47,7 @@ body {
 }
 
 .header {
+    font-family: 'Anton';
     position: relative;
     border: 1px;
     margin: 5px 0 5px 0;
