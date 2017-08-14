@@ -11,6 +11,18 @@ body {
     color: black;
 }
 
+/*
+Link coloring for all links
+*/
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
 
 /*
 The page layout stuff
@@ -62,18 +74,9 @@ Front page stuff
     font-family: 'Anton'
 }
 
-a.table-of-contents:link {
-    color: black;
-}
-
-a.table-of-contents:visited {
-    color: black;
-    text-decoration: none;
-}
-
 #outside-links {
     height: 25px;
-    text-align: center
+    text-align: center;
 }
 
 .outside-link-logo {
@@ -126,4 +129,8 @@ Table stuff
 
 .table-border {
     border: 1px solid black;
+}
+
+.logo {
+    height: auto;
 }
