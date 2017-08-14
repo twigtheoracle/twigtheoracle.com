@@ -17,6 +17,11 @@ body {
 }
 
 #hammer-calculator {
+    
+    display: flex;
+    
+    flex: 1;
+    
     border-style: solid;
     border-color: black;
     border-width: 3px;
@@ -132,4 +137,31 @@ a.table-of-contents:visited {
 
 .footer {
     margin-top: 20px
+}
+
+#page-content {
+    margin-left: 10px;
+    width: 30%;
+}
+
+.page {
+    margin-top: 30px;
+    display: flex;
+}
+
+#hammer-results-table {
+    display: inline-block;
+    vertical-align: center;
+    
+    margin-left: 10px;
+}
+
+#hammer-calc {
+    display: inline-block;
+    vertical-align: center;
+}
+
+#hammer-player-count {
+    margin: 0 auto;
+    text-align: center;
 }

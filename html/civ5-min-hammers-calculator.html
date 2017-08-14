@@ -13,25 +13,27 @@
 
         <div class="container">
 
+<!--
             <div class="sidebar">
                 <a class="sidebar-item" href="index.nginx-debian.html">Home</a>
             </div>
+-->
 
             <div class="header">
                 <h1>CIV V Minimum Hammer Calculator </h1>
+                <a href="index.nginx-debian.html">Home</a>
             </div>
 
-            <div class="content">
-
-                <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply select the correct values from the boxes below! <br>Note: for the number of players, use the up and down arrow keys that appear in the box to adjust the value</p>
-                <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
+            <div class="page">
 
                 <div id="hammer-calculator">
 
                     <form id="hammer-calc">
 
-                        Number of Players:
-                        <input type="number" id="num-players" value="8" onclick="hammer_calculator()">
+                        <div id="hammer-player-count">
+                            Number of Players:
+                            <input type="number" id="num-players" value="8" onclick="hammer_calculator()">
+                        </div>
 
                         <br><br>
 
@@ -63,7 +65,7 @@
 
                     <br>
 
-                    <table>
+                    <table id="hammer-results-table">
 
                         <tr>
                             <th>
@@ -94,6 +96,11 @@
 
                     </table>
 
+                </div>
+                
+                <div id="page-content">
+                    <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply select the correct values from the boxes below! <br>Note: for the number of players, use the up and down arrow keys that appear in the box to adjust the value</p>
+                    <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
                 </div>
 
             </div>
