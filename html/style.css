@@ -109,15 +109,24 @@ Hammer calculator stuff
 }
 
 #hammer-calc {
-    display: inline-block;
-    vertical-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 #hammer-player-count {
     margin: 0 auto;
     text-align: center;
+    display: block;
+    vertical-align: middle;
 }
 
+#hammer-results-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 /*
 Table stuff
