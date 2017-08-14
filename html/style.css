@@ -1,10 +1,10 @@
 html {
-    background-color: black;
+    background-color: white;
 }
 
 body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
-    color: white
+    color: black;
 }
 
 .container {
@@ -113,11 +113,11 @@ a.sidebar-item:active {
 }
 
 a.table-of-contents:link {
-    color:white;
+    color:black;
 }
 
 a.table-of-contents:visited {
-    color:white;
+    color:black;
     text-decoration: none;
 }
 
