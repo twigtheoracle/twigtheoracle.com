@@ -17,6 +17,7 @@ Link coloring for all links
 
 a:link {
     color: black;
+    text-decoration: underline;
 }
 
 a:visited {
@@ -42,6 +43,11 @@ The page layout stuff
     position: relative;
     margin: 0 auto;
     text-align: center;
+}
+
+.link {
+    height: 50px;
+    width: 50px;
 }
 
 .page {
