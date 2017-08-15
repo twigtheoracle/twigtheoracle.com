@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-family: Abel, Tahoma, Verdana, Arial, sans-serif;
     color: black;
 }
 
@@ -93,7 +93,7 @@ Hammer calculator stuff
     flex: 1;
     border-style: solid;
     border-color: black;
-    border-width: 3px;
+    border-width: 1px;
     padding: 20px 20px 20px 20px;
 }
 
