@@ -111,6 +111,8 @@ Hammer calculator stuff
     width: 68%;
     
     min-height: inherit;
+    
+    text-align: center;
 }
 
 #hammer-results-title {
@@ -125,10 +127,12 @@ Hammer calculator stuff
 }
 
 #hammer-calc {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     vertical-align: middle;
+    
+    display: inline-block;
+    
+    text-align: left;
 }
 
 #hammer-player-count {
@@ -139,9 +143,9 @@ Hammer calculator stuff
 }
 
 #hammer-results-wrapper {
-    display: flex;
     justify-content: center;
-    flex-direction: column;
+    
+    display: inline-block;
 }
 
 /*
