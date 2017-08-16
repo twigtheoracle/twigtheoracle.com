@@ -7,20 +7,20 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Dosis|Abel" rel="stylesheet">
     <link rel="shortcut icon" href="https://image.ibb.co/dmzGSF/imageedit_2_7357641227.png">
 </head>
-    
+
 <body>
     <div class="wrapper">
         <div class="container">
-            
+
             <div class="header">
                 <h1>
                     <a href="index.nginx-debian.html">twigtheoracle</a>
                 </h1>
                 <h2>CIV V Minimum Hammer Calculator for World Congress Events</h2>
             </div>
-            
+
             <div class="page">
-                <div id="page-left-box">
+                <div class="page-left-box">
                     <form id="hammer-calc">
 
                         <div id="hammer-player-count">
@@ -57,7 +57,7 @@
                     </form>
 
                     <div id="hammer-results-wrapper">
-                    
+
                         <table id="hammer-results-table">
 
                             <tr>
@@ -88,19 +88,19 @@
                             </tr>
 
                         </table>
-                        
+
                     </div>
                 </div>
-                
-                <div id="page-right-box">
-                    <div id="page-right-center-box">
+
+                <div class="page-right-box">
+                    <div class="page-right-center-box">
                         <p>This is a calculator for the minimum number of hammers needed for various World Congress events. Simply select the correct values from the box to the left! </p>
-                    <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
-                    <p>Note: for the number of players, use the up and down arrow keys that appear in the box to adjust the value. I don't know why it doesn't work otherwise, but I'm working on it :)</p>
+                        <p>The CIV V wiki has a more in depth explanation on how values are calculated <a href="http://civilization.wikia.com/wiki/International_Project_(Civ5)">here</a></p>
+                        <p>Note: for the number of players, use the up and down arrow keys that appear in the box to adjust the value. I don't know why it doesn't work otherwise, but I'm working on it :)</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer">
                 <div id="outside-links">
                     <a class="logo" href="https://github.com/twigtheoracle">
@@ -112,10 +112,10 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
-    
+
     <script>
         function hammer_calculator() {
             var speed = document.querySelector('input[name="game-speed"]:checked').value;
@@ -129,6 +129,7 @@
             document.getElementById("silver-hammer").innerHTML = event * 10;
             document.getElementById("bronze-hammer").innerHTML = event * 5;
         }
+
     </script>
-    
+
 </body>

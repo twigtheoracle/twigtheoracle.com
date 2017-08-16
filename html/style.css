@@ -61,6 +61,35 @@ The page layout stuff
     min-width: 100px;
 }
 
+.page-left-box {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    
+    display: inline-block;
+    
+    width: 68%;
+    
+    min-height: inherit;
+    
+    text-align: center;
+}
+
+.page-right-box {
+    display: inline-block;
+    
+    width: 32%;
+    
+    min-height: inherit;
+    min-width: inherit;
+}
+
+.page-right-center-box {
+    padding: 5px;
+    margin: 0, auto;
+    
+}
+
 #page-content {
     display: inline-block;
     margin-left: 10px;
@@ -100,20 +129,6 @@ Front page stuff
 /*
 Hammer calculator stuff
 */
-
-#page-left-box {
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    
-    display: inline-block;
-    
-    width: 68%;
-    
-    min-height: inherit;
-    
-    text-align: center;
-}
 
 #hammer-results-title {
     padding: 0 0 0 0;
@@ -162,26 +177,4 @@ Table stuff
 
 .logo {
     height: auto;
-}
-
-
-
-#page-header {
-    text-align: center;
-    font-family: Anton;
-}
-
-#page-right-box {
-    display: inline-block;
-    
-    width: 32%;
-    
-    min-height: inherit;
-    min-width: inherit;
-}
-
-#page-right-center-box {
-    padding: 5px;
-    margin: 0, auto;
-    
 }
