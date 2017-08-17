@@ -51,11 +51,48 @@ The page layout stuff
 }
 
 .page {
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
+    flex-direction: row;
+    
+    width: 100%;
+    
+    min-height: 100px;
+    min-width: 100px;
+}
+
+.page-left-box {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    
+    display: inline-block;
+    
+    width: 68%;
+    
+    min-height: inherit;
+    
+    text-align: center;
+}
+
+.page-right-box {
+    display: inline-block;
+    
+    width: 32%;
+    
+    min-height: inherit;
+    min-width: inherit;
+}
+
+.page-right-center-box {
+    padding: 5px;
+    padding-left: 10px;
+    margin: 0, auto;
+    
 }
 
 #page-content {
+    display: inline-block;
     margin-left: 10px;
     width: 30%;
 }
@@ -94,15 +131,6 @@ Front page stuff
 Hammer calculator stuff
 */
 
-#hammer-calculator {
-    display: flex;
-    flex: 1;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    padding: 20px 20px 20px 20px;
-}
-
 #hammer-results-title {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
@@ -115,10 +143,12 @@ Hammer calculator stuff
 }
 
 #hammer-calc {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     vertical-align: middle;
+    display: inline-block;
+    text-align: left;
+    
+    padding-right: 10px;
 }
 
 #hammer-player-count {
@@ -128,10 +158,26 @@ Hammer calculator stuff
     vertical-align: middle;
 }
 
-#hammer-results-wrapper {
+#hammer-wrapper {
+    padding: 10px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    
+    width: 100%;
+}
+
+#hammer-results-wrapper {
+    justify-content: center;
+    
+    display: inline-block;
+}
+
+/*
+Code projects stuff
+*/
+
+.project-header {
+    padding: 0;
 }
 
 /*
@@ -148,4 +194,12 @@ Table stuff
 
 .logo {
     height: auto;
+}
+
+/*
+Other stuff
+*/
+
+.centered {
+    text-align: center;
 }
