@@ -21,74 +21,76 @@
 
             <div class="page">
                 <div class="page-left-box">
-                    <form id="hammer-calc">
+                    <div id="hammer-wrapper">
+                        <form id="hammer-calc">
 
-                        <div id="hammer-player-count">
-                            Number of Players:
-                            <input type="number" id="num-players" value="8" onclick="hammer_calculator()">
+                            <div id="hammer-player-count">
+                                Number of Players:
+                                <input type="number" id="num-players" value="8" onclick="hammer_calculator()">
+                            </div>
+
+                            <br><br>
+
+                            <table class="table-border">
+
+                                <tr class="table-border">
+                                    <th class="table-border">Game Speed</th>
+                                    <th class="table-border">Congress Event</th>
+                                </tr>
+
+                                <tr class="table-border">
+                                    <td class="table-border">
+                                        <input type="radio" name="game-speed" value=".6666666666" onclick="hammer_calculator()"> Quick<br>
+                                        <input type="radio" name="game-speed" value="1.0" onclick="hammer_calculator()" checked> Standard <br>
+                                        <input type="radio" name="game-speed" value="1.5" onclick="hammer_calculator()"> Epic <br>
+                                        <input type="radio" name="game-speed" value="3.0" onclick="hammer_calculator()"> Marathon
+                                    </td>
+
+                                    <td class="table-border">
+                                        <input type="radio" name="WC-event" value="35.0" onclick="hammer_calculator()" checked> World's Fair<br>
+                                        <input type="radio" name="WC-event" value="72.0" onclick="hammer_calculator()"> International Games<br>
+                                        <input type="radio" name="WC-event" value="85.0" onclick="hammer_calculator()"> International Space Station<br>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </form>
+
+                        <div id="hammer-results-wrapper">
+
+                            <table id="hammer-results-table">
+
+                                <tr>
+                                    <th>
+                                        <h3 class="hammer-results-title">Results</h3>
+                                    </th>
+                                    <th>Number of Hammers<br>(minimum)</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Total Hammers</td>
+                                    <td id="max-hammer" class="table-centered">2800</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Gold Award</td>
+                                    <td id="gold-hammer" class="table-centered">1401</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Silver Award</td>
+                                    <td id="silver-hammer" class="table-centered">350</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Bronze Award</td>
+                                    <td id="bronze-hammer" class="table-centered">175</td>
+                                </tr>
+
+                            </table>
+
                         </div>
-
-                        <br><br>
-
-                        <table class="table-border">
-
-                            <tr class="table-border">
-                                <th class="table-border">Game Speed</th>
-                                <th class="table-border">Congress Event</th>
-                            </tr>
-
-                            <tr class="table-border">
-                                <td class="table-border">
-                                    <input type="radio" name="game-speed" value=".6666666666" onclick="hammer_calculator()"> Quick<br>
-                                    <input type="radio" name="game-speed" value="1.0" onclick="hammer_calculator()" checked> Standard <br>
-                                    <input type="radio" name="game-speed" value="1.5" onclick="hammer_calculator()"> Epic <br>
-                                    <input type="radio" name="game-speed" value="3.0" onclick="hammer_calculator()"> Marathon
-                                </td>
-
-                                <td class="table-border">
-                                    <input type="radio" name="WC-event" value="35.0" onclick="hammer_calculator()" checked> World's Fair<br>
-                                    <input type="radio" name="WC-event" value="72.0" onclick="hammer_calculator()"> International Games<br>
-                                    <input type="radio" name="WC-event" value="85.0" onclick="hammer_calculator()"> International Space Station<br>
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </form>
-
-                    <div id="hammer-results-wrapper">
-
-                        <table id="hammer-results-table">
-
-                            <tr>
-                                <th>
-                                    <h3 class="hammer-results-title">Results</h3>
-                                </th>
-                                <th>Number of Hammers<br>(minimum)</th>
-                            </tr>
-
-                            <tr>
-                                <td>Total Hammers</td>
-                                <td id="max-hammer" class="table-centered">2800</td>
-                            </tr>
-
-                            <tr>
-                                <td>Gold Award</td>
-                                <td id="gold-hammer" class="table-centered">1401</td>
-                            </tr>
-
-                            <tr>
-                                <td>Silver Award</td>
-                                <td id="silver-hammer" class="table-centered">350</td>
-                            </tr>
-
-                            <tr>
-                                <td>Bronze Award</td>
-                                <td id="bronze-hammer" class="table-centered">175</td>
-                            </tr>
-
-                        </table>
-
                     </div>
                 </div>
 
