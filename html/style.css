@@ -98,7 +98,8 @@ The page layout stuff
 }
 
 .footer {
-    margin-top: 20px
+    margin-top: 20px;
+    padding: 10px;
 }
 
 
@@ -114,7 +115,9 @@ Front page stuff
 .content-home {
     margin: 0 auto;
     text-align: center;
-    font-family: 'Anton'
+    font-family: 'Anton';
+    
+    padding-top: 10px;
 }
 
 #outside-links {
@@ -218,3 +221,7 @@ Other stuff
 }
 
 
+
+.table-of-contents {
+    padding: 5px;
+}
