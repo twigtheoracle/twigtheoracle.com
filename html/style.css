@@ -75,6 +75,14 @@ The page layout stuff
     text-align: center;
 }
 
+.page-left-box-flipped {
+   display: inline-block;
+    
+    width: 68%;
+    
+    min-height: inherit;
+}
+
 .page-right-box {
     display: inline-block;
     
@@ -84,11 +92,31 @@ The page layout stuff
     min-width: inherit;
 }
 
+.page-right-box-flipped {
+    display: inline-block;
+    
+    width: 32%;
+    
+    min-height: inherit;
+    min-width: inherit;
+    
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    
+    text-align: center;
+}
+
 .page-right-center-box {
     padding: 5px;
     padding-left: 10px;
+    margin: 0, auto; 
+}
+
+.page-left-center-box {
+    padding: 5px;
+    padding-right: 10px;
     margin: 0, auto;
-    
 }
 
 #page-content {
