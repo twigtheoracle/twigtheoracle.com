@@ -233,12 +233,20 @@ Cutting Acrylic Stuff
 */
 
 #cutting-acrylic-table-wrapper {
-    padding-top: 15px;
+    
 }
 
 #cutting-acrylic-table {
-    width: 100%;
+    margin: 0 auto;
+    width: 70%;
     padding: 20px;
+    padding-top: 0px;
+}
+
+.cutting-acrylic-table-item-wrapper {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /*
