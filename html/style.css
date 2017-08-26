@@ -76,11 +76,13 @@ The page layout stuff
 }
 
 .page-left-box-flipped {
-   display: inline-block;
+    display: inline-block;
     
     width: 68%;
     
     min-height: inherit;
+    
+    padding-right: 10px;
 }
 
 .page-right-box {
