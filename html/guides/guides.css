@@ -1,0 +1,26 @@
+/*
+Cutting Acrylic Stuff
+*/
+
+#cutting-acrylic-table-wrapper {
+    
+}
+
+#cutting-acrylic-table {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.cutting-acrylic-table-item-wrapper {
+    width: 70%;
+    min-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cutting-acrylic-table-item {
+    text-align: center;
+    margin: 0 auto;
+}
