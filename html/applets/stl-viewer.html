@@ -2,26 +2,26 @@
 <html>
 
 <head>
-    <title>twigtheoracle: something</title> 
+    <title>twigtheoracle: something</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="applets.css">
     <link href="https://fonts.googleapis.com/css?family=Anton|Dosis|Abel" rel="stylesheet">
     <link rel="shortcut icon" href="./images/transparent_face.png">
 </head>
-    
+
 <body>
     <div class="wrapper">
         <div class="container">
-            
+
             <div class="header">
                 <h1>
                     <a href="index.html">twigtheoracle</a>
                 </h1>
                 <h2>Page Title Goes Here</h2>
             </div>
-            
+
             <br>
-            
+
             <h3 class="centered">Subheading Goes here</h3>
             <p>Brief summary (optional)</p>
             <div class="page">
@@ -31,14 +31,14 @@
                             fallback content
                         </div>
                     </div>
-                </div>      
+                </div>
                 <div class="page-right-box">
                     <div class="page-right-center-box">
                         <p>content</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer">
                 <div id="outside-links">
                     <a class="logo" href="https://github.com/twigtheoracle">
@@ -49,42 +49,45 @@
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
     <script src="../js/three.js"></script>
     <script>
         var CANVAS_WIDTH = 200,
             CANVAS_HEIGHT = 200;
-        
-        var container = document.getElementById( "stl-viewer-wrapper" )
-        document.body.appendChild( container )
+
+        var container = document.getElementById("stl-viewer-wrapper")
+        document.body.appendChild(container)
 
         var renderer = new THREE.WebGLRenderer();
-        renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
-        container.appendChild( renderer.domElement );
-        
+        renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        container.appendChild(renderer.domElement);
+
         var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000 );
+        var camera = new THREE.PerspectiveCamera(75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000);
         camera.position.z = 5;
-        camera.lookAt( scene.position )
+        camera.lookAt(scene.position)
 
-        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-        var cube = new THREE.Mesh( geometry, material );
-        scene.add( cube );
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        var material = new THREE.MeshBasicMaterial({
+            color: 0x00ff00
+        });
+        var cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
 
-        var animate = function () {
-            requestAnimationFrame( animate );
+        var animate = function() {
+            requestAnimationFrame(animate);
 
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
 
-            renderer.render( scene, camera );
+            renderer.render(scene, camera);
         };
 
         animate();
+
     </script>
-    
+
 </body>
