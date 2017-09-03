@@ -47,7 +47,7 @@ STL viewer stuff
 
 #stl-wrapper {
     position: relative;
-    width: 100%;
+    width: 750px;
 }
 
 #stl-wrapper:before {
@@ -72,4 +72,5 @@ STL viewer stuff
     height: 200px;
     position: static;
     background-color: white;
+    border: 1px solid grey;
 }

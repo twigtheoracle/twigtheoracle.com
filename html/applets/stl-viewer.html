@@ -52,11 +52,10 @@
 
     <script src="../js/three.js"></script>
     <script>
-        var CANVAS_WIDTH = 200,
-            CANVAS_HEIGHT = 200;
+        var CANVAS_WIDTH = 700,
+            CANVAS_HEIGHT = 700;
 
         var container = document.getElementById("stl-viewer-wrapper")
-        document.body.appendChild(container)
 
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -69,7 +68,8 @@
 
         var geometry = new THREE.BoxGeometry(1, 1, 1);
         var material = new THREE.MeshBasicMaterial({
-            color: 0x00ff00
+            color: 0x00ff00,
+            wirefram: true
         });
         var cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
