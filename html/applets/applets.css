@@ -69,3 +69,9 @@ STL viewer stuff
     border-style: solid;
     border-width: 1px;
 }
+
+#stl-viewer-wrapper {
+    widows: 200px;
+    height: 200px;
+    position: static;
+}
