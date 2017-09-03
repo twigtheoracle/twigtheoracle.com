@@ -68,8 +68,8 @@ STL viewer stuff
 }
 
 #stl-viewer-wrapper {
-    widows: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     position: static;
     background-color: white;
     border: 1px solid grey;

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="applets.css">
     <link href="https://fonts.googleapis.com/css?family=Anton|Dosis|Abel" rel="stylesheet">
-    <link rel="shortcut icon" href="./images/transparent_face.png">
+    <link rel="shortcut icon" href="../images/transparent_face.png">
 </head>
 
 <body>
@@ -52,24 +52,21 @@
 
     <script src="../js/three.js"></script>
     <script>
-        var CANVAS_WIDTH = 700,
-            CANVAS_HEIGHT = 700;
-
         var container = document.getElementById("stl-viewer-wrapper")
 
         var renderer = new THREE.WebGLRenderer();
-        renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
         container.appendChild(renderer.domElement);
 
         var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera(75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000);
+        var camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
         camera.position.z = 5;
         camera.lookAt(scene.position)
 
         var geometry = new THREE.BoxGeometry(1, 1, 1);
         var material = new THREE.MeshBasicMaterial({
             color: 0x00ff00,
-            wirefram: true
+            wireframe: true
         });
         var cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
