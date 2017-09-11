@@ -35,6 +35,7 @@
                         <br>
                         <button onclick="renderSTL()">Submit</button>
                         <div id="test-div"></div>
+                        <div id="super-test-div"></div>
                     </div>
                 </div>
             </div>
@@ -59,14 +60,14 @@
             var reader = new FileReader();
             var file = document.getElementById("stl-file").files[0];
             
+            document.getElementById("super-test-div").innerHTML = file;
+            
             reader.onload = function(e){
-                document.getElementById("test-div").innerHTML = reader.result;
-                return reader.result;
+                document.getElementById("test-div").innerHTML = reader.result[0];
+                return reader.result;  
             };
             
             reader.readAsArrayBuffer(file);
-            
-            return reader.result;
         }
     </script>
     <script>
