@@ -33,7 +33,7 @@
                         <p style="padding: 0; margin: 0;">Select an STL file</p>
                         <input type="file" id="stl-file" name="stl-file" accept=".stl">
                         <br>
-                        <button onclick="submitSTL()">Submit</button>
+                        <button onclick="renderSTL()">Submit</button>
                         <div id="test-div"></div>
                     </div>
                 </div>
@@ -55,7 +55,34 @@
 
     <script src="../js/three.js"></script>
     <script>
+        function get_STL() {
+            var reader = new FileReader();
+            var file = document.getElementById("stl-file").files[0];
+            
+            reader.onload = function(e){
+                document.getElementById("test-div").innerHTML = reader.result;
+                return reader.result;
+            };
+            
+            reader.readAsArrayBuffer(file);
+        }
+    </script>
+    <script>
+        function trim (str) {
+            str = str.replace(/^\s+/, '');
+            for (var i = str.length - 1; i >= 0; i--) {
+                if (/\S/.test(str.charAt(i))) {
+                    str = str.substring(0, i + 1);
+                    break;
+                }
+            }
+            return str;
+        }
+    </script>
+    <script>
         function renderSTL() {
+            var camera, scene, renderer, geometry, material, mesh, light1;
+            
             var container = document.getElementById("stl-viewer-wrapper")
 
             var renderer = new THREE.WebGLRenderer();
@@ -66,14 +93,115 @@
             var camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
             camera.position.z = 5;
             camera.lookAt(scene.position);
-
-            var geometry = new THREE.BoxGeometry(1, 1, 1);
-            var material = new THREE.MeshBasicMaterial({
-                color: 0x00ff00,
-                wireframe: true
-            });
-            var cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
+            
+            var stl_data = get_STL();
+            var state = '';
+            var lines = stl_data.split('\n');
+            var geo = new THREE.Geometry();
+            var name, parts, line, normal, done, vertices = [];
+            var vCount = 0;
+            stl_data = null;
+            
+            for (var len = lines.length, i = 0; i < len; i++) {
+                    if (done) {
+                        break;
+                    }
+                    line = trim(lines[i]);
+                    parts = line.split(' ');
+                    switch (state) {
+                        case '':
+                            if (parts[0] !== 'solid') {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "solid"');
+                                return;
+                            } else {
+                                name = parts[1];
+                                state = 'solid';
+                            }
+                            break;
+                        case 'solid':
+                            if (parts[0] !== 'facet' || parts[1] !== 'normal') {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "facet normal"');
+                                return;
+                            } else {
+                                normal = [
+                                    parseFloat(parts[2]), 
+                                    parseFloat(parts[3]), 
+                                    parseFloat(parts[4])
+                                ];
+                                state = 'facet normal';
+                            }
+                            break;
+                        case 'facet normal':
+                            if (parts[0] !== 'outer' || parts[1] !== 'loop') {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "outer loop"');
+                                return;
+                            } else {
+                                state = 'vertex';
+                            }
+                            break;
+                        case 'vertex': 
+                            if (parts[0] === 'vertex') {
+                                geo.vertices.push(new THREE.Vector3(
+                                    parseFloat(parts[1]),
+                                    parseFloat(parts[2]),
+                                    parseFloat(parts[3])
+                                ));
+                            } else if (parts[0] === 'endloop') {
+                                geo.faces.push( new THREE.Face3( vCount*3, vCount*3+1, vCount*3+2, new THREE.Vector3(normal[0], normal[1], normal[2]) ) );
+                                vCount++;
+                                state = 'endloop';
+                            } else {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "vertex" or "endloop"');
+                                return;
+                            }
+                            break;
+                        case 'endloop':
+                            if (parts[0] !== 'endfacet') {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "endfacet"');
+                                return;
+                            } else {
+                                state = 'endfacet';
+                            }
+                            break;
+                        case 'endfacet':
+                            if (parts[0] === 'endsolid') {
+                                //mesh = new THREE.Mesh( geo, new THREE.MeshNormalMaterial({overdraw:true}));
+                                mesh = new THREE.Mesh( 
+                                    geo, 
+                                    new THREE.MeshLambertMaterial({
+                                        overdraw:true,
+                                        color: 0xaa0000,
+                                        shading: THREE.FlatShading
+                                    }
+                                ));
+                                scene.add(mesh);
+                                done = true;
+                            } else if (parts[0] === 'facet' && parts[1] === 'normal') {
+                                normal = [
+                                    parseFloat(parts[2]), 
+                                    parseFloat(parts[3]), 
+                                    parseFloat(parts[4])
+                                ];
+                                if (vCount % 1000 === 0) {
+                                    console.log(normal);
+                                }
+                                state = 'facet normal';
+                            } else {
+                                console.error(line);
+                                console.error('Invalid state "' + parts[0] + '", should be "endsolid" or "facet normal"');
+                                return;
+                            }
+                            break;
+                        default:
+                            console.error('Invalid state "' + state + '"');
+                            break;
+                    }
+                }
 
             var animate = function() {
                 requestAnimationFrame(animate);
@@ -85,23 +213,6 @@
             };
 
             animate();
-        }
-
-    </script>
-    <script>
-        function submitSTL() {
-            var reader = new FileReader();
-            var file_input = document.getElementById("stl-file");
-            var file = file_input.files[0];
-            
-            reader.onload = function(e){
-                document.getElementById("test-div").innerHTML = reader.result;
-            };
-            
-            reader.readAsText(file);
-            
-            
-            renderSTL();
         }
 
     </script>
