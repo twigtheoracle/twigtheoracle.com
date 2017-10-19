@@ -65,7 +65,7 @@
 
             reader.onload = function(e) {
                 document.getElementById("test-div").innerHTML = reader.result[0];
-                return reader.result;
+                return reader.result[0];
             };
 
             reader.readAsArrayBuffer(file);
