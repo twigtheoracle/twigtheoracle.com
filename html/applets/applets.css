@@ -75,3 +75,16 @@ STL viewer stuff
     background-color: white;
     border: 1px solid grey;
 }
+
+
+/*
+Gaus Elim stuff
+*/
+
+#gaus-input-form {
+    padding: 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+}
