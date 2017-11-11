@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../applets.css">
     <link href="https://fonts.googleapis.com/css?family=Anton|Dosis|Abel" rel="stylesheet">
     <link rel="shortcut icon" href="../../images/transparent_face.png">
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
 <body>
@@ -26,21 +28,24 @@
 
                     <form id="gaus-input-form">
 
-                        Number of variables: <input type="number" value="3"> Number of equations: <input type="number" value="3">
+                        Number of variables: <input type="number" value="3" id="gaus-variables"> Number of equations: <input type="number" value="3" id="gaus-equations">
+
+                        <input type="submit" onclick="generate_equations()">
 
                     </form>
+
+                    <p id="gaus-equations">test</p>
 
                 </div>
                 <div class="page-right-box">
                     <div class="page-right-center-box">
                         <p>This web applet takes a system of equations and solves it using <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">gaussian elimination</a>. To use this web app, select the number of variables and equations in the box to the left and input coeffiecients for the variables. Then press calculate!</p>
+                        <p>\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
                     </div>
                 </div>
             </div>
 
             <br>
-
-            <!--MAKE SURE YOU UPDATE THE PATHS!-->
 
             <div class="footer">
                 <div id="outside-links">
@@ -56,4 +61,17 @@
 
         </div>
     </div>
+
+    <script>
+        function generate_equations() {
+            var variables = document.getElementById("gaus-variables").value;
+            var equations = document.getElementById("gaus-equations").value;
+
+            var text = String(variables) + " " + String(equations);
+
+            document.getElementById("gaus-equations").innerHTML = text;
+        }
+
+    </script>
+
 </body>
