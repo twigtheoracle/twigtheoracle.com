@@ -36,9 +36,9 @@
                     <div id="gaus-input-form">
                         
                         Number of variables: 
-                        <select id="gaus-varaibles" onchange="generate_equations()">
+                        <select id="gaus-variables" onchange="generate_equations()">
                             <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="3" selected>3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
@@ -48,15 +48,13 @@
                         Number of equations:    
                         <select id="gaus-equations" onchange="generate_equations()">
                             <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="3" selected>3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
                         </select>
-                        
-                        <input type="submit" onclick="generate_equations">
-                        
+                                            
                     </div>
 
                     <p id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
@@ -65,7 +63,7 @@
                 <div class="page-right-box">
                     <div class="page-right-center-box">
                         <p>This web applet takes a system of equations and solves it using <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">gaussian elimination</a>. To use this web app, select the number of variables and equations in the box to the left and input coeffiecients for the variables. Then press calculate!</p>
-                        <p>\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
+                        <p>All math displayed on this page is done with MathJax which can be found <a href="https://www.mathjax.org/">here</a>.</p>
                     </div>
                 </div>
             </div>
