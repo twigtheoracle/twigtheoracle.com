@@ -26,11 +26,38 @@
             <div class="page">
                 <div class="page-left-box">
 
+<!--
                     <form id="gaus-input-form">
 
                         Number of variables: <input type="number" value="3" id="gaus-variables" onclick="generate_equations()"> Number of equations: <input type="number" value="3" id="gaus-equations" onclick="generate_equations">
 
                     </form>
+-->
+                    <div id="gaus-input-form">
+                        
+                        Number of variables: 
+                        <select id="gaus-varaibles" onchange="generate_equations()">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        
+                        Number of equations:    
+                        <select id="gaus-equations" onchange="generate_equations()">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        
+                        <input type="submit" onclick="generate_equations">
+                        
+                    </div>
 
                     <p id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
 
@@ -62,10 +89,16 @@
 
     <script type="text/javascript">
         function generate_equations() {
-            var variables = document.getElementById("gaus-variables").value;
-            var equations = document.getElementById("gaus-equations").value;
+//            var variables = document.getElementById("gaus-variables").value;
+//            var equations = document.getElementById("gaus-equations").value;
+            
+            var variables = document.getElementById("gaus-variables");
+            var equations = document.getElementById("gaus-equations");
+            
+            var v = variables.options[variables.selectedIndex].value;
+            var e = equations.options[equations.selectedIndex].value;
 
-            var text = String(variables) + " " + String(equations);
+            var text = String(v) + " " + String(e);
 
             document.getElementById("gaus-display-equations").innerHTML = text;
         }
