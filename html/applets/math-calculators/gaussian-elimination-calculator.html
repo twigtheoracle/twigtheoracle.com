@@ -87,7 +87,7 @@
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
 
-            var text = "$ \\left{ \\begin{array} ";
+            var text = "$ \\left\\{ \\begin{array}{c} ";
             
             for(var i = 0; i < e; i ++)
             {
@@ -108,7 +108,7 @@
                 }
             }
             
-            text += "\\end{array} \\right $"
+            text += "\\end{array} \\right. $"
 
             document.getElementById("gaus-display-equations").innerHTML = text;
             
