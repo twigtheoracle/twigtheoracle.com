@@ -28,13 +28,11 @@
 
                     <form id="gaus-input-form">
 
-                        Number of variables: <input type="number" value="3" id="gaus-variables"> Number of equations: <input type="number" value="3" id="gaus-equations">
-
-                        <input type="submit" onclick="generate_equations()">
+                        Number of variables: <input type="number" value="3" id="gaus-variables" onclick="generate_equations()"> Number of equations: <input type="number" value="3" id="gaus-equations" onclick="generate_equations">
 
                     </form>
 
-                    <p id="gaus-equations">test</p>
+                    <p id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
 
                 </div>
                 <div class="page-right-box">
@@ -62,14 +60,14 @@
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
         function generate_equations() {
             var variables = document.getElementById("gaus-variables").value;
             var equations = document.getElementById("gaus-equations").value;
 
             var text = String(variables) + " " + String(equations);
 
-            document.getElementById("gaus-equations").innerHTML = text;
+            document.getElementById("gaus-display-equations").innerHTML = text;
         }
 
     </script>
