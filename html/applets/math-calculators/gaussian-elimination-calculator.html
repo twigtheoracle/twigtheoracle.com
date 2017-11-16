@@ -87,7 +87,7 @@
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
 
-            var text = "\\( \\left{ \\begin{array} ";
+            var text = "$ \\left{ \\begin{array} ";
             
             for(var i = 0; i < e; i ++)
             {
@@ -108,13 +108,16 @@
                 }
             }
             
-            text += "\\end{array} \\right \\)"
+            text += "\\end{array} \\right $"
 
-//            document.getElementById("gaus-display-equations").innerHTML = text;
+            document.getElementById("gaus-display-equations").innerHTML = text;
             
-            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
             
-            MathJax.Hub.Queue(["Text", math, text]);
+//            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
+//            
+//            MathJax.Hub.Queue(["Text", math, text]);
         }
 
     </script>
