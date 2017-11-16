@@ -50,7 +50,7 @@
                                             
                     </div>
 
-                    <p id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</p>
+                    <div id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</div>
 
                 </div>
                 <div class="page-right-box">
@@ -87,9 +87,34 @@
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
 
-            var text = String(v) + " " + String(e);
+            var text = "\\( \\left{ \\begin{array} ";
+            
+            for(var i = 0; i < e; i ++)
+            {
+                for(var j = 0; j < v; j ++)
+                {
+                    text += "x_{" + String(j + 1) + "}";
+                    if(j != v-1)
+                    {
+                        text += "+";
+                    }
+                }
+                text += "=";
+                text += "b_{" + String(i + 1) + "}";
+                
+                if(i != e-1)
+                {
+                    text += "\\\\"
+                }
+            }
+            
+            text += "\\end{array} \\right \\)"
 
-            document.getElementById("gaus-display-equations").innerHTML = text;
+//            document.getElementById("gaus-display-equations").innerHTML = text;
+            
+            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
+            
+            MathJax.Hub.Queue(["Text", math, text]);
         }
 
     </script>
