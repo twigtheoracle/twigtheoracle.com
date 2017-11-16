@@ -9,6 +9,13 @@
     <link rel="shortcut icon" href="../../images/transparent_face.png">
 
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ 
+            TeX: { 
+                extensions: ["http://cs.jsu.edu/mathjax-ext/contrib/forminput/forminput.js"] 
+            } 
+        });
+    </script>
 </head>
 
 <body>
@@ -27,8 +34,8 @@
                 <div class="page-left-box">
 
                     <div id="gaus-input-form">
-                        
-                        Number of variables: 
+
+                        Number of variables:
                         <select id="gaus-variables" onchange="generate_equations()">
                             <option value="2">2</option>
                             <option value="3" selected>3</option>
@@ -36,9 +43,7 @@
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
-                        </select>
-                        
-                        Number of equations:    
+                        </select> Number of equations:
                         <select id="gaus-equations" onchange="generate_equations()">
                             <option value="2">2</option>
                             <option value="3" selected>3</option>
@@ -47,7 +52,7 @@
                             <option value="6">6</option>
                             <option value="7">7</option>
                         </select>
-                                            
+
                     </div>
 
                     <div id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</div>
@@ -80,44 +85,40 @@
 
     <script type="text/javascript">
         function generate_equations() {
-            
+
             var variables = document.getElementById("gaus-variables");
             var equations = document.getElementById("gaus-equations");
-            
+
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
 
-            var text = "$ \\left\\{ \\begin{array}{c} ";
-            
-            for(var i = 0; i < e; i ++)
-            {
-                for(var j = 0; j < v; j ++)
-                {
-                    text += "x_{" + String(j + 1) + "}";
-                    if(j != v-1)
-                    {
+            var text = "\\begin{cases} ";
+
+            for (var i = 0; i < e; i++) {
+                for (var j = 0; j < v; j++) {
+                    text += "\\FormInput\\{ " + "gaus-" + String(i + 1) + String(j + 1) + " \\}" + "x_{" + String(j + 1) + "}";
+                    if (j != v - 1) {
                         text += "+";
                     }
                 }
                 text += "=";
                 text += "b_{" + String(i + 1) + "}";
-                
-                if(i != e-1)
-                {
+
+                if (i != e - 1) {
                     text += "\\\\"
                 }
             }
-            
-            text += "\\end{array} \\right. $"
+
+            text += "\\end{cases}"
 
             document.getElementById("gaus-display-equations").innerHTML = text;
-            
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
-            
-//            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
-//            
-//            MathJax.Hub.Queue(["Text", math, text]);
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+
+            //            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
+            //            
+            //            MathJax.Hub.Queue(["Text", math, text]);
         }
 
     </script>
