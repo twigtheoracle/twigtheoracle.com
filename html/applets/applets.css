@@ -88,3 +88,22 @@ Gaus Elim stuff
 input[type="number"] {
     width: 50px;
 }
+
+#gaus-left-brace {
+    height: inherit;
+}
+
+#gaus-left-brace-wrapper {
+    height: inherit;
+    float: left;
+}
+
+#gaus-input-equations {
+    height: 60px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#gaus-form-input {
+    text-align-last: center;
+}

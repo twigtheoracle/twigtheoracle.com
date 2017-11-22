@@ -55,7 +55,29 @@
 
                     </div>
 
-                    <div id="gaus-display-equations">\( \left\{ \begin{array}{c} a + b + c = d \\ a + b + c = d \\ a + b + c = d \end{array} \right. \)</div>
+                    <div id="gaus-input-equations">
+                    
+
+                        
+                        <div id="gaus-form-input">
+                        
+                            <form id="gaus-actual-form">
+                            
+                                <input type="text" value="0" size="1" id="gaus-x11"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x12"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x13"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b1"> <i>b<sub>1</sub></i> 
+                                
+                                <br>
+                                
+                                <input type="text" value="0" size="1" id="gaus-x21"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x22"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x23"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b2"> <i>b<sub>2</sub></i>
+                                
+                                <br>
+                                
+                                <input type="text" value="0" size="1" id="gaus-x31"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x32"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x33"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b3"> <i>b<sub>3</sub></i>
+                            
+                            </form>
+                            
+                        </div>
+                        
+                    </div>
 
                 </div>
                 <div class="page-right-box">
@@ -92,28 +114,51 @@
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
 
-            var text = "\\begin{cases} ";
-
-            for (var i = 0; i < e; i++) {
-                for (var j = 0; j < v; j++) {
-                    text += "\\FormInput\\{ " + "gaus-" + String(i + 1) + String(j + 1) + " \\}" + "x_{" + String(j + 1) + "}";
-                    if (j != v - 1) {
-                        text += "+";
-                    }
-                }
-                text += "=";
-                text += "b_{" + String(i + 1) + "}";
-
-                if (i != e - 1) {
-                    text += "\\\\"
+//            var text = "\\begin{cases} ";
+//
+//            for (var i = 0; i < e; i++) {
+//                for (var j = 0; j < v; j++) {
+//                    text += "\\FormInput\\{ " + "gaus-" + String(i + 1) + String(j + 1) + " \\}" + "x_{" + String(j + 1) + "}";
+//                    if (j != v - 1) {
+//                        text += "+";
+//                    }
+//                }
+//                text += "=";
+//                text += "b_{" + String(i + 1) + "}";
+//
+//                if (i != e - 1) {
+//                    text += "\\\\"
+//                }
+//            }
+            
+            var form = document.getElementById("gaus-actual-form");
+            form.innerHTML = "";
+            
+            for(var i = 0; i < 3; i ++)
+            {
+                for(var j = 0; j < v; j ++)
+                {
+                    
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.value = "0";
+                    input.size = "1";
+                    input.id = "gaus-" + String(i+1) + String(j+1);
+                    
+                    form.appendChild(input);
+                    
+                    var variable_text = "<i>x<sub>" + String(j+1) + "</sub></i>";
+                    
+                    form
+                    
                 }
             }
 
-            text += "\\end{cases}"
+//            text += "\\end{cases}"
+//
+//            document.getElementById("gaus-input-equations").innerHTML = text;
 
-            document.getElementById("gaus-display-equations").innerHTML = text;
-
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            // MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
 
             //            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
