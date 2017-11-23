@@ -63,15 +63,28 @@
                         
                             <form id="gaus-actual-form">
                             
-                                <input type="text" value="0" size="1" id="gaus-x11"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x12"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x13"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b1"> <i>b<sub>1</sub></i> 
+                                <input type="text" value="0" size="1" id="gaus-x11"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x12"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x13"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b1"> \( b_1 \) 
                                 
                                 <br>
                                 
-                                <input type="text" value="0" size="1" id="gaus-x21"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x22"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x23"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b2"> <i>b<sub>2</sub></i>
+                                <input type="text" value="0" size="1" id="gaus-x21"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x22"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x23"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b2"> \( b_1 \)
                                 
                                 <br>
                                 
-                                <input type="text" value="0" size="1" id="gaus-x31"> <i>x<sub>1</sub></i> + <input type="text" value="0" size="1" id="gaus-x32"> <i>x<sub>2</sub></i> + <input type="text" value="0" size="1" id="gaus-x33"> <i>x<sub>3</sub></i> = <input type="text" value="0" size="1" id="gaus-b3"> <i>b<sub>3</sub></i>
+                                <input type="text" value="0" size="1" id="gaus-x31"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x32"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x33"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b3"> \( b_1 \)
+                                
+                                <br><br>
+                                
+                                <input type="submit" onclick="gaus-solve()">
                             
                             </form>
                             
@@ -147,12 +160,44 @@
                     
                     form.appendChild(input);
                     
-                    var variable_text = "\\( x_" + String(j+1) + " + \\)";
+                    var variable_text = "\\( x_" + String(j+1);
+                    
+                    if(j != v - 1)
+                    {
+                        variable_text += "+";    
+                    }
+                    else
+                    {
+                        variable_text += "=";        
+                    }
+                    
+                    variable_text += "\\)"
                     
                     input.insertAdjacentHTML("afterend", variable_text);
                     
                 }
+                
+                var b_input = document.createElement("input");
+                b_input.type = "text";
+                b_input.value = "0";
+                b_input.size = "1";
+                b_input.id = "gaus-" + "b" + String(i+1);
+                
+                form.appendChild(b_input);
+                
+                var b_variable_text = "\\(b_" + String(i + 1) + "\\) <br>"
+                
+                b_input.insertAdjacentHTML("afterend", b_variable_text);
+                
             }
+            
+            form.insertAdjacentHTML("beforeend", "<br><br>")
+            
+            var submit_button = document.createElement("input");
+            submit_button.type = "submit";
+            submit_button.onclick = "gaus-submit()";
+            
+            form.appendChild(submit_button);
 
 //            text += "\\end{cases}"
 //
@@ -161,11 +206,10 @@
             // MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
 
-            //            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
-            //            
-            //            MathJax.Hub.Queue(["Text", math, text]);
+            var math = document.getElementById("gaus-actual-form");
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
             
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub])
         }
 
     </script>
