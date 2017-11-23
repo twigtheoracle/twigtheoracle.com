@@ -134,7 +134,7 @@
             var form = document.getElementById("gaus-actual-form");
             form.innerHTML = "";
             
-            for(var i = 0; i < 3; i ++)
+            for(var i = 0; i < e; i ++)
             {
                 for(var j = 0; j < v; j ++)
                 {
@@ -147,9 +147,9 @@
                     
                     form.appendChild(input);
                     
-                    var variable_text = "<i>x<sub>" + String(j+1) + "</sub></i>";
+                    var variable_text = "\\( x_" + String(j+1) + " + \\)";
                     
-                    form
+                    input.insertAdjacentHTML("afterend", variable_text);
                     
                 }
             }
@@ -164,6 +164,8 @@
             //            var math = MathJax.Hug.getAllJax("gaus-display-equations")[0];
             //            
             //            MathJax.Hub.Queue(["Text", math, text]);
+            
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub])
         }
 
     </script>
