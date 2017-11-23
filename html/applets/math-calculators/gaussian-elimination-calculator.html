@@ -57,28 +57,28 @@
                         
                             <form id="gaus-actual-form">
                             
-                                <input type="text" value="0" size="1" id="gaus-x11"> \( x_1 + \)
-                                <input type="text" value="0" size="1" id="gaus-x12"> \( x_2 + \)
-                                <input type="text" value="0" size="1" id="gaus-x13"> \( x_3 = \)
-                                <input type="text" value="0" size="1" id="gaus-b1"> \( b_1 \) 
+                                <input type="text" value="0" size="1" id="gaus-x11" tabindex="1"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x12" tabindex="2"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x13" tabindex="3"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b1" tabindex="4"> \( b_1 \) 
                                 
                                 <br>
                                 
-                                <input type="text" value="0" size="1" id="gaus-x21"> \( x_1 + \)
-                                <input type="text" value="0" size="1" id="gaus-x22"> \( x_2 + \)
-                                <input type="text" value="0" size="1" id="gaus-x23"> \( x_3 = \)
-                                <input type="text" value="0" size="1" id="gaus-b2"> \( b_1 \)
+                                <input type="text" value="0" size="1" id="gaus-x21" tabindex="5"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x22" tabindex="6"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x23" tabindex="7"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b2" tabindex="8"> \( b_1 \)
                                 
                                 <br>
                                 
-                                <input type="text" value="0" size="1" id="gaus-x31"> \( x_1 + \)
-                                <input type="text" value="0" size="1" id="gaus-x32"> \( x_2 + \)
-                                <input type="text" value="0" size="1" id="gaus-x33"> \( x_3 = \)
-                                <input type="text" value="0" size="1" id="gaus-b3"> \( b_1 \)
+                                <input type="text" value="0" size="1" id="gaus-x31" tabindex="9"> \( x_1 + \)
+                                <input type="text" value="0" size="1" id="gaus-x32" tabindex="10"> \( x_2 + \)
+                                <input type="text" value="0" size="1" id="gaus-x33" tabindex="11"> \( x_3 = \)
+                                <input type="text" value="0" size="1" id="gaus-b3" tabindex="12"> \( b_1 \)
                                 
                                 <br><br>
                                 
-                                <input type="submit" onclick="gaus-solve()">
+                                <input type="submit" onclick="gaus-solve()" tabindex="13">
                             
                             </form>
                             
@@ -124,6 +124,8 @@
             var form = document.getElementById("gaus-actual-form");
             form.innerHTML = "";
             
+            var index = 1;
+            
             for(var i = 0; i < e; i ++)
             {
                 for(var j = 0; j < v; j ++)
@@ -134,6 +136,8 @@
                     input.value = "0";
                     input.size = "1";
                     input.id = "gaus-" + String(i+1) + String(j+1);
+                    input.tabIndex = String(index);
+                    index ++;
                     
                     form.appendChild(input);
                     
@@ -159,6 +163,8 @@
                 b_input.value = "0";
                 b_input.size = "1";
                 b_input.id = "gaus-" + "b" + String(i+1);
+                b_input.tabIndex = String(index);
+                index ++;
                 
                 form.appendChild(b_input);
                 
@@ -173,6 +179,7 @@
             var submit_button = document.createElement("input");
             submit_button.type = "submit";
             submit_button.onclick = "gaus-submit()";
+            submit_button.tabIndex = String(index);
             
             form.appendChild(submit_button);
 
