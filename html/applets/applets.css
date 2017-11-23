@@ -99,10 +99,13 @@ input[type="number"] {
 }
 
 #gaus-input-equations {
-    height: 60px;
     margin: 0 auto;
 }
 
 #gaus-form-input {
     text-align-last: center;
+}
+
+#gaus-equations-submit {
+    margin-top: 10px;
 }
