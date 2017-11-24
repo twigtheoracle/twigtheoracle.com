@@ -76,7 +76,7 @@
                                 
                                 <br>
                                 
-                                <button id="gaus-equations-submit" type="submit" onclick="gaus_solve()">Solve</button>
+                                <button id="gaus-equations-submit" type="submit" onclick="return gaus_solve()">Solve</button>
                             
                             </form>
                             
@@ -239,7 +239,11 @@
             
             var p = document.getElementById("gaus-solution-text");
             
-            p.innerHTML = "hi";
+            p.innerHTML = "\\( \\begin{bmatrix} 1 & 1 & 1 \\\\ 2 & 2 & 2 \\\\ 3 & 3 & 3 \\end{bmatrix} \\)";
+            
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            
+            return false;
             
         }
         

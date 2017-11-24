@@ -93,11 +93,6 @@ input[type="number"] {
     height: inherit;
 }
 
-#gaus-left-brace-wrapper {
-    height: inherit;
-    float: left;
-}
-
 #gaus-input-equations {
     margin: 0 auto;
 }
