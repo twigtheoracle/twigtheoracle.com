@@ -197,11 +197,11 @@
     
     <script type="text/javascript">
         function gaus_solve() {
-//            var variables = document.getElementById("gaus-variables");
-//            var equations = document.getElementById("gaus-equations");
-//
-//            var v = variables.options[variables.selectedIndex].value;
-//            var e = equations.options[equations.selectedIndex].value;
+            var variables = document.getElementById("gaus-variables");
+            var equations = document.getElementById("gaus-equations");
+
+            var v = variables.options[variables.selectedIndex].value;
+            var e = equations.options[equations.selectedIndex].value;
 //            
 //            var data = [];
 //            
@@ -241,7 +241,7 @@
             
             var p = document.getElementById("gaus-solution-text");
             
-            p.innerHTML = "\\( \\begin{bmatrix} 1 & 1 & 1 \\\\ 2 & 2 & 2 \\\\ 3 & 3 & 3 \\end{bmatrix} \\)";
+            p.innerHTML = v + " " + e;
             
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             
