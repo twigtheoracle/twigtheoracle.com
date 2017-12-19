@@ -63,14 +63,14 @@
                             <input type="text" value="0" size="1" id="gaus-x21" tabindex="5"> \( x_1 + \)
                             <input type="text" value="0" size="1" id="gaus-x22" tabindex="6"> \( x_2 + \)
                             <input type="text" value="0" size="1" id="gaus-x23" tabindex="7"> \( x_3 = \)
-                            <input type="text" value="0" size="1" id="gaus-b2" tabindex="8"> \( b_1 \)
+                            <input type="text" value="0" size="1" id="gaus-b2" tabindex="8"> \( b_2 \)
 
                             <br>
 
                             <input type="text" value="0" size="1" id="gaus-x31" tabindex="9"> \( x_1 + \)
                             <input type="text" value="0" size="1" id="gaus-x32" tabindex="10"> \( x_2 + \)
                             <input type="text" value="0" size="1" id="gaus-x33" tabindex="11"> \( x_3 = \)
-                            <input type="text" value="0" size="1" id="gaus-b3" tabindex="12"> \( b_1 \)
+                            <input type="text" value="0" size="1" id="gaus-b3" tabindex="12"> \( b_3 \)
                                                         
                         </div>
                         
@@ -133,7 +133,7 @@
                     input.type = "text";
                     input.value = "0";
                     input.size = "1";
-                    input.id = "gaus-" + String(i+1) + String(j+1);
+                    input.id = "gaus-x" + String(i+1) + String(j+1);
                     input.tabIndex = String(index);
                     index ++;
                     
@@ -201,46 +201,56 @@
 
             var v = variables.options[variables.selectedIndex].value;
             var e = equations.options[equations.selectedIndex].value;
-//            
-//            var data = [];
-//            
-//            for(var i = 0; i < e; i ++) {
-//                data[i] = [];
-//            }
-//            
-//            for(var i = 0; i < e; i ++) 
-//            {
-//                for(var j = 0; j < v; j ++) 
-//                {
-//                    var x_value = document.getElementById("gaus-" + String(i + 1) + String(j + 1)).value;
-//                    data[i][j] = box_value;
-//                }
-//                
-//                var b_value = document.getElementById("gaus-b" + String(i + 1));
-//                data[i][v] = b_value;
-//            }
-//            
-//            var p = document.getElementById("gaus-solution-text");
-//            
-//            var text = "\\(";
-//            
-//            for(var i = 0; i < e; i ++)
-//            {  
-//                for(var j = 0; j <= v; j ++)
-//                {
-//                    text += data[i][j] + "\\quad";
-//                }
-//                text += "\\\\";
-//            }
-//            text += "\\)";
-//            
-//            p.innerHTML = text;
-//            
-//            MathJax.Hub.Queue(["Typeset", MathJax.Hub, p]);
+            
+            var data = [];
+            
+            for(var i = 0; i < e; i ++) {
+                data[i] = [];
+            }
+            
+            for(var i = 0; i < e; i ++) 
+            {
+                for(var j = 0; j < v; j ++) 
+                {
+                    var x_value = document.getElementById("gaus-x" + String(i + 1) + String(j + 1)).value;
+                    data[i][j] = x_value;
+                }
+                
+                var b_value = document.getElementById("gaus-b" + String(i + 1)).value;
+                data[i][v] = b_value;
+            }
             
             var p = document.getElementById("gaus-solution-text");
             
-            p.innerHTML = v + " " + e;
+            var text = "\\(\\left[\\begin{array}{";
+            
+            for(var i = 0; i < v; i ++)
+            {
+                text += "c";
+            }
+            text += "|c}"
+            
+            for(var i = 0; i < e; i ++)
+            {  
+                for(var j = 0; j <= v; j ++)
+                {
+                    text += data[i][j];
+                    if(j != v)
+                    {
+                        text += "&";
+                    }
+                }
+                if(i != e - 1)
+                {
+                    text += "\\\\";
+                }
+            }
+            text += "\\end{array}\\right]\\)";
+                        
+            var p = document.getElementById("gaus-solution-text");
+            
+            // p.innerHTML = v + " " + e;
+            p.innerHTML = text;
             
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             

@@ -104,3 +104,12 @@ input[type="number"] {
 #gaus-equations-submit {
     margin-top: 10px;
 }
+
+#gaus-solution {
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+#gaus-solution-text {
+    margin: 0 auto;
+}
