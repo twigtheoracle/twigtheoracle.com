@@ -139,7 +139,7 @@
                     
                     form.appendChild(input);
                     
-                    var variable_text = "\\( x_" + String(j+1);
+                    var variable_text = " \\( x_" + String(j+1);
                     
                     if(j != v - 1)
                     {
@@ -147,7 +147,7 @@
                     }
                     else
                     {
-                        variable_text += "=";        
+                        variable_text += " = \\;";        
                     }
                     
                     variable_text += "\\)"
@@ -166,7 +166,7 @@
                 
                 form.appendChild(b_input);
                 
-                var b_variable_text = "\\(b_" + String(i + 1) + "\\) <br>"
+                var b_variable_text = " \\(b_" + String(i + 1) + "\\) <br>"
                 
                 b_input.insertAdjacentHTML("afterend", b_variable_text);
                 
@@ -192,7 +192,6 @@
             MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
             
         }
-
     </script>
     
     <script type="text/javascript">
