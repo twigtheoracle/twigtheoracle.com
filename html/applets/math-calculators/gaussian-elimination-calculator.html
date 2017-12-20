@@ -11,7 +11,7 @@
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
-<body>
+<body onload="generate_equations()">
     <div class="wrapper">
         <div class="container">
 
@@ -56,7 +56,7 @@
                             <input type="text" value="0" size="1" id="gaus-x11" tabindex="1"> \( x_1 + \)
                             <input type="text" value="0" size="1" id="gaus-x12" tabindex="2"> \( x_2 + \)
                             <input type="text" value="0" size="1" id="gaus-x13" tabindex="3"> \( x_3 = \)
-                            <input type="text" value="0" size="1" id="gaus-b1" tabindex="4"> \( b_1 \) 
+                            <input type="text" value="0" size="1" id="gaus-b1" tabindex="4"> \( b_1 \)
 
                             <br>
 
@@ -109,6 +109,8 @@
 
         </div>
     </div>
+    
+    <script type="text/javascript" src="../../js/fraction.js"></script>
 
     <script type="text/javascript">
         function generate_equations() {
