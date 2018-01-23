@@ -186,11 +186,13 @@
                 for(var j = 0; j < v; j ++) 
                 {
                     var x_value = document.getElementById("gaus-x" + String(i + 1) + String(j + 1)).value;
-                    data[i][j] = x_value;
+                    var frac = new Fraction(x_value);
+                    data[i][j] = frac;
                 }
                 
                 var b_value = document.getElementById("gaus-b" + String(i + 1)).value;
-                data[i][v] = b_value;
+                var frac = new Fraction(b_value)
+                data[i][v] = frac;
             }
             
             var p = document.getElementById("gaus-solution-text");
@@ -207,7 +209,7 @@
             {  
                 for(var j = 0; j <= v; j ++)
                 {
-                    text += data[i][j];
+                    text += data[i][j].toLatex(true);
                     if(j != v)
                     {
                         text += "&";
