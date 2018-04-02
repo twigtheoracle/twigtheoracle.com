@@ -61,6 +61,23 @@ The page layout stuff
     min-width: 100px;
 }
 
+.fill-image {
+    width: inherit;
+    height: inherit;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.fill-image img{
+   flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+    
+}
+
 .page-left-box {
     border-style: solid;
     border-color: black;
@@ -85,6 +102,20 @@ The page layout stuff
     padding-right: 10px;
 }
 
+.page-left-box-small {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    
+    display: inline-block;
+    
+    width: 32%;
+    
+    min-height: inherit;
+    
+    text-align: center;
+}
+
 .page-right-box {
     display: inline-block;
     
@@ -107,6 +138,15 @@ The page layout stuff
     border-width: 1px;
     
     text-align: center;
+}
+
+.page-right-box-large {
+    display: inline-block;
+    
+    width: 68%;
+    
+    min-height: inherit;
+    min-width: inherit;
 }
 
 .page-right-center-box {
