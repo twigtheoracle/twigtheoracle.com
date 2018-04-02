@@ -75,3 +75,39 @@ STL viewer stuff
     background-color: white;
     border: 1px solid grey;
 }
+/*
+Gaus Elim stuff
+*/
+
+#gaus-input-form {
+    padding: 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+}
+
+#gaus-left-brace {
+    height: inherit;
+}
+
+#gaus-input-equations {
+    margin: 0 auto;
+}
+
+#gaus-form-input {
+    text-align-last: center;
+}
+
+#gaus-equations-submit {
+    margin-top: 10px;
+}
+
+#gaus-solution {
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+#gaus-solution-text {
+    margin: 0 auto;
+}
