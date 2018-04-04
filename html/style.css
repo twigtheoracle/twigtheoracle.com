@@ -61,22 +61,6 @@ The page layout stuff
     min-width: 100px;
 }
 
-.fill-image {
-    width: inherit;
-    height: inherit;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
-}
-
-.fill-image img{
-   flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-    
-}
 
 .page-left-box {
     border-style: solid;
