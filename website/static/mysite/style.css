@@ -1,0 +1,16 @@
+body {
+    max-width: 1000px;
+    margin: auto;
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+}
+
+#title {
+    font-family: 'Rock Salt', cursive;
+    font-size: 40px;
+    color: black;
+}
+
+.margin-right {
+    margin-right: 20px;
+}
