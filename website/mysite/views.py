@@ -6,8 +6,12 @@ from django.http import HttpResponse
 
 def home(request):
     # the home page
-    return HttpResponse("The home page.")
+    return render(request, "home.html")
 
 def about(request):
     # about page
     return render(request, "about.html")
+
+def projects(request):
+    # projects page
+    return render(request, "projects.html")

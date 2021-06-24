@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}">
     <title>{% block title %}Page Title{% endblock %}</title>
 </head>
@@ -18,20 +18,18 @@
 
         <!-- Nav bar and title -->
         {% block navbar %}
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: 0;">
-                <a class="navbar-brand" href="#" style="padding: 20px 20px;"><span id="title">OnSight</span></a>
+        <div class="container" style="margin-top: 10px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: 0; max-height: 60px;">
+                <img class="navbar-brand" src="{% static 'mysite/face.jpg' %}" style="max-height: 60px; padding: 0; margin-right: 20px;"></a>
                 <div class="collapse navbar-collapse">
-                    <div class="navbar-nav" style="padding: 20px 20px;">
+                    <div class="navbar-nav align-middle" style="margin-top: 10px;">
                         <a class="nav-item nav-link margin-right" href="/">Home</a>
                         <a class="nav-item nav-link margin-right" href="/about">About</a>
-                        <a class="nav-item nav-link margin-right" href="/algorithms/">Algorithms</a>
-                        <a class="nav-item nav-link margin-right" href="/developers/">Developers</a>
-                        <a class="nav-item nav-link margin-right" href="https://github.com/DSC180-RC/Rock-Climbing-Recommender" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a class="nav-item nav-link margin-right" href="/projects">Projects</a>
+                        <a class="nav-item nav-link margin-right" rel="noopener noreferrer" target="_blank" href="https://github.com/twigtheoracle">GitHub</a>
                     </div>
                 </div>
             </nav>
-            <div class="text-left" style="margin-bottom: 10px; margin-left: 30px">Outdoor Rock Climbing Recommendations</div>
         </div>
         {% endblock %}
 
@@ -39,13 +37,13 @@
         <h3 style="margin-top: 0px;">{% block pagetitle %}Page Title{% endblock %}</h3>
 
         <!-- Content -->
-        <div class="paragraphs">
-            {% block content %}
+        {% block content %}
+        <div class="paragraphs text-left">
 
             <p>Content goes here</p>
 
-            {% endblock %}
         </div>
+        {% endblock %}
 
     </div>
 
