@@ -1,5 +1,4 @@
 body {
-    max-width: 1000px;
     margin: auto;
     background-color: #ffffff;
     font-family: 'Lato', sans-serif;
@@ -7,4 +6,15 @@ body {
 
 .margin-right {
     margin-right: 20px;
+}
+
+.boxed {
+    border: 1px solid black;
+    display: table;
+    padding: 5px;
+    margin: auto;
+}
+
+.site-width {
+    max-width: 1000px;
 }
