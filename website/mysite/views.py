@@ -15,3 +15,7 @@ def about(request):
 def projects(request):
     # projects page
     return render(request, "projects.html")
+
+def stock_data(request):
+    # stock data page
+    return render(request, "stock_data.html")
