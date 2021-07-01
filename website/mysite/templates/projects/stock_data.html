@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Stock Data{% endblock %}
+
+{% block other-head %}
+<style type="text/css">
+    /* 
+    Credit for the loading spinner comes from w3schools at 
+    https://www.w3schools.com/howto/howto_css_loader.asp
+    */
+
+    .loader {
+        border: 4px solid #d1d1d1;
+        border-top: 4px solid black;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 2s linear infinite;
+
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 20px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg) }
+    }
+
+</style>
+{% endblock %}
+
+{% block pagetitle %}Stock Data{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <p>For a full description of the methods used in this project, you should take a look at the <a rel="noopener noreferrer" target="_blank" href="https://github.com/twigtheoracle/twigtheoracle.com">Github repository</a>. Due to data licencing restrictions, only specific people are allowed to access the full project, you know who you are. If you are not allowed to access the full project, I have included a <a href="{% static 'mysite/Option Analysis 2021-03-23 (Sample).xlsx' %}">sample file</a> that showcases the project output. The sample file was generated on March 23rd, 2021 and includes a wide variety of stocks.</p>
+
+    <!-- Strucutre to run the actual project -->
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed">Running the Project</div>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 flex-grow-1">
+                <div class="row h-100">
+                    <embed src="{% static 'web_stock_list.txt' %}" class="w-75 h-100" style="border: 1px solid black;">
+                </div>
+            </div>
+
+            <div class="col-sm-10">
+                <form action="/projects/stock_data" method="POST" class="row">
+                {% csrf_token %}
+                    
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <p>The project output is gated behind the Quandl API key. Without entering in the key, nothing on this page will work. Again, if you should know this value but don't, contact Eric and he will tell you. If the current stock list (box to the left) is correct, enter in the API Key, click on Submit, and you will get the most recent Option Analysis. If the current stock list is not correct, put the correct list in the box to the right, then enter in the API key and click on Submit. If you input a new stock list, it will overwrite the old stock list. Depending on the number of stocks, it will take anywhere from a few seconds to a few minutes to run. Please be patient.</p>
+                        </div>
+                        <div class="row">
+                            <label for="api-key" class="col-form-label">Quandl API Key: </label>
+                            <input type="text" name="api-key" id="api-key" maxlength="20" value="{{ api_key }}" style="min-width: 180px; margin-left: 5px;">
+                            <button type="submit" id="submit-button" class="btn btn-outline-dark" style="margin-left: 10px;">Submit</button>
+                            <div class="loader hide" id="loading-wheel"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <textarea id="new-sl" name="new-sl" class="mw-100 h-100"></textarea>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        {% if errors %}
+
+            <div class="row" style="margin-top: 20px;">
+                <h4 class="text-center mx-auto">
+                    <div class="boxed">Errors</div>
+                </h4>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    {% for x in errors %}
+                        <p>{{ x }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if output %}
+
+            <div class="row" style="margin-top: 20px;">
+                <h4 class="text-center mx-auto">
+                    <div class="boxed">Output</div>
+                </h4>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>The project output can be found <a href="{{ output }}">here</a>.</p>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+
+    document.getElementById("submit-button").addEventListener("click", () => {
+        loader = document.getElementById("loading-wheel");
+        loader.classList.remove("hide");
+        loader.classList.add("show");
+    });
+    
+</script>
+
+{% endblock %}
