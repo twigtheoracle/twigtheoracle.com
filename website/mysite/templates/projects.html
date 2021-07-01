@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block other-head %}
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Projects{% endblock %}
+
+{% block pagetitle %}Projects{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <!-- Rock Climbing Recommender -->
+    <div class="container site-width" id="rc-rec" style="margin-bottom: 20px;">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed"><span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span>: Rock Climbing Recommender</div>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <figure class="figure" style="max-width: 100%;">
+                    <img src="{% static 'mysite/white_rasta.png' %}" class="img-fluid" style="max-width: 100%;">
+                    <figcaption class="figure-caption text-center"><a rel="noopener noreferrer" target="_blank" href="https://www.mountainproject.com/route/105722593/white-rastafarian">White Rastafarian</a> (V2) in Joshua Tree National Park. One of my favorite climbs. Image credit to <a href="https://www.ericarphotography.com/" target="_blank" rel="noopener noreferrer">Erica Robinson</a>.</figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-6">
+                <p>The full application can be found at <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/">https://dsc180b-rc-rec.herokuapp.com/</a>, and the full code for the project, as well as build instructions, can be found on <a rel="noopener noreferrer" target="_blank" href="https://github.com/DSC180-RC/Rock-Climbing-Recommender">GitHub</a>. Since the project is hosted on Heroku free tier, the project will take a minute to open when you first click the link.</p>
+
+                <p>This project was originally created by me and two other UCSD students for our senior capstone project, with a focus on recommender systems. The world of outdoor rock climbing lacks good recommendation systems, with current methods being word of mouth, guide books limited to specific areas, and most popular. Our goal with <span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span> was to create personalized recommendations for experienced rock climbers.</p>
+
+                <p>For a more complete description of the methods used, take a look at the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/about/">About</a> page and the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/algorithms/">Algorithms</a> page on the project site.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stock Data -->
+    <div class="container site-width" id="stock-data" style="margin-bottom: 20px;">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed">Stock Data</div>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Stock Data is an project that collates pricing and IV data into Excel sheets. Data is provided by <a rel="noopener noreferrer" target="_blank" href="https://www.quandl.com/">Quandl</a> using the premium datasets of <a rel="noopener noreferrer" target="_blank" href="https://www.quandl.com/data/QOR-US-Equity-Option-Ratings">QOD</a> (US Equity Option Ratings) and <a rel="noopener noreferrer" target="_blank" href="https://www.quandl.com/data/EOD-End-of-Day-US-Stock-Prices">EOD</a> (End of Day US Stock Prices). Data is collated over a long term time period of ten years, and short term time periods of one, two, and three months (approximately 20, 40, and 60 trading days respectively).</p>
+                <p>The full application is hosted on this website, and can be found <a href="/projects/stock_data">here</a>. The full code for the project can be found on <a rel="noopener noreferrer" target="_blank" href="https://github.com/twigtheoracle/Stock-Data">GitHub</a>. Due to data licencsing restrictions, the full project output is not available to everyone. If the full project output should be availble to you and you don't remember how to access it, then contact Eric.</p>
+            </div>
+            <div class="col-sm-6">
+                <figure class="figure" style="max-width: 100%;">
+                    <img src="{% static 'mysite/stock-data.png' %}" class="img-fluid" style="max-width: 100%;">
+                    <figcaption class="figure-caption text-center">One of many charts in the Excel sheet.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- This website -->
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed">twigtheoracle.com</div>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <figure class="figure" style="max-width: 100%;">
+                    <img src="{% static 'mysite/face.jpg' %}" class="img-fluid" style="max-width: 100%;">
+                </figure>
+            </div>
+            <div class="col-sm-10">
+                <p>This website uses Django with Nginx and Gunicorn, and is hosted on Digital Ocean. Website layout is done using Bootstrap 4. Since you are already on this website, you can see it in action. The code for the website can be found on <a rel="noopener noreferrer" target="_blank" href="https://github.com/twigtheoracle/twigtheoracle.com">Github</a>.</p>
+
+                <p>The face image was done by a friend of mine who I have unfortunately lost contact with.</p>
+
+                <p>This website was last updated in July 2021.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}">
+    <title>{% block title %}Page Title{% endblock %}</title>
+    {% block other-head %}{% endblock %}
+</head>
+
+<body class="site-width">
+    <div class="text-center bg-white">
+
+        <!-- Nav bar and title -->
+        {% block navbar %}
+        <div class="container" style="margin-top: 10px;">
+            <nav class="navbar navbar-expand-lg navbar-light" style="margin: 0; max-height: 60px;">
+                <img class="navbar-brand margin-right" src="{% static 'mysite/face.jpg' %}" style="max-height: 60px; padding: 0;"></a>
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav align-middle">
+                        <a class="nav-item nav-link margin-right" href="/">Home</a>
+<!--                         <a class="nav-item nav-link margin-right" href="/about">About</a>
+ -->                        <a class="nav-item nav-link margin-right" href="/projects">Projects</a>
+                        <a class="nav-item nav-link margin-right" rel="noopener noreferrer" target="_blank" href="https://github.com/twigtheoracle">GitHub</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        {% endblock %}
+
+        <!-- Page title -->
+        <h3 style="margin-top: 0px;">{% block pagetitle %}Page Title{% endblock %}</h3>
+
+        <!-- Content -->
+        {% block content %}
+        <div class="paragraphs text-left">
+
+            <p>Content goes here</p>
+
+        </div>
+        {% endblock %}
+
+    </div>
+
+</body>
+
+{% block scripts %}{% endblock %}
+
+</html>
