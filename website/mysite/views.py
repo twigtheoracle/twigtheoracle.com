@@ -97,14 +97,14 @@ def stock_data(request):
             wb_path = main(sd_params)
 
             # make the output available
-            web_path = str(settings.BASE_DIR / "static") + "/xl/" + str(wb_path).split("\\")[-1]
+            web_path = str(settings.BASE_DIR / "static") + "/xl/" + str(wb_path).split("/")[-1]
             copyfile(wb_path, web_path)
 
         return render(request, "projects/stock_data.html", 
             {
                 "api_key": request.POST["api-key"], 
                 "errors": errors,
-                "output": "/static/xl/" + str(wb_path).split("\\")[-1]
+                "output": "/static/xl/" + str(wb_path).split("/")[-1]
             })
 
     return render(request, "projects/stock_data.html")

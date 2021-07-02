@@ -60,6 +60,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+/website/staticfiles/
 
 # Flask stuff:
 instance/
@@ -136,3 +137,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# secret key
+key.py
+
+# xl sheets
+*.xlsx
+website/static/xl/*

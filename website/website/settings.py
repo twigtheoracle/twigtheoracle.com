@@ -14,6 +14,9 @@ from pathlib import Path
 
 import os
 
+# the secret key is stored in this file
+from website.key import key
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,12 +27,12 @@ SD_DIR = BASE_DIR.parent.parent / "Stock-Data"
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3wl5lf8%v&#8b+n_59!-@me9w6krzg(##jw&!e3omfu0tmh!sz'
+SECRET_KEY = key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["128.199.13.169", "localhost"]
+ALLOWED_HOSTS = ["128.199.13.169", "www.twigtheoracle.com", "twigtheoracle.com", "localhost"]
 
 # Application definition
 
