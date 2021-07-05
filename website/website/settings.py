@@ -32,7 +32,8 @@ SECRET_KEY = key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["128.199.13.169", "www.twigtheoracle.com", "twigtheoracle.com", "localhost"]
+ALLOWED_HOSTS = ["128.199.13.169", "www.twigtheoracle.com", "twigtheoracle.com", "localhost", 
+    "127.0.0.1"]
 
 # Application definition
 

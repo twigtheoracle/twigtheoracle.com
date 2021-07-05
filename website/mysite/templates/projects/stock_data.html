@@ -56,36 +56,26 @@
             </h4>
         </div>
 
-        <div class="row">
-            <div class="col-sm-2 flex-grow-1">
-                <div class="row h-100">
-                    <embed src="{% static 'web_stock_list.txt' %}" class="w-75 h-100" style="border: 1px solid black;">
+        <form action="/projects/stock_data" method="POST" class="row">
+        {% csrf_token %}
+            
+            <div class="col-sm-10">
+                <div class="row">
+                    <p>The project output is gated behind the Quandl API key. Without entering in the key, nothing on this page will work. Again, if you should know this value but don't, contact Eric and he will tell you. Copy and paste the stock list (remember one stock ticker per line) in the box to the right, then enter in the API key and click on Submit. Depending on the number of stocks, it will take anywhere from a few seconds to a few minutes to run. Please be patient.</p>
+                </div>
+                <div class="row">
+                    <label for="api-key" class="col-form-label">Quandl API Key: </label>
+                    <input type="text" name="api-key" id="api-key" maxlength="20" value="{{ api_key }}" style="min-width: 180px; margin-left: 5px;">
+                    <button type="submit" id="submit-button" class="btn btn-outline-dark" style="margin-left: 10px;">Submit</button>
+                    <div class="loader hide" id="loading-wheel"></div>
                 </div>
             </div>
 
-            <div class="col-sm-10">
-                <form action="/projects/stock_data" method="POST" class="row">
-                {% csrf_token %}
-                    
-                    <div class="col-sm-10">
-                        <div class="row">
-                            <p>The project output is gated behind the Quandl API key. Without entering in the key, nothing on this page will work. Again, if you should know this value but don't, contact Eric and he will tell you. If the current stock list (box to the left) is correct, enter in the API Key, click on Submit, and you will get the most recent Option Analysis. If the current stock list is not correct, put the correct list in the box to the right, then enter in the API key and click on Submit. If you input a new stock list, it will overwrite the old stock list. Depending on the number of stocks, it will take anywhere from a few seconds to a few minutes to run. Please be patient.</p>
-                        </div>
-                        <div class="row">
-                            <label for="api-key" class="col-form-label">Quandl API Key: </label>
-                            <input type="text" name="api-key" id="api-key" maxlength="20" value="{{ api_key }}" style="min-width: 180px; margin-left: 5px;">
-                            <button type="submit" id="submit-button" class="btn btn-outline-dark" style="margin-left: 10px;">Submit</button>
-                            <div class="loader hide" id="loading-wheel"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <textarea id="new-sl" name="new-sl" class="mw-100 h-100"></textarea>
-                    </div>
-
-                </form>
+            <div class="col-sm-2">
+                <textarea id="new-sl" name="new-sl" class="mw-100 h-100"></textarea>
             </div>
-        </div>
+
+        </form>
 
         {% if errors %}
 

@@ -41,45 +41,31 @@ def stock_data(request):
 
         # check the EOD database
         eod_works = True
-        # try:
-        #     quandl.get("EOD/" + "AAPL", start_date=datetime.date(2021, 6, 8),
-        #         end_date=datetime.date(2021, 6, 10))
-        # except quandl.errors.quandl_error.AuthenticationError:
-        #     eod_works = False
-        #     errors.append("The input API Key cannot access the EOD database")
-        # except quandl.errors.quandl_error.LimitExceededError:
-        #     errors.append("Too many Quandl QPI requests, try again in 10 minutes.")
+        try:
+            quandl.get("EOD/" + "AAPL", start_date=datetime.date(2021, 6, 8),
+                end_date=datetime.date(2021, 6, 10))
+        except quandl.errors.quandl_error.AuthenticationError:
+            eod_works = False
+            errors.append("The input API Key cannot access the EOD database")
+        except quandl.errors.quandl_error.LimitExceededError:
+            errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
 
         # check the QOR database
         qor_works = True
-        # try:
-        #     quandl.get("QOR/" + "AAPL", start_date=datetime.date(2021, 6, 8),
-        #         end_date=datetime.date(2021, 6, 10))
-        # except quandl.errors.quandl_error.AuthenticationError:
-        #     qor_works = False
-        #     errors.append("The input API Key cannot access the QOR database")
-        # except quandl.errors.quandl_error.LimitExceededError:
-        #     errors.append("Too many Quandl QPI requests, try again in 10 minutes.")
+        try:
+            quandl.get("QOR/" + "AAPL", start_date=datetime.date(2021, 6, 8),
+                end_date=datetime.date(2021, 6, 10))
+        except quandl.errors.quandl_error.AuthenticationError:
+            qor_works = False
+            errors.append("The input API Key cannot access the QOR database")
+        except quandl.errors.quandl_error.LimitExceededError:
+            errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
 
-        # if the key works, then update the stock list if requested, then run the script
+        # if the key works, then run the script with the provided stock list
         if(eod_works and qor_works):
 
-            # update the stock list if requested
-            if(len(request.POST["new-sl"]) > 0):
-
-                # remove extraneous characters from the new stock list
-                new_stock_list = list(request.POST["new-sl"].split("\r\n"))
-
-                # replace the text file with new contents
-                with open(settings.SD_DIR / "config" / "web_stock_list.txt", "w") as f:
-                    for stock in new_stock_list:
-                        f.write(stock + "\n")
-
-            # read the stock list file
-            stock_list = []
-            with open(settings.SD_DIR / "config" / "web_stock_list.txt", "r") as f:
-                for line in f:
-                    stock_list.append(line.strip())
+            # remove extraneous characters from the new stock list
+            stock_list = list(request.POST["new-sl"].split("\r\n"))
 
             # run the script
 
