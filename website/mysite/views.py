@@ -13,6 +13,7 @@ from shutil import copyfile
 import sys
 sys.path.insert(1, str(settings.SD_DIR))
 from run import main
+import os
 
 # Create your views here.
 
@@ -76,21 +77,23 @@ def stock_data(request):
                 "overwrite": True,
                 "quandl": [request.POST["api-key"]],
                 "tickers": stock_list,
-                "sd_root": str(settings.SD_DIR)
+                "sd_root": str(settings.SD_DIR),
+                "logging": False
             }
 
             # run the script
             wb_path = main(sd_params)
 
             # make the output available
-            web_path = str(settings.BASE_DIR / "static") + "/xl/" + str(wb_path).split("/")[-1]
+            web_path = os.path.join(str(settings.BASE_DIR / "static"), "xl", 
+                os.path.basename(wb_path))
             copyfile(wb_path, web_path)
 
         return render(request, "projects/stock_data.html", 
             {
                 "api_key": request.POST["api-key"], 
                 "errors": errors,
-                "output": "/static/xl/" + str(wb_path).split("/")[-1]
+                "output": os.path.join("/static/xl/", os.path.basename(wb_path))
             })
 
     return render(request, "projects/stock_data.html")
