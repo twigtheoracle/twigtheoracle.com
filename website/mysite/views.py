@@ -78,7 +78,7 @@ def stock_data(request):
                 "quandl": [request.POST["api-key"]],
                 "tickers": stock_list,
                 "sd_root": str(settings.SD_DIR),
-                "logging": False
+                "log": False
             }
 
             # run the script
