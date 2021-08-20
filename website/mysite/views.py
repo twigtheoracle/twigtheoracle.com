@@ -97,3 +97,8 @@ def stock_data(request):
             })
 
     return render(request, "projects/stock_data.html")
+
+def thoughts(request):
+    # thoughts page
+
+    return render(request, "thoughts.html")

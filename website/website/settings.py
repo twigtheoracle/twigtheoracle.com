@@ -21,7 +21,7 @@ from website.key import key
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Stock-Data paths
-SD_DIR = BASE_DIR.parent.parent / "Stock-Data"
+SD_DIR = BASE_DIR.parent.parent / "Stock-Data"  
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -30,7 +30,7 @@ SD_DIR = BASE_DIR.parent.parent / "Stock-Data"
 SECRET_KEY = key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["128.199.13.169", "www.twigtheoracle.com", "twigtheoracle.com", "localhost", 
     "127.0.0.1"]
