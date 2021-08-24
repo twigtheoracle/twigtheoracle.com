@@ -102,3 +102,7 @@ def thoughts(request):
     # thoughts page
 
     return render(request, "thoughts.html")
+
+def specific_thought(request, **kwargs):
+
+    return render(request, "thoughts/How the thought page works.html")

@@ -109,16 +109,21 @@ def convert_to_html(ipynb_file, html_file):
         f.write(f'<meta name="modification-date" content="{str(datetime.date.today())}">')
         f.write(r"{% endblock %}")
 
+        # the page title
+        f.write(r"{% block pagetitle %}" + html_file.stem + r"{% endblock %}")
+
         # write the notebook content to the file
         f.write(r"{% block content %}")
+        f.write(r'<div class=text-left>')
         no_header = soup.h1.decompose()
         for tag in soup.body.contents:
-            tag_contents = str(tag.encode("utf-8"))[2:-1].replace(r"\n", "").replace(r"\xc2\xa0", " ")
+            tag_contents = str(tag.encode("utf-8"))[2:-1].replace(r"\n", "\n").replace(r"\xc2\xa0", " ")
             try:
                 if(tag_contents[0] == "<"):
                     f.write(tag_contents)
             except:
                 pass
+        f.write(r"</div>")
         f.write(r"{% endblock %}")
 
     # # save the html output
