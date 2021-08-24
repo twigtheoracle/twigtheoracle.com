@@ -36,3 +36,15 @@ textarea {
 .site-width {
     max-width: 1000px;
 }
+
+/* pygments highlight */
+.highlight {
+  border: 1px solid #cfcfcf;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+  margin-bottom: 10px;
+}
