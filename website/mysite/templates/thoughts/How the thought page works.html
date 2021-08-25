@@ -5,29 +5,35 @@
 </div><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>This notebook was used to test the thought page and the ability to generate html pages from these jupyter notebooks.</p>
-<p>After any thought is completed, a script is run that converts the notebook to html, adds various style elements, inserts various file metadata into a comment, and finally puts the converted html into a template created for the thoughts page.</p>
-<p>The script can be found bellow.</p>
+<p>After any thought is completed, a script is run that converts the notebook to html, adds various style elements, inserts various file metadata into the head of the document, and finally puts the converted html into a template created for the thoughts page.</p>
+<p>Code is corretly styled/formatted as can be seen below:</p>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">pass</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"main"</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</pre>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The script is run from the command line using "python convert_nb_to_html.py \\&lt;file name&gt;"</p>
+<p>The script can be found at TODO</p>
+<p>The script is run from the command line using "python convert_nb_to_html.py {file name}" from the folder in which the notebook exists</p>
 </div>
 </div></div>{% endblock %}

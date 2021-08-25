@@ -142,4 +142,4 @@ def thoughts(request):
 
 def specific_thought(request, **kwargs):
 
-    return render(request, "thoughts/How the thought page works.html")
+    return render(request, f"thoughts/{kwargs['thought_name']}.html")

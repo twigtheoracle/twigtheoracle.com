@@ -56,24 +56,6 @@ def main():
         # convert the ipynb first then update metadata
         convert_to_html(path_ipynb, path_html)
 
-# def update_metadata(html_file):
-#     """
-#     The update_metadata function updates the input html file with metadata. If metadata already 
-#     exists in the file, the "date_modified" field of the metadata will be updated to today's date.
-#     If metadata does not exist in the file, the "date_created" and "date_modified" fields will be
-#     updated to today's date.
-
-#     :param:     html_file       A pathlib.Path object containing the path to the html file
-
-#     :return:    N/A
-#     """
-#     # open the html file
-#     with open(html_file) as f:
-#         soup = BeautifulSoup(f, "html.parser")
-#         mod_date = soup.find("meta", {"name": "modification-date"})
-#         mod_date["content"] = {str(datetime.date.today())}
-#         print(mod_date)
-
 def convert_to_html(ipynb_file, html_file, creation_date=None):
     """
     The convert_to_html file converts the input ipynb file to an html file, using the thoughts 
