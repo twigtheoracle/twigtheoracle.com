@@ -1,7 +1,7 @@
 # Eric Liu
 # 
 # This script converts a given jupyter notebook to html. For the purposes of pathlib, it is assumed
-# that this script is run from the directory it exists in.
+# that this script is run from the directory in which the notebook exists in.
 # 
 # Metadata stored in the head of the html file and is formatted as such:
 # <meta name="creation-date" content="YYYY-MM-DD">
@@ -9,6 +9,8 @@
 
 import argparse
 import datetime
+import sys
+import asyncio
 
 from pathlib import Path
 
@@ -26,6 +28,10 @@ def main():
 
     :return:    N/A
     """
+    # See https://bugs.python.org/issue37373 :(
+    if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith('win'):
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
     # command line arguments
     # there is only one, which is the name of the file to convert
     parser = argparse.ArgumentParser()
