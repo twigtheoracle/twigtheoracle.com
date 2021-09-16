@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Potential Thoughts{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2021-09-15">
+<meta name="modification-date" content="2021-09-15">
+{% endblock %}
+
+{% block pagetitle %}Potential Thoughts{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <p>This page contains various potential thoughts. Someday, I'll take the time to really think about them.</p>
+
+    <table class="table table-bordered w-100">
+        <thead>
+            <tr>
+                <th class="w-25">Thought Name</th>
+                <th class="w-75">Thought Description/Background</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>How is weight distributed in car tires between the rubber and air?</td>
+                <td>A typical car tire has about 30-35 psi. With completly made up numbers, four car tires at 30psi can easily lift up a car. So in theory, the rubber of the tires does not support any car wight, only keeps the air contained. I'm sure that if I think about this some more, I can get some actual numbers.</td>
+            </tr>
+
+            <tr>
+                <td>Can I derive some basic laws of traffic from axioms?</td>
+                <td>For example, one axiom would be stopping distance is a fuction of various factors x, y, z, etc. Therefore, for safe highway driving, the average speed of cars is a function of the density of cars. With more thought, I could probably come up with more axioms and facts that logically follow.</td>
+            </tr>
+
+            <tr>
+                <td>Once water is boiling, does higher heat make cooking faster?</td>
+                <td>I mean, the obvious answer is no since the temperature of water cannot go up beyond 100 °C. The only thing that increasing heat does is make the water boil away faster. I believe that the bubbles of steam formed are higher temperatuer, more frequent, and larger under higher heat, which should in theory increase cooking speed. It would be interesting to think about exactly how much faster cooking would happen.</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
