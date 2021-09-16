@@ -104,11 +104,11 @@ def convert_to_html(ipynb_file, html_file, creation_date=None):
                 pass
 
         # write the metadata to the head of the template
-        f.write(f'<meta name="creation-date" content="{str(datetime.date.today())}">')
+        f.write(f'<meta name="modification-date" content="{str(datetime.date.today())}">')
         if(creation_date == None):
-            f.write(f'<meta name="modification-date" content="{str(datetime.date.today())}">')
+            f.write(f'<meta name="creation-date" content="{str(datetime.date.today())}">')
         else:
-            f.write(f'<meta name="modification-date" content="{creation_date}">')
+            f.write(f'<meta name="creation-date" content="{creation_date}">')
         f.write(r"{% endblock %}")
 
         # the page title
