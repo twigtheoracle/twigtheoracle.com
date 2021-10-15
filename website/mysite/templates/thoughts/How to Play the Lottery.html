@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}How to Play the Lottery{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2021-10-14">
+<meta name="modification-date" content="2021-10-14">
+{% endblock %}
+
+{% block pagetitle %}How to Play the Lottery{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <p>As should be obvious, there is no way to predict what numbers are chosen in a lottery. Any patterns that appear in winning numbers are simply due to chance. The numbers that people choose though, are most definetly not random. Therefore, the goal of playing the lottery should not be to guess the numbers, but rather to ensure that the numbers you choose have the lowest probability of anyone anyone else picking the exact same numbers.</p>
+
+    <h4>Statement of the Problem</h4>
+
+    <p>Although I have no idea if any actual lottery plays by these rules, the goal of this thought is to find those six two digit numbers (AA BB CC DD EE FF) such that</p>
+
+    <ol>
+        <li>Each number is between 00 and 99 inclusive</li>
+        <li>The probability of a human randomly choosing these six numbers in this specific order is the lowest of any six two digit number sequence</li>
+    </ol>
+
+    <p>To do achieve the goal, I need to answer the following questions:</p>
+
+    <ol>
+        <li>Where does the data for this thought come from? Lotteries do not publish the numbers people choose except for the winning numbers (which are useless since these are effectively randomly chosen).</li>
+        <li>What is the "memory" of a human random number generator? That is, does the first chosen number effect the second chosen number (yes)? Does the first effect the third (yes)? Does the first effect the fourth (maybe)? At what point does the effect of the first number become indistinguishable from noise?</li>
+        <li>Depending on the answer to the memory question, what is the probability distribution of a human random number generator generating a two digit number? What is the probability distribution depending on the first chosen number? What is the probability distribution depending on the first and second chosen number? Knowing the answer to the memory question will tell me how many probability distributions I need to find.</li>
+    </ol>
+
+    <h4>Answering the Questions</h4>
+
+    <ol>
+        <li>The first question is where data for this comes from. I have found some data showing human generated random number sequences, the question then is can I split up a sequence into a bunch of two digit numbers? I have also found some math papers creating simulations of a human random number generator. They do not publish their data, but perhaps I can email the study's authors and get the data. Otherwise, I am at at a loss for where to get data.</li>
+    </ol>
+
+</div>
+
+{% endblock %}
