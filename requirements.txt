@@ -1,4 +1,4 @@
-django==3.2.5
+django==3.2.11
 quandl==3.6
 tqdm
 openpyxl
