@@ -48,7 +48,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
     $('#sortable-table').DataTable( {
-        "searching": false,
+        "searching": true,
+        "order": [[1, "desc"]]
     });
 } );
 </script>

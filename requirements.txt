@@ -4,3 +4,4 @@ tqdm
 openpyxl
 bs4
 jupyterlab
+gitpython
