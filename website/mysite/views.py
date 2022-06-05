@@ -100,6 +100,11 @@ def stock_data(request):
 
     return render(request, "projects/stock_data.html")
 
+def specific_project(request, *args, **kwargs):
+
+    requested_url = "/".join(args)
+    return render(request, f"projects/{requested_url}.html")
+
 def thoughts(request):
     # thoughts page
 

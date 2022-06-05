@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block other-head %}
+{% endblock %}
+
+{% block pagetitle %}Ethical Development of a Transportation Demand Model{% endblock %}
+
+{% block content %}
+
+    <div class="text-center">
+        <h4>{% block subtitle %}{% endblock %}</h4>
+    </div>
+
+    {% block subcontent %}{% endblock %}
+
+    <!-- Table of contents -->
+    <div class="container site-width text-left" style="margin-bottom: 20px;">
+
+        <h4>TABLE OF CONTENTS</h4>
+
+        <p><a href="/projects/ethical_tdm">Project Home</a></p>
+        <p><a href="/projects/ethical_tdm/data">Data Collection and Measurement</a></p>
+        <p><a href="/projects/ethical_tdm/analysis_and_modeling">Analysis and Modeling</a></p>
+        <p><a href="/projects/ethical_tdm/usage">Usage</a></p>
+        <p><a href="/projects/ethical_tdm/revision">Revision, Scaling, and Long Term Considerations</a></p>
+    </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}
+
