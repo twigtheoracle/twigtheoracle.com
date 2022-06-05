@@ -15,7 +15,113 @@
 
 <div class="paragraphs text-left">
     
-    <p>TODO</p>
+    <div class="container site-width">
+        <div class="container mx-auto">
+            <figure class="figure mx-auto" style="display: block;">
+                <img src="{% static 'mysite/trip_generation.jpg' %}" class="figure-img img-fluid mx-auto" style="height: auto; display: block;">
+                <figcaption class="figure-caption text-center">An example of trip generation, one of the steps in data measurement. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://www.caliper.com">Caliper</a>.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <p>The data collection process has two overarching steps. The first step (collection) is to collect raw data, which for the purposes of this project will be location data. The second step (measurement) is to turn that raw location data into meaningful data we can feed into our model. Let's first address raw data.</p>
+
+    <div class="text-center">
+        <h6>Raw Data</h6>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/location_data.png' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">Much of our raw data comes from location data. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://www.qminder.com">Qminder</a>.</figcaption>
+            </figure>
+        </div>
+        <div class="col-sm-4">
+            <p>The majority of our data will come from the location data of mobile devices. In the raw form, this will consit of billions/trillions of location pings from various mobile devices in the form of a latitude/longitude coordinate. Specifically, a row of raw location data might look like:</p>
+
+            <p>[<<i>device_id</i>>, <<i>latitude</i>>, <<i>longitude</i>>, <<i>timestamp</i>>]</p>
+
+            <p>Note that this location data should already capture the behavior of most walk/bike/micro-mobility users as most people do have mobile phones with some kind of location tracking activated. At this point, the ethical concern of privacy may come up, as this kind of location data can be used to track individual people and where they go.</p>
+        </div>
+    </div>
+
+    <p>One way to "stalk" people in this manner is if you know their home address. You could look up their <<i>latitude</i>>, <<i>longitude</i>> in the raw data and track them from there. Unfourtunately, at this stage in the data process, there is not much we can do about it if we want to have accurate data. Later on though, data will be aggregated so this will no longer be possible.</p>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p>As mentioned on the project home page, since we are focusing on a travel demand model for non-car transportation, we really want to capture the travel behavior of disadvanted groups, or those that are much less likely (or cannot) drive.</p>
+
+            <p>As seen in the picture on the right, these groups include children and the disabled. Some other groups disadvantaged in this way (but not all possible groups) include the elderly and the poor.</p>
+
+            <p>Unfourtunately, the factors that make these groups disadvantaged (in the lack of car sense) are also factors that result in these groups having lower location-activtaed mobile devices. The elderly may only be able to use basic phones, or not be able to use phones at all. Young children may not own phones that can track their location due to their parent's policies. The poor may be able to only afford a basic phone.</p>
+        </div>
+        <div class="col-sm-8">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/disadvantaged-groups.jpg' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">How can we capture the location data of disadvanted groups? Image credit to <a rel="noopener noreferrer" target="_blank" href="https://https://businessday.ng/">Business Day</a>.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <p>To really emphacize, the factors that make these groups disadvantaged and the factors that make them less likely to own a location-activated mobile device are very similar or even the same. Additionally, these factors make it so that they are the groups that can most benefit from a travel demand model that can predict the behvaior of non-car transportation. In other words, it is critically important to capture their travel behavior.</p>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/travel_journal.jpg' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">What a travel journal could look like. This is actually what I did on that Thursday and Friday. Image credit to myself.</figcaption>
+            </figure>
+        </div>
+        <div class="col-sm-4">
+
+            <p>Without mobile device location data, we can really only go to old school methods. Within each of the groups, people will be given some kind of travel journal (see the example in the left image) or survey, with some kind of incentive, monetary or otherwise. It is important to make sure that the samples taken are representative of the various groups as well as representative of general demographics and the geographic area.</p>
+
+            <p>After these travel journals/surveys have been filled out for a certain period of time (6 months to a year seems ideal), the data must be manually entered into our database.</p>
+
+            <p>By nature, this kind of data is much more sparse as there is no chance we get even close to the billions/trillions of location data points. Later on, when we are doing our analysis/modeling, it will be important to really emphacize this data.</p>
+
+        </div>
+    </div>
+
+    <p>As a result of our work, we should have accurately captured the travel behvaior of disadvanted groups, ensuring equity in our model.</p>
+
+    <div class="text-center">
+        <h6>Data Measurement</h6>
+    </div>
+
+    <p>The second step of the data process is measurement, which can be further brokein into four different steps. Note that since this is primarily a philosophy project, I will not be going too in depth into each of the four steps. Additionally, much of the technical information that follows comes from Dr. Lawrence Frank's USP 180: Transportation Planning slides, a class that I took in Spring 2021 and TA'd in Winter 2022.</p>
+
+    <p>The four parts of the data collection process are as follows:</p>
+
+    <ol start="0">
+        <li>Split Into Zones: This is step zero because it doesn't take any real work to do. Basically whatever geographic area you are studying should be split up into zones of some kind. Given the purpose and scope of this project, the contiguous United States will be broken up into Census Block Groups. Note, we use Block Groups instead of Blocks because oftentimes Blocks are too small to contain any households or trip destinations. Each Block Group contains on average 39 Blocks, meaning they are much more likely to be meaningful. Additionally, the Block Group is the smallest geographic unit for which the US Census publishes sample data.</li>
+        <li>Trip Generation: This step can be summarized as: "Why would someone go somewhere?" For each Census Block Group (henceforth known as CBG), destinations (work, shop, play, etc.) will be aggregated.</li>
+        <li>Trip Distribution: This step can be summarized as "Where are people going and why?" For each CBG, trip origins will be determined and matched to destinations based on location data. Historically, other models have been used such as the gravity model (people go to the closest location (in terms of trip time not distance) that gives them what they want) but in today's age of big data, more accurate methods can be used.</li>
+        <li>Mode Choice: This step can be summarized as "How do people get places?" For each trip, travel mode choice (car, carpool, walk, bike, transit, etc.) will be deremined based on traffic network distances (car travel time, bike travel time, etc.), various demographic factors (car ownership, bike ownership, etc.), and built/natural environment factors (bike lanes, sidewalk width, connectiviety of street network, etc.). This is in no way a comprehensive list, but it gets at the general idea.</li>
+        <li>Traffic Assignment: This step can be summarized as "What mode will people choose?" Again for each trip, people will choose a mode of travel based upon factors such as time taken, weather, time, desire for exercise, etc.</li>
+    </ol>
+
+    <p>Although these four steps are listed in order from one to four, in actuality they are highly interlinked (each of the four steps effect the other three steps).</p>
+
+    <p>Skipping over the insane amount of processing such a measurement will take, the resulting database could concievably look like:</p>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Table 1: Trips</p>
+            <p>[<<i>trip_id</i>>, &ltinitial <i>location_id</i>>, &ltfinal <i>location_id</i>>, <<i>number_of_stops</i>>]</p>
+        </div>
+        <div class="col-sm-4">
+            <p>Table 2: Trips in Detail</p>
+            <p>[<<i>trip_id</i>>, <<i>trip_segmenent_number</i>>, &ltstart <i>location_id</i>>, &ltend <i>location_id</i>>, <<i>transportation_mode</i> (car, carpool, walk, etc.)>]</p>
+        </div>
+        <div class="col-sm-4">
+            <p>Table 3: Locations</p>
+            <p>[<<i>location_id</i>>, <<i>CBG_id</i>>, <<i>type_of_location</i> (home, work, etc.)>]</p>
+        </div>
+    </div>
+
+    <p>If you recall the privacy concerns from earlier, you can see that the final database is aggregated in the sense that no specific locations are given, only the CBG of any location. No longer can you look up the latitude/longitude of someone's house to track their location. Perhaps if someone has a really unique communte, it would still be possible to pick them out from this aggregated database, but that is simply the natural result of our world of almost ubiquitous tracking.</p>
 
 </div>
 
