@@ -104,35 +104,35 @@
         <div class="container mx-auto">
             <figure class="figure mx-auto" style="display: block;">
                 <img src="{% static 'mysite/elderly_traveling.jpg' %}" class="figure-img img-fluid mx-auto" style="height: auto; display: block;">
-                <figcaption class="figure-caption text-center">I'm not certain this image is representative of how the elderly tend to travel. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://www.assistedvillas.com">Assisted Villas</a>.</figcaption>
+                <figcaption class="figure-caption text-center">I'm not certain this image is representative of how the elderly tend to travel. But what do I know right? Image credit to <a rel="noopener noreferrer" target="_blank" href="https://www.assistedvillas.com">Assisted Villas</a>.</figcaption>
             </figure>
         </div>
     </div>
     
-    <p>Another ethical concern is tangential to the first, and potentially more dangerous. Specifically, it is possible that the data of disadvantaged groups, such as children, the elderly, and the disabled is "drowned out". I would say this is espeically dangerous becuase these groups of people are effected in different ways with infrastrucutre changes. See the following table for some examples:</p>
+    <p>Another ethical concern is tangential to the first, and potentially more dangerous. Specifically, it is possible that the data of disadvantaged groups, such as children and the elderly are "drowned out". I would say this is espeically dangerous becuase these groups of people are effected in different ways with infrastrucutre changes. See the following tables for some examples. Note that here I will mostly be talking about the infrasturcure requirements to encourage health mobility in these groups.</p>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <p>Infrastructure Requirements for Children</p>
             <ul>
-                <li>TODO</li>
+                <li>Children are highly dependent on two variables to encourage healthy mobility: distance between destinations and saftey (traffic/crime as well as perceived/actual).</li>
+                <li>Mixed land use and higher population density can primarily lower the distance between destinations. This also increases crime safety by increasing the number of watchful eyes around.</li>
+                <li>Traffic calming measures (speedbumps, narrow roads, bendy roads), signage, and sidewalk seperation from the road can increase traffic safety.</li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <p>Infrastructure Requirements for the Elderly</p>
             <ul>
-                <li>TODO</li>
-            </ul>
-        </div>
-        <div class="col-sm-4">
-            <p>Infrastructure Requirements for the Disabled</p>
-            <ul>
-                <li>TODO</li>
+                <li>The elderly are highly focused on saftey considerations, and tend to view the personal vehicle as the safest mode of transit. However many elderly do not own cars or cannot drive</li>
+                <li>Traffic calming measures, more complete sidewalk networks, and perhaps most importantly lower distance between destinations (mixed land use) increase the safety of elderly pedestrians</li>
+                <li>Crossing signals can be timed for elderly walking speed</li>
             </ul>
         </div>
     </div>
 
-    <p>TODO: solution is to caputre data around infrastrue data that would effect these groups more</p>
+    <p>Note the content of the three tables above comes from the book <i>Health and Community Design</i> by Lawrence D. Frank, Peter O. Engelke, and Thomas L. Schmid, published by Island Press in 2003.</p>
+
+    <p>The solution to this ethical concern is to simply focus extra attention during the data collection phase to the infrastructure changes that would disproportionally effect disadvataged groups. Additionaly, during the analysis/modeling phase, more emphasis can be placed upon the data of disadvantaged groups during training. In a highly extreme case, additional sub-models could be created that are dedicated to specifically capturing the travel behavior of these groups.</p>
 </div>
 
 {% endblock %}
