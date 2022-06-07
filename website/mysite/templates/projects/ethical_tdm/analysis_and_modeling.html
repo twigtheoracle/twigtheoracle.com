@@ -1,0 +1,143 @@
+{% extends "projects/ethical_tdm/ethical_tdm_template.html" %}
+
+{% load static %}
+
+{% block title %}Data Collection and Measurement{% endblock %}
+
+{% block other-head %}
+{% endblock %}
+
+{% block pagetitle %}Ethical Development of a Transportation Demand Model{% endblock %}
+
+{% block subtitle %}Analysis and Modeling{% endblock %}
+
+{% block subcontent %}
+
+<div class="paragraphs text-left">
+    
+    <div class="container site-width">
+        <div class="container mx-auto">
+            <figure class="figure mx-auto" style="display: block;">
+                <img src="{% static 'mysite/suburban_streets.jpg' %}" class="figure-img img-fluid mx-auto" style="height: auto; display: block;">
+                <figcaption class="figure-caption text-center">Low housing density, low street network connectivity, and lack of mixed zoning result in a suburban area with low walkability. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://science.howstuffworks.com">HowStuffWorks</a>.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <p>With our database of trips, we can now begin the analysis and modeling phase. The end goal of this part of the project is to have a travel demand model which can accurately predict how various kinds of infrastructure changes will effect the demand for various travel modes over time. In the following example, the Des Moines Metropolitan Planning Organization (MPO) used a travel demand model to show the difference in projected level of service (basically a measure of throughput + density) of the street/highway network in 2005, 2010 (not included), 2020 (not included), and 2030.</p>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/tdm_sim_2005.png' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">How the existing street and highway network is projected to perform in 2005. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://dmampo.org/">Des Moines Area MPO</a>.</figcaption>
+            </figure>
+        </div>
+        <div class="col-sm-6">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/tdm_sim_2030.png' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">How the existing street and highway network is projected to perform in 2030. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://dmampo.org/">Des Moines Area MPO</a>.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h6>Model Description</h6>
+    </div>
+
+    <p>Partially because this is a philosophy class and not an urban planning class, and partially because I have no idea how to actually create a TDM, I will not be discussing at all how the model will be constructed. Therefore, for the rest of this project the model will be treated as some kind of black box that takes in specific inputs and spits out specific outputs.</p>
+
+    <p>However, just because our model is a black box does not mean that nothing can be said about it. The inputs and outputs to the model can be found in the following tables:</p>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <p>Model Inputs</p>
+            <ul>
+                <li>Transportation Network: Including but not limited to the street/highway/sidewalk/bike networks and the public transit lines.</li>
+                <li>Socioeconomic Variables: Used to modify the predicted travel behavior of specific CGBs. For example, an area with a lower value of the variable <<i>cars_per_household</i>> would be less likely to make trips by personal vehicle for obvious reasons.</li>
+                <li>Demographic Variables: Used to modify the predicted travel behavior of specific CGBs. For example, an area with a higher value of the variable <<i>population_density</i>> would be less likely to make trips by personal vehicle due to the increased difficulty of parking.</li>
+                <li>Built/Natural Environment Variables: Used to modify the predicted travel behavior of specific CGBs. For example, the an area with a higher value of the variable <<i>streetlight_coverage</i>> would be more likely to make trips by walking due to the perceived extra safety of good lighting.</li>
+            </ul>
+        </div>
+        <div class="col-sm-5">
+            <p>Model Outputs</p>
+            <ul>
+                <li>The transportation network with both level of service decimal values and level of service category values for each street/highway/sidewalk/bike network segment.</li>
+                <ul>
+                    <li>The category values should be color coded such that a color gradient map can be created of the transportation network</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+    <p>In order to generate before/after maps or make future predictions, the various model inputs should be adjusted accordingly. When trying to generate before/after maps, to get the after map the input transportation network should be modified to reflect the proposed infrastructure change. To get future predictions for a transportation network, socioeconomic/demographic/built+natural environment variables should all be adjusted to projected or ideal values for the given year.</p>
+
+    <div class="text-center">
+        <h6>Ethical Concerns</h6>
+    </div>
+
+    <p>Again, since we are focusing on a travel demand model for non-car transportation, we really want to make sure to accurately capture the travel behavior of all the different kinds of non-car transportation. Because we lack large amounts of data, there is the worry that in our model training procedure, non-car transportation data will be "drowned-out", so to speak.</p>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <figure class="figure mw-100">
+                <img src="{% static 'mysite/iris.png' %}" class="figure-img img-fluid">
+                <figcaption class="figure-caption text-center">The Iris flower classification dataset is a famous machine learning problem. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://ai.plainenglish.io/iris-flower-classification-step-by-step-tutorial-c8728300dc9e/">Injemamul Irshad via Medium</a>.</figcaption>
+            </figure>
+        </div>
+        <div class="col-sm-6">
+            <p>To show this, let's take a hypothetical example. Assume you are creating a model that aims to classify pictures of the Iris flower into the different kinds of Iris. As can be seen on the left, the many varieties of the Iris flower can take many different forms.</p>
+
+            <p>However, unknown to you the Iris dataset has been pruned such that 95% of the flower images are Iris Versicolor. If you train your model on this modified dataset with the goal of 90% accuracy, it is likely that your model will simply learn to always output Iris Versicolor.</p>
+
+            <p>Bringing it back to the TDM, because we (relatively speaking) have very little non-car transportation data, it would be possible for the TDM to only predict car transportation trip changes and simply ignore non-car transportation trip changes.</p>
+        </div>
+    </div>
+
+    <p>What can be done about this? Well the easiest solution in my mind is one I should have done anyways. the different transportation modes should be split up such that we actually end up with 3-4 different sub-models in our overall model. One model could focus on predicting how car transportation changes, another could focus on transit changes, another could focus on non-motorized transportation, and yet another could focus on motorized micro-mobility. And one final model would tie them all together.</p>
+
+    <p>In this way, we can ensure that the travel patterns of all modes of transportation are accurately captured and reflected in our final model.</p>
+    
+    <div class="container site-width">
+        <div class="container mx-auto">
+            <figure class="figure mx-auto" style="display: block;">
+                <img src="{% static 'mysite/elderly_traveling.jpg' %}" class="figure-img img-fluid mx-auto" style="height: auto; display: block;">
+                <figcaption class="figure-caption text-center">I'm not certain this image is representative of how the elderly tend to travel. But what do I know right? Image credit to <a rel="noopener noreferrer" target="_blank" href="https://www.assistedvillas.com">Assisted Villas</a>.</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    <p>Another ethical concern is tangential to the first, and potentially more dangerous. Specifically, it is possible that the data of disadvantaged groups, such as children and the elderly are "drowned out". I would say this is especially dangerous because these groups of people are effected in different ways with infrastructure changes. See the following tables for some examples. Note that here I will mostly be talking about the infrastructure requirements to encourage health mobility in these groups.</p>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Infrastructure Requirements for Children</p>
+            <ul>
+                <li>Children are highly dependent on two variables to encourage healthy mobility: distance between destinations and safety (traffic/crime as well as perceived/actual).</li>
+                <li>Mixed land use and higher population density can primarily lower the distance between destinations. This also increases crime safety by increasing the number of watchful eyes around.</li>
+                <li>Traffic calming measures (speed bumps, narrow roads, bendy roads), signage, and sidewalk separation from the road can increase traffic safety.</li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <p>Infrastructure Requirements for the Elderly</p>
+            <ul>
+                <li>The elderly are highly focused on safety considerations, and tend to view the personal vehicle as the safest mode of transit. However many elderly do not own cars or cannot drive</li>
+                <li>Traffic calming measures, more complete sidewalk networks, and perhaps most importantly lower distance between destinations (mixed land use) increase the safety of elderly pedestrians</li>
+                <li>Crossing signals can be timed for elderly walking speed</li>
+            </ul>
+        </div>
+    </div>
+
+    <p>Note the content of the three tables above comes from the book <i>Health and Community Design</i> by Lawrence D. Frank, Peter O. Engelke, and Thomas L. Schmid, published by Island Press in 2003. Also note that the assumption has been made that parents would be more ok with their children going places themselves if areas are safer. This assumption is made through my own experience (I have transported myself to/from school since early Elementary) and through the book <i>Health and Community Design</i>.</p>
+
+    <p>The solution to this ethical concern is to simply focus extra attention during the data collection phase to the infrastructure changes that would disproportionately effect disadvantaged groups. Additionally, during the analysis/modeling phase, more emphasis can be placed upon the data of disadvantaged groups during training. In a highly extreme case, additional sub-models could be created that are dedicated to specifically capturing the travel behavior of these groups.</p>
+
+    <p>Additionally, the model outputs should be modified such that the level of service for different disadvantaged groups can be displayed. This way, the model output can show both (1) overall level of service of the transportation network and (2) level of service of the transportation network for specific groups. Of course, level of service for specific groups should be calculated differently than overall level of service</p>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}
+
