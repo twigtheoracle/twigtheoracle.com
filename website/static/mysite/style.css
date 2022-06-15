@@ -53,3 +53,9 @@ textarea {
   line-height: 1.21429em;
   margin-bottom: 10px;
 }
+
+/* Style for greek philosophy (Plato mostly) page numbers. These should be used on <span> */
+.line-number {
+    float: right;
+    font-weight: bold;
+}
