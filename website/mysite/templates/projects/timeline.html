@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Timeline{% endblock %}
+
+{% block other-head %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<style type="text/css">
+    #sortable-table span {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block pagetitle %}Timeline{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <!-- Structure to run the actual project -->
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+
+        <p>I have for as long as I can remember, had an awful memory for things that I have done and things that have happened to me. This project is my attempt to record my history including past, present, and future events. Not included on this list are more mundane events, which to me include things like parties, eating out, etc.</p>
+
+        <p>The project was started on August 23rd, 2022. Events that occurred many years before this date (or to be honest, even a few months before this date) are likely the result of research rather than recollection.</p>
+
+        <p>This project is still heavily work in progress.</p>
+
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed">The History of Eric</div>
+            </h4>
+        </div>
+
+        <table id="sortable-table" class="table table-striped table-bordered w-100">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>20221022</span>October 22nd, 2022</td>
+                    <td>Concert: Death Cab for Cutie and Yo La Tengo @ Epstein Family Ampitheatre, San Diego</td>
+                </tr>
+                <tr>
+                    <td><span>20220925</span>September 25th, 2022</td>
+                    <td>Concert: Kikagku Moyo and Briana Marela @ The Warfield, San Francisco</td>
+                </tr>
+                <tr>
+                    <td><span>20220923</span>September 23rd, 2022</td>
+                    <td>Concert: black midi and Black County, New Road @ Music Box, San Diego</td>
+                </tr>
+                <tr>
+                    <td><span>20220902</span>September 2nd, 2022</td>
+                    <td>Concert: Andrew Jackson Jihad @ SOMA, San Diego</td>
+                </tr>
+                <tr>
+                    <td><span>20220831</span>August 31st, 2022</td>
+                    <td>Housing: Renewed for another year 13227 Wimberly Square, Unit 266, San Diego, CA, 92128</td>
+                </tr>
+                <tr>
+                    <td><span>20220808</span>August 8th, 2022</td>
+                    <td>Concert: Foxing, Greet Death, and Home is Where @ Soda Bar, San Diego</td>
+                </tr>
+                <tr>
+                    <td><span>20220705</span>July 5th, 2022</td>
+                    <td>Started Data QA/QC Intern position @ San Diego Association of Governments</td>
+                </tr>
+                <tr>
+                    <td><span>20220620</span>June 20th, 2022</td>
+                    <td>Started (and immediately quit) Traffic Quality Analyst position @ Epsilon</td>
+                </tr>
+                <tr>
+                    <td><span>20220610</span>June 10th, 2022</td>
+                    <td>Graduated from UC San Diego with a Bachelor of Science in Data Science and a Bachelor of Art in Philosophy</td>
+                </tr>
+                <tr>
+                    <td><span>20220610</span>June 10th, 2022</td>
+                    <td>Concert: Covet, Hikes, and King of Heck @ August Hall, San Francisco</td>
+                </tr>
+                <tr>
+                    <td><span>20220527</span>May 27th, 2022 - May 30th, 2022</td>
+                    <td>Climbing: Priest's Draw in Flagstaff, Arizona</td>
+                </tr>
+                <tr>
+                    <td><span>20220507</span>May 7th, 2022</td>
+                    <td>Concert: Prince Daddy & the Hyena, Macseal, Insignificant Other, and ??? @ House of Blues, San Diego</td>
+                </tr>
+                <tr>
+                    <td><span>20220326</span>March 26th, 2022 - March 27th, 2022</td>
+                    <td>Climbing: Buttermilks and Druid Stones in Bishop, California</td>
+                </tr>
+                <tr>
+                    <td><span>20220306</span>March 6th, 2022</td>
+                    <td>Climbing: Joshua Tree National Park, California. Twisted my left ankle</td>
+                </tr>
+                <tr>
+                    <td><span>20220212</span>February 12th, 2022</td>
+                    <td>Climbing: Joshua Tree National Park, California</td>
+                </tr>
+                <tr>
+                    <td><span>20211219</span>December 19th, 2021 - December 22nd, 2021</td>
+                    <td>Climbing: Kraft Boulders in Red Rock Canyon, Nevada</td>
+                </tr>
+                <tr>
+                    <td><span>20210813</span>August 13th, 2021</td>
+                    <td>Housing: Moved into 13227 Wimberly Square, Unit 266, San Diego, CA, 92128</td>
+                </tr>
+                <tr>
+                    <td><span>20170925</span>September 25th, 2017</td>
+                    <td>Started college at UC San Diego as an undeclared major</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#sortable-table').DataTable( {
+        "searching": true,
+        "ordering": true,
+        "order": [[0, "desc"]],
+        "paging": false
+    });
+} );
+</script>
+{% endblock %}
