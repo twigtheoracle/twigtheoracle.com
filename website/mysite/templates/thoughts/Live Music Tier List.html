@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Live Music Tier List{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2022-05-07">
+<meta name="modification-date" content="2023-03-10">
+{% endblock %}
+
+{% block pagetitle %}Live Music Tier List{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <figure class="figure" style="max-width: 100%;">
+                <img src="{% static 'mysite/magic_sword.jpg' %}" class="img-fluid img-fluid mx-auto" style="max-width: 100%;">
+                <figcaption class="figure-caption text-center">One of my favorite live artists is Magic Sword. Image credit to <a rel="noopener noreferrer" target="_blank" href="https://powerofprog.com">Power of Prog</a>.</figcaption>
+            </figure>
+        </div>
+        <div class="col-sm-8">
+            <p>Since May of 2022, I have tried to go to at least one concert a month, up to as many as one concert per week. I have always loved listening to music and I have no idea why I ended up not going to concerts until so late in my life.</p>
+
+            <p>Each concert (the full list of which and venues can be found in the <a href="/projects/timeline">Timeline</a>) typically has 2-3 artists, of which I rate those I remember.</p>
+
+            <p>A few other things to note:</p>
+
+            <ol>
+                <li>Most of the artists I have only seen live once. If this is not the case, it will be noted in paratheses the number of times I have seen them live.</li>
+                <li>In some concerts, either the venue or the audience detracted enough from the experience to lower them a tier. This is noted by a small downward arrow (<span>&#8595;</span>) next to the artist.</li>
+                <li>If the venue or audience significantly detracted enough from the experience, this will be noted by a double small downward arrow (<span>&#8595;</span><span>&#8595;</span>) next to the artist.</li>
+                <li>If an artist has a comma in the name, their name will be quoted.</li>
+            </ol>
+        </div>
+    </div>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tier (Description)</th>
+            <th scope="col">Fruits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>S (Best of the best)</th>
+            <td>Magic Sword, Black Midi, Kikagaku Moyo</td>
+        </tr>
+        <tr>
+            <th>A (Amazing)</th>
+            <td>Macseal, Andrew Jackson Jihad, "Black County, New Road", Slow Crush, Joyce Manor</td>
+        </tr>
+        <tr>
+            <th>B (Great)</th>
+            <td>Prince Daddy & the Hyena, Covet, Hikes, Death Bells, Greet Death, PUP</td>
+        </tr>
+        <tr>
+            <th>C (Good)</th>
+            <td>Home is Where</td>
+        </tr>
+        <tr>
+            <th>D (Ok)</th>
+            <td>Foxing<span>&#8595;</span>, El Ten Eleven</td>
+        </tr>
+        <tr>
+            <th>F (Poor)</th>
+            <td>Death Cab for Cutie<span>&#8595;</span><span>&#8595;</span>, Yo La Tengo<span>&#8595;</span><span>&#8595;</span></td>
+        </tr>
+        <tr>
+            <th>Don't Remember</th>
+            <td>Insignificant Other, King of Heck, Briana Marela</td>
+        </tr>
+    </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
