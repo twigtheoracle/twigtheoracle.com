@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Restaurant Tier List{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2023-05-16">
+<meta name="modification-date" content="2023-05-16">
+{% endblock %}
+
+{% block pagetitle %}Restaurant Tier List{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tier (Description)</th>
+            <th scope="col">Restaurant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>SS (Eden on Earth)</th>
+            <td>Chez Nous (RIP)</td>
+        </tr>
+        <tr>
+            <th>S (Best of the best)</th>
+            <td>Sushi Maruyama (Bay Area), Kabul Afgan Cruisine (Bay Area)</td>
+        </tr>
+        <tr>
+            <th>A (Amazing)</th>
+            <td>Duff's Dogz, Plaza Deli, The Taco Stand, Empanada Kitchen</td>
+        </tr>
+        <tr>
+            <th>B (Great)</th>
+            <td>Best Pizza and Brew, Urban Thai, Zen Modern Asian Bistro, Valentine's Mexican Food, Thotsakan Thai, Vallarta Express, Cuisinett (Bay Area), Panda Dumpling (Bay Area) (RIP), Board and Brew</td>
+        </tr>
+        <tr>
+            <th>C (Good)</th>
+            <td>Alvaro's Mexican Food, Raising Cane's, Coal Bros Taqueria, The Kebab Shop, Poki One N Half, Snooze</td>
+        </tr>
+        <tr>
+            <th>D (Ok)</th>
+            <td>Yesenia's Mexican Food, Ali's Chicken and Waffles, Urban Plates, Pho La Jolla</td>
+        </tr>
+        <tr>
+            <th>F (Poor)</th>
+            <td></td>
+        </tr>
+    </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
