@@ -1,57 +1,178 @@
-\documentclass{article}
-
-\title{The Art of Computer Programming}
-\author{Eric Liu}
-\date{\today}
+\documentclass{report}
 
 \usepackage{amsmath}
 
 \renewcommand{\O}{$\mathcal{O}$}
 
+\newcommand{\say}[1]{``#1''}
+
+\setlength{\parindent}{0pt}
+
 \begin{document}
 	
-	\section{Volume 1: Fundamental Algorithms, Third Edition}
+\chapter*{Volume 1: Fundamental Algorithms, Third Edition}
+
+	\section*{Chapter 1.1: Algorithms}
 	
-		\subsection{Chapter 1.1: Algorithms}
+		\subsection*{Exercise 1 [10]} 
 		
-			\paragraph{Exercise 1 [10]} TODO
-			\paragraph{Exercise 2 [15]} TODO
-			\paragraph{Exercise 3 [20]} TODO
-			\paragraph{Exercise 4 [16]} TODO
-			\paragraph{Exercise 5 [12]} TODO
-			\paragraph{Exercise 6 [20]} TODO
-			\paragraph{Exercise 7 [HM21]} TODO
-			\paragraph{Exercise 8 [M25]} TODO
-			\paragraph{Exercise 9 [M30]} TODO
+			The text showed how to interchange the values of variables $m$ and $n$, using the replacement notation, by setting $t \leftarrow m$, $m \leftarrow n$, $n \leftarrow t$. Show how the values of \textit{four} variables $(a,b,c,d)$ can be rearranged to $(b,c,d,a)$ by a sequence of replacements. Try to use the minimum number of replacements.
 			
-		\subsection{Test Math}
+			\paragraph{Solution} I am 99\% sure that doing the above can be done in at minimum three switches, which I think are fairly obvious. 
 			
-			$$ x^n = \begin{Bmatrix} n \\ n \end{Bmatrix} x^n + \cdots + \begin{Bmatrix} n \\ 1 \end{Bmatrix} x^1 + \begin{Bmatrix} n \\ 0 \end{Bmatrix} x^0 = \sum_k \begin{Bmatrix} n \\ k \end{Bmatrix} x^k $$
+			$a \leftrightarrow b$ to get $(b,a,c,d)$
 			
-		\subsection{Chapter 1.2.1: Mathematical Induction}
+			$c \leftrightarrow a$ to get $(b,c,a,d)$
+			
+			$a \leftrightarrow d$ to get $(b,c,d,a)$
+			
+			\paragraph{Corrections} I read the problem wrong, it was asking for $\leftarrow$ replacements instead of replacement $\leftrightarrow$.
+			
+			\paragraph{Solution} Basically, put use $t$ as a single placeholder variable and shift everything within around:
+			
+			$t \leftarrow a$ to get $(a,b,c,d)$ and $t=a$
+			
+			$a \leftarrow b$ to get $(b,b,c,d)$ and $t=a$
+			
+			$b \leftarrow c$ to get $(b,c,c,d)$ and $t=a$
+			
+			$c \leftarrow d$ to get $(b,c,d,d)$ and $t=a$
+			
+			$d \leftarrow t$ to get $(b,c,d,a)$
+			
+			\paragraph{Corrections} N/A
 		
-		\subsection{Chapter 1.2.2: Numbers, Powers, and Logarithms}
+		\subsection*{Exercise 2 [15]} 
 		
-		\subsection{Chapter 1.2.3: Sums and Products}
+			Prove that $m$ is always greater than $n$ at the beginning of Step~E1, except possibly the first time this step occurs
+			
+			\paragraph{Solution} Either $m > n$, $m=n$, or $m < n$. For each of these situations:
+			\begin{enumerate}
+				\item Assume that $m > n$. In this case, the solution is trivial.
+				\item Assume that $m=n$. We execute Step~E1 and get a remainder $r=0$. At Step~E2, the algorithm terminates so we never hit Step~E1 again.
+				\item Assume that $m < n$. We execute Step~E1 and get the remainder of $r=m$. We execute Step~E3 and set $m \leftarrow n$ and $n \leftarrow r$. Now, $m$ has the value of the original $n$ and $n$ has the value of the original $m$. Since $m$ and $n$ have switched, we get the new relationship of $m > n$.
+			\end{enumerate}
+			
+			\paragraph{Corrections} N/A
 		
-		\subsection{Chapter 1.2.4: Integer Functions and Elementary Number Theory}
+		\subsection*{Exercise 3 [20]} 
 		
-		\subsection{Chapter 1.2.5: Permutations and Factorials}
+			Change Algorithm E (for the sake of efficiency) so that all trivial replacement operations such as \say{$m \leftarrow n$} are avoided. 
+			
+			\paragraph{Solution} The following algorithm eliminates all trivial replacement operations:
+			
+			\begin{enumerate}
+				\item Divide $m$ by $n$ and let $m$ be the remainder
+				\item If $m$ is zero, the algorithm terminates; $n$ is the answer
+				\item Divide $n$ by $m$ and let $n$ be the remainder
+				\item If $n$ is zero, the algorithm terminates; $m$ is the answer
+				\item Return to step F1
+			\end{enumerate}
+			
+			\paragraph{Corrections} N/A
+			
 		
-		\subsection{Chapter 1.2.6: Binomial Coefficients}
+		\subsection*{Exercise 4 [16]} 
 		
-		\subsection{Chapter 1.2.7: Harmonic Numbers}
+			What is the GCD of 2166 and 6099?
+			
+			\paragraph{Solution} For fun, let's use the algorithm in \textbf{Exercise 3} with $m=2166$ and $n=6099$.
+			
+			\begin{table}[h]
+				\begin{tabular}{llll}
+					$m$ & $n$ & $m\%n$ & $n\%m$ \\
+					\hline
+					2166 & 6099 & 2166 & \\
+					2166 & 6099 & & 1767 \\
+					2166 & 1767 & 399 & \\
+					399 & 1767 & & 171 \\
+					399 & 171 & 57 & \\
+					57 & 171 & & 0 \\
+					57 & 0 & 0 & 
+				\end{tabular}
+			\end{table}
 		
-		\subsection{Chapter 1.2.8: Fibonacci Numbers}
+			So the GCD is 57
+			
+			\paragraph{Corrections} N/A
+			
 		
-		\subsection{Chapter 1.2.9: Generating Functions}
+		\subsection*{Exercise 5 [12]} 
 		
-		\subsection{Chapter 1.2.10: Analysis of an Algorithm}
+			Show that the \say{Procedure for Reading This Set of Books} that appear after the preface actually fails to be a genuine algorithm on at least three of our five counts.
+			
+			\paragraph{Solution} TODO
+			
+			\paragraph{Corrections} TODO
+			
 		
-		\subsection{Chapter 1.2.11.1: The \O{}-Notation}
+		\subsection*{Exercise 6 [20]}
 		
-		\subsection{Chapter 1.2.11.2: Euler's Summation Formula}
+			What is $T_5$, the average number of times step E1 is performed when $n=5$.
+			
+			\paragraph{Solution} TODO
+			
+			\paragraph{Corrections} TODO
+			
 		
-		\subsection{Chapter 1.2.11.3: Some Asymptotic Calculations}
+		\subsection*{Exercise 7 [HM21]} 
+		
+			Let $U_m$ be the average number of times that step E1 is executed in Algorithm E, if $m$ is known and $n$ is allowed to range over all positive integers. Show that $U_m$ is well defined. Is $U_m$ in any way related to $T_m$?
+			
+			\paragraph{Solution} TODO
+			
+			\paragraph{Corrections} TODO
+			
+		
+		\subsection*{Exercise 8 [M25]} 
+		
+			Give an \say{effective} formal algorithm for computing the GCD of positive integers $m$ and $n$ by specifying $\theta_j, \phi_j, a_j, b_j$ as in Eqs. (3). Let the input be represented by the string $a^m b^n$, that is, $m$ $a$'s followed by $n$ $b$'s. Try to make your solution as simple as possible. [\textit{Hint:} Use Algorithm E, but instead of division in step E1, set $r \leftarrow |m-n|$, $n \leftarrow \text{min}(m,n)$.]
+			
+			\paragraph{Solution} TODO
+			
+			\paragraph{Corrections} TODO
+			
+		
+		\subsection*{Exercise 9 [M30]} 
+		
+			Suppose that $C_1 = (Q_1, I_1, \Omega_1, f_1)$ and $C_2 = (Q_2, I_2, \Omega_2, f_2)$ are computational methods. For example $C_1$ might stand for Algorithm E as in Eqs. (2), except that $m$ and $n$ are restricted in magnitude, and $C_2$ might stand for a computer program implementation of Algorithm E. (Thus $Q_2$ might be the set of all states of the machine, i.e., all possible configurations of its memory and registers; $f_2$ might be the definition of single machine actions; and $I_2$ might be the set of initial states, each including the program that determines the GCD as well as the particular values of $m$ and $n$.)
+			
+			Formulate a set-theoretic definition for the concept \say{$C_2$ is a representation of $C_1$} or \say{$C_2$ simulates $C_1$}. This is to mean intuitively that any computation sequence of $C_1$ is mimicked by $C_2$, except that $C_2$ might take more steps in which to do the computation and it might retain more information in its states
+			
+			\paragraph{Solution} TODO
+			
+			\paragraph{Corrections} TODO
+			
+		
+		
+%	\subsection{Test Math}
+%		
+%		$$ x^n = \begin{Bmatrix} n \\ n \end{Bmatrix} x^n + \cdots + \begin{Bmatrix} n \\ 1 \end{Bmatrix} x^1 + \begin{Bmatrix} n \\ 0 \end{Bmatrix} x^0 = \sum_k \begin{Bmatrix} n \\ k \end{Bmatrix} x^k $$
+%		
+%	\subsection{Chapter 1.2.1: Mathematical Induction}
+%	
+%	\subsection{Chapter 1.2.2: Numbers, Powers, and Logarithms}
+%	
+%	\subsection{Chapter 1.2.3: Sums and Products}
+%	
+%	\subsection{Chapter 1.2.4: Integer Functions and Elementary Number Theory}
+%	
+%	\subsection{Chapter 1.2.5: Permutations and Factorials}
+%	
+%	\subsection{Chapter 1.2.6: Binomial Coefficients}
+%	
+%	\subsection{Chapter 1.2.7: Harmonic Numbers}
+%	
+%	\subsection{Chapter 1.2.8: Fibonacci Numbers}
+%	
+%	\subsection{Chapter 1.2.9: Generating Functions}
+%	
+%	\subsection{Chapter 1.2.10: Analysis of an Algorithm}
+%	
+%	\subsection{Chapter 1.2.11.1: The \O{}-Notation}
+%	
+%	\subsection{Chapter 1.2.11.2: Euler's Summation Formula}
+%	
+%	\subsection{Chapter 1.2.11.3: Some Asymptotic Calculations}
 			
 \end{document}
