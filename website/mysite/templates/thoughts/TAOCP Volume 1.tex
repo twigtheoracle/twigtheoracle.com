@@ -99,27 +99,97 @@
 		
 		\subsection*{Exercise 5 [12]} 
 		
-			Show that the \say{Procedure for Reading This Set of Books} that appear after the preface actually fails to be a genuine algorithm on at least three of our five counts.
+			Show that the \say{Procedure for Reading This Set of Books} that appear after the preface actually fails to be a genuine algorithm on at least three of our five counts. Also mention some differences in format between it an Algorithm E.
 			
-			\paragraph{Solution} TODO
+			\paragraph{Solution} The five counts are as follows:
 			
-			\paragraph{Corrections} TODO
+			\begin{enumerate}
+				\item Finiteness: An algorithm must always terminate after a finite number of steps.
+				\item Definiteness: Each step of an algorithm must be precisely defined; the actions to be carried out must be rigorously and unambiguously specified for each case.
+				\item Input: An algorithm has zero or more inputs, quantities that are given to it initially before the algorithm begins, or dynamically as the algorithm runs.
+				\item Output: An algorithm has one or more outputs, quantities that have a specified relation to the inputs
+				\item Effectiveness: An algorithm is also generally expected to be effective, in the sense that its operations must all be sufficiently basic that they can in principle be done exactly and in a finite length of time by someone using pencil and paper.
+			\end{enumerate}
+			
+			The \say{Procedure for Reading This Set of Books} fails on counts 1, 2, and 4. The procedure is not finite because all 17 steps before the last either point to another step or move on to the next. The final step returns you to step 3, so the procedure will never end. The procedure is not definite because the steps leave some things to the discretion of the reader, which is the opposite of a precise definition. And finally, the procedure has no output, because it never ends.
+			
+			And here are a few differences with Algorithm E:
+			\begin{itemize}
+				\item The procedure lacks a formal end point, where Algorithm E uses a heavy vertical line
+				\item The procedure is informal and vague, while Algorithm E uses strict notation and language
+			\end{itemize}
+			
+			\paragraph{Corrections} N/A
 			
 		
 		\subsection*{Exercise 6 [20]}
 		
 			What is $T_5$, the average number of times step E1 is performed when $n=5$.
 			
-			\paragraph{Solution} TODO
+			\paragraph{Solution} Let's compute some values for $m \in {1,2,3,4,5}$. According to the book, to find $T_n$ we just do the algorithm for $m=1$ to $m=n$, count the number of times step E1 has been done, and divide by $n$
 			
-			\paragraph{Corrections} TODO
+			\begin{itemize}
+				\item For $n=5$ and $m=1$. E1: $1\%5 = 1$. E3: $n=1$ and $m=5$. E1: $5\%1=0$. End with 2
+				
+				\item For $n=5$ and $m=2$. E1: $2\%5 = 2$. E3: $n=2$ and $m=5$. E1: $5\%2=1$. E3: $n=1$ and $m=2$. E1: $2\%1 = 0$ End with 3
+				
+				\item For $n=5$ and $m=3$. E1: $3\%5 = 3$. E3: $n=3$ and $m=5$. E1: $5\%3=2$. E3: $n=2$ and $m=3$. E1: $3\%2=1$. E3: $n=1$ and $m=1$. E1: $1\%1=0$. End with 4
+				
+				\item For $n=5$ and $m=4$. E1: $4\%5 = 1$. E3: $n=1$ and $m=5$. E1: $5\%1=0$. End with 2
+				
+				\item For $n=5$ and $m=5$. E1: $5\%5 = 0$. End with 1
+			\end{itemize}
+		
+			The total number of times step E1 has been done is $2+3+4+2+1=12$ and divide by $n=5$ to get 2.4 
+			
+			\paragraph{Corrections} Silly mistake in $m=4$. 
+			
+			\paragraph{Solution} It should be:
+			
+			For $n=5$ and $m=4$. E1: $4\%5 = 4$. E3: $n=4$ and $m=5$. E1: $5\%4=1$. E3: $n=1$ and $m=4$. E1: $4\%1=0$. End with 3
+			
+			So the total should be $2+3+4+3+1=13$ and divide by $n=5$ to get 2.6
+			
+			As some additional food for thought, why do we only need to look at values of $m$ up to $n$? Let's say $m=6$. Then E1: $6\%5=1$, E3: $n=1$, $m=5$. This is identical to $m=1$, a pattern which will repeat for all values of $m > n$. Essentially, if $m\%n=x$, the steps followed are identical for if $m$ had equaled $x$ to start with.
+			
+			\paragraph{Corrections} N/A
 			
 		
 		\subsection*{Exercise 7 [HM21]} 
 		
 			Let $U_m$ be the average number of times that step E1 is executed in Algorithm E, if $m$ is known and $n$ is allowed to range over all positive integers. Show that $U_m$ is well defined. Is $U_m$ in any way related to $T_m$?
 			
-			\paragraph{Solution} TODO
+			\paragraph{Solution} Let's first try some examples I wrote some Python code (TODO: link) to do the computation for values of $n$ from 1 to 1,000,000 with the following results:
+			
+			\begin{table}[h]
+				\begin{tabular}{lllll}
+					$m$ & $U_m$ & Approximation & Expanded Numerator \\
+					\hline
+					1 & 1.999999 & 2 & 2 \\
+					2 & 2.499997 & $2\frac{1}{2} = 2.5$ & 5 \\
+					3 & 2.999995 & 3 & 9 \\
+					4 & 2.999993 & 3 & 12 \\
+					5 & 3.599991 & $3\frac{3}{5} = 3.6$ & 18 \\
+					6 & 3.166656 & $3 \frac{1}{6} \approx 3.1\overline{6}$ & 19\\
+					7 & 3.857129 & $3 \frac{6}{7} \approx 3.85714\dots$ & 27 \\
+					8 & 3.749985 & $3 \frac{6}{8} = 3.75$ & 30\\
+					9 & 3.77776 & $3 \frac{7}{9} \approx 3.\overline{7}$ & 34\\
+					10 & 3.699981 & $3 \frac{3}{10} = 3.7$ & 33\\
+					11 & 4.454523 & $4 \frac{5}{11} \approx 4.\overline{45}$ & 49 \\
+					12 & 3.666641 & $3 \frac{8}{12} \approx 3.\overline{6}$ & 44 \\
+					13 & 4.461512 & $4 \frac{6}{13} \approx 4.46153\dots$ & 58 \\
+					14 & 4.21425 & $4 \frac{3}{14} \approx 4.21428\dots$ & 59 \\
+					15 & 4.066637 & $4 \frac{1}{15} \approx 4.0\overline{6}$ & 61 \\
+					16 & 4.124969 & $4 \frac{2}{16} = 4.125$ & 66 \\
+					17 & 4.705847 & $4 \frac{12}{17} \approx 4.70588\dots$ & 80 \\
+					18 & 4.27774 & $4 \frac{5}{18} = 4.2\overline{7}$ & 77 \\
+					19 & 4.894699 & $4 \frac{17}{19} \approx 4.8947\dots$ & 93 \\
+					20 & 4.199961 & $4 \frac{4}{20} = 4.2$ & 84 \\
+				\end{tabular}
+			\end{table}
+			
+			Note, based on observation of $U_m$ as the maximum value of $n$ increases, I am very confident that the value of $U_m$ will always converge. Additionally, the problem statement implies that $U_m$ is well defined.
+			
 			
 			\paragraph{Corrections} TODO
 			
