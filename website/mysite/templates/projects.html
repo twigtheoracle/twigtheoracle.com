@@ -4,36 +4,14 @@
 
 {% block title %}Projects{% endblock %}
 
+{% block other-head %}
+{% endblock %}
+
 {% block pagetitle %}Projects{% endblock %}
 
 {% block content %}
 
 <div class="paragraphs text-left">
-
-    <!-- Rock Climbing Recommender -->
-    <div class="container site-width" id="rc-rec">
-        <div class="row">
-            <h4 class="text-center mx-auto">
-                <div class="boxed"><span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span>: Rock Climbing Recommender</div>
-            </h4>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6">
-                <figure class="figure" style="max-width: 100%;">
-                    <img src="{% static 'mysite/white_rasta.png' %}" class="img-fluid" style="max-width: 100%;">
-                    <figcaption class="figure-caption text-center"><a rel="noopener noreferrer" target="_blank" href="https://www.mountainproject.com/route/105722593/white-rastafarian">White Rastafarian</a> (V2) in Joshua Tree National Park. One of my favorite climbs. Image credit to <a href="https://www.ericarphotography.com/" target="_blank" rel="noopener noreferrer">Erica Robinson</a>.</figcaption>
-                </figure>
-            </div>
-            <div class="col-sm-6">
-                <p>The full application can be found at <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/">https://dsc180b-rc-rec.herokuapp.com/</a>, and the full code for the project, as well as build instructions, can be found on <a rel="noopener noreferrer" target="_blank" href="https://github.com/DSC180-RC/Rock-Climbing-Recommender">GitHub</a>. Since the project is hosted on Heroku free tier, the project will take a minute to open when you first click the link.</p>
-
-                <p>This project was originally created by me and two other UCSD students for our senior capstone project, with a focus on recommender systems. The world of outdoor rock climbing lacks good recommendation systems, with current methods being word of mouth, guide books limited to specific areas, and most popular. Our goal with <span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span> was to create personalized recommendations for experienced rock climbers.</p>
-
-                <p>For a more complete description of the methods used, take a look at the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/about/">About</a> page and the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/algorithms/">Algorithms</a> page on the project site.</p>
-            </div>
-        </div>
-    </div>
 
     <!-- Stock Data -->
     <div class="container site-width" id="stock-data">
@@ -62,8 +40,67 @@
         </div>
     </div>
 
+    <!-- The Art of Computer Programming -->
+    <div class="container site-width" id="stock-data">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed">Reading The Art of Computer Programming</div>
+            </h4>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <figure class="figure" style="max-width: 100%;">
+                    <img src="{% static 'mysite/TAOCP V1 Cover.jpg' %}" class="img-fluid" style="max-width: 100%;">
+                    <figcaption class="figure-caption text-center">The front cover of the first volume of The Art of Computer Programming.</figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-9">
+
+                <p>"The Art of Computer Programming (TAOCP) is a comprehensive monograph written by the computer scientist Donald Knuth presenting programming algorithms and their analysis. Volumes 1–5 are intended to represent the central core of computer programming for sequential machines." (Wikipedia)</p>
+
+                <p>I purchased the Art of Computer Programming Third Edition Volumes 1-4B on June 16th, 2023. I've not had time to read all that much, but I do have the perhaps unrealistic goal of reading the entire published manuscript. Most of my reading is done at work, a few hours total each week. In case that makes you think I'm slacking off at work, we are allowed to take time for personal learning projects.</p>
+
+                <p>In a sign of my ambitious plans, <a href="/projects/TAOCP">this link</a> will contain my progress on reading, in the form of attempted solutions and answers to all exercises in the books.</p>
+
+                <p>As a lover of LaTeX, answers (and all cooresponding math) are first typset in LaTeX. Conversion to a webpage with all the math intact is done by <a href="https://dlmf.nist.gov/LaTeXML/">LaTeXML</a>, and a Python script better aligns the style with this website.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Rock Climbing Recommender -->
+    <div class="container site-width" id="rc-rec">
+        <div class="row">
+            <h4 class="text-center mx-auto">
+                <div class="boxed"><span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span>: Rock Climbing Recommender</div>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <p>UPDATE: As of November 28th, 2022, Heroku no longer offers free servers so the below project page is now offline. Code can still be viewed though in GitHub.</p>
+
+                <p>The full application can be found at <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/">https://dsc180b-rc-rec.herokuapp.com/</a>, and the full code for the project, as well as build instructions, can be found on <a rel="noopener noreferrer" target="_blank" href="https://github.com/DSC180-RC/Rock-Climbing-Recommender">GitHub</a>. Since the project is hosted on Heroku free tier, the project will take a minute to open when you first click the link.</p>
+
+                <p>This project was originally created by me and two other UCSD students for our senior capstone project, with a focus on recommender systems. The world of outdoor rock climbing lacks good recommendation systems, with current methods being word of mouth, guide books limited to specific areas, and most popular. Our goal with <span style="font-family: 'Rock Salt', cursive;"><b>OnSight</b></span> was to create personalized recommendations for experienced rock climbers.</p>
+
+                <p>For a more complete description of the methods used, take a look at the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/about/">About</a> page and the <a rel="noopener noreferrer" target="_blank" href="https://dsc180b-rc-rec.herokuapp.com/algorithms/">Algorithms</a> page on the project site.</p>
+            </div>
+            <div class="col-sm-6">
+                <figure class="figure" style="max-width: 100%;">
+                    <img src="{% static 'mysite/white_rasta.png' %}" class="img-fluid" style="max-width: 100%;">
+                    <figcaption class="figure-caption text-center"><a rel="noopener noreferrer" target="_blank" href="https://www.mountainproject.com/route/105722593/white-rastafarian">White Rastafarian</a> (V2) in Joshua Tree National Park. One of my favorite climbs. Image credit to <a href="https://www.ericarphotography.com/" target="_blank" rel="noopener noreferrer">Erica Robinson</a>.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
     <!-- PHIL 174 Final Project -->
     <div class="container site-width" id="stock-data">
+        
         <div class="row">
             <h4 class="text-center mx-auto">
                 <div class="boxed">Ethical Development of a Transportation Demand Model</div>
