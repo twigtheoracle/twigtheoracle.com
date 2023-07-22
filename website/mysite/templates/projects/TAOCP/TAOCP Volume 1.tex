@@ -1,6 +1,7 @@
 \documentclass{report}
 
 \usepackage{amsmath}
+\usepackage{hyperref}
 
 \renewcommand{\O}{$\mathcal{O}$}
 
@@ -159,46 +160,48 @@
 		
 			Let $U_m$ be the average number of times that step E1 is executed in Algorithm E, if $m$ is known and $n$ is allowed to range over all positive integers. Show that $U_m$ is well defined. Is $U_m$ in any way related to $T_m$?
 			
-			\paragraph{Solution} Let's first try some examples I wrote some Python code (TODO: link) to do the computation for values of $n$ from 1 to 1,000,000 with the following results:
+			\paragraph{Solution} Let's first try some examples I wrote some \href{https://github.com/twigtheoracle/twigtheoracle.com/blob/master/website/mysite/templates/projects/TAOCP/1.1.7.py}{Python code} to do the computation for values of $n$ from 1 to 1,000,000 with the following results:
 			
 			\begin{table}[h]
 				\begin{tabular}{lllll}
-					$m$ & $U_m$ & Approximation & Expanded Numerator \\
+					$m$ & $U_m$ & Approximation \\
 					\hline
-					1 & 1.999999 & 2 & 2 \\
-					2 & 2.499997 & $2\frac{1}{2} = 2.5$ & 5 \\
-					3 & 2.999995 & 3 & 9 \\
-					4 & 2.999993 & 3 & 12 \\
-					5 & 3.599991 & $3\frac{3}{5} = 3.6$ & 18 \\
-					6 & 3.166656 & $3 \frac{1}{6} \approx 3.1\overline{6}$ & 19\\
-					7 & 3.857129 & $3 \frac{6}{7} \approx 3.85714\dots$ & 27 \\
-					8 & 3.749985 & $3 \frac{6}{8} = 3.75$ & 30\\
-					9 & 3.77776 & $3 \frac{7}{9} \approx 3.\overline{7}$ & 34\\
-					10 & 3.699981 & $3 \frac{3}{10} = 3.7$ & 33\\
-					11 & 4.454523 & $4 \frac{5}{11} \approx 4.\overline{45}$ & 49 \\
-					12 & 3.666641 & $3 \frac{8}{12} \approx 3.\overline{6}$ & 44 \\
-					13 & 4.461512 & $4 \frac{6}{13} \approx 4.46153\dots$ & 58 \\
-					14 & 4.21425 & $4 \frac{3}{14} \approx 4.21428\dots$ & 59 \\
-					15 & 4.066637 & $4 \frac{1}{15} \approx 4.0\overline{6}$ & 61 \\
-					16 & 4.124969 & $4 \frac{2}{16} = 4.125$ & 66 \\
-					17 & 4.705847 & $4 \frac{12}{17} \approx 4.70588\dots$ & 80 \\
-					18 & 4.27774 & $4 \frac{5}{18} = 4.2\overline{7}$ & 77 \\
-					19 & 4.894699 & $4 \frac{17}{19} \approx 4.8947\dots$ & 93 \\
-					20 & 4.199961 & $4 \frac{4}{20} = 4.2$ & 84 \\
+					1 & 1.999999 & 2\\
+					2 & 2.499997 & $2\frac{1}{2} = 2.5$ \\
+					3 & 2.999995 & 3 \\
+					4 & 2.999993 & 3 \\
+					5 & 3.599991 & $3\frac{3}{5} = 3.6$ \\
+					6 & 3.166656 & $3 \frac{1}{6} \approx 3.1\overline{6}$ \\
+					7 & 3.857129 & $3 \frac{6}{7} \approx 3.85714\dots$ \\
+					8 & 3.749985 & $3 \frac{6}{8} = 3.75$ \\
+					9 & 3.77776 & $3 \frac{7}{9} \approx 3.\overline{7}$ \\
+					10 & 3.699981 & $3 \frac{3}{10} = 3.7$ \\
+					11 & 4.454523 & $4 \frac{5}{11} \approx 4.\overline{45}$ \\
+					12 & 3.666641 & $3 \frac{8}{12} \approx 3.\overline{6}$ \\
+					13 & 4.461512 & $4 \frac{6}{13} \approx 4.46153\dots$ \\
+					14 & 4.21425 & $4 \frac{3}{14} \approx 4.21428\dots$ \\
+					15 & 4.066637 & $4 \frac{1}{15} \approx 4.0\overline{6}$ \\
+					16 & 4.124969 & $4 \frac{2}{16} = 4.125$ \\
+					17 & 4.705847 & $4 \frac{12}{17} \approx 4.70588\dots$ \\
+					18 & 4.27774 & $4 \frac{5}{18} = 4.2\overline{7}$ \\
+					19 & 4.894699 & $4 \frac{17}{19} \approx 4.8947\dots$ \\
+					20 & 4.199961 & $4 \frac{4}{20} = 4.2$ \\
 				\end{tabular}
 			\end{table}
 			
 			Note, based on observation of $U_m$ as the maximum value of $n$ increases, I am very confident that the value of $U_m$ will always converge. Additionally, the problem statement implies that $U_m$ is well defined.
 			
+			After a break of a week or two, I think its fairly obvious that $U_m = T_m + 1$. As a quick sanity check, the solution to Exercise 6 to compute $T_5$ had the answer of 2.6, and the simulated value of $U_5$ is 3.6.
 			
-			\paragraph{Corrections} TODO
+			The rationale behind this is fairly obvious. If $n > m$, then the first time through E1 will be having $m$ and $n$ switch, at which point we then compute $T_m$. And there are infinity more situations where $n > m$ than the opposite, so we can functionally ignore those situations where $n \leq m$. So with one extra step for an infinite number of situations, we get $U_m = T_m + 1$
 			
+			\paragraph{Corrections} N/A
 		
 		\subsection*{Exercise 8 [M25]} 
 		
 			Give an \say{effective} formal algorithm for computing the GCD of positive integers $m$ and $n$ by specifying $\theta_j, \phi_j, a_j, b_j$ as in Eqs. (3). Let the input be represented by the string $a^m b^n$, that is, $m$ $a$'s followed by $n$ $b$'s. Try to make your solution as simple as possible. [\textit{Hint:} Use Algorithm E, but instead of division in step E1, set $r \leftarrow |m-n|$, $n \leftarrow \text{min}(m,n)$.]
 			
-			\paragraph{Solution} TODO
+			\paragraph{Solution} I didn't really understand the section of the book with $\theta_j, \phi_j, a_j, b_j$, so I'm going to look at the answer to see if that helps my understanding
 			
 			\paragraph{Corrections} TODO
 			
