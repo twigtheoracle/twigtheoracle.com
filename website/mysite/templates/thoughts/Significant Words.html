@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Significant Words{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2023-9-09">
+<meta name="modification-date" content="2023-09-19">
+{% endblock %}
+
+{% block pagetitle %}Significant Words{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <p>Words which feel significant in some indescribable way...</p>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Word</th>
+                <th scope="col">Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Empyrean</th>
+                <td>The highest reaches of heaven, believed by the ancients to be a realm of pure fire or light</td>
+            </tr>
+            <tr>
+                <th>Apotheosis</th>
+                <td>Exaltation to divine rank or stature; deification</td>
+            </tr>
+            <tr>
+                <th>Imbricate</th>
+                <td>Having regularly arranged, overlapping edges, as roof tiles or fish scales</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
