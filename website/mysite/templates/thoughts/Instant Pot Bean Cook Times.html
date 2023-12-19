@@ -2,38 +2,32 @@
 
 {% load static %}
 
-{% block title %}Thoughts{% endblock %}
+{% block title %}Instant Pot Bean Cook Times{% endblock %}
 
-{% block otherhead}
+{% block other-head %}
+<meta name="creation-date" content="2023-12-18">
+<meta name="modification-date" content="2023-12-18">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
-{% endblock }
+{% endblock %}
 
-{% block pagetitle %}Thoughts{% endblock %}
+{% block pagetitle %}Instant Pot Bean Cook Times{% endblock %}
 
 {% block content %}
 
 <div class="paragraphs text-left">
 
-    <p>This page contains various thoughts or ideas I have had and worked out. This page was created partially to keep track of things I think about, partially to learn more django, and was partially inspired by Disco Elysium's Thought Cabinet.</p>
-
     <table id="sortable-table" class="table table-striped table-bordered w-100">
         <thead>
             <tr>
-                <th>Date Created</th>
-                <th>Date Modified</th>
-                <th>Thought Name</th>
+                <th>Bean</th>
+                <th>Cook Settings</th>
             </tr>
         </thead>
         <tbody>
-            {% for dc, dm, name in thought_list %}
-
-                <tr>
-                    <th>{{ dc }}</th>
-                    <th>{{ dm }}</th>
-                    <th><a href="/thoughts/{{ name }}">{{ name }}</a></th>
-                </tr>
-
-            {% endfor %}
+            <tr>
+                <td>Kidney Beans (Light Red)</td>
+                <td>High pressure, no soak, 45 min</td>
+            </tr>
         </tbody>
     </table>
 
