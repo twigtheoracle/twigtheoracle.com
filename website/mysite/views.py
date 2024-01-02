@@ -119,7 +119,7 @@ def thoughts(request):
         :return:    str         Same as above but date of modification
         """
         # use beautiful soup to get the creation date and modification date
-        with open(file_path) as f:
+        with open(file_path, errors="ignore") as f:
             soup = BeautifulSoup(f, "html.parser")
             creation_date = soup.find("meta", {"name": "creation-date"})["content"]
             modification_date = soup.find("meta", {"name": "modification-date"})["content"]
