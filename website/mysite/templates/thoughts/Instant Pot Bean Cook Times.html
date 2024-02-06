@@ -6,7 +6,7 @@
 
 {% block other-head %}
 <meta name="creation-date" content="2023-12-18">
-<meta name="modification-date" content="2024-01-31">
+<meta name="modification-date" content="2024-02-05">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 {% endblock %}
 
@@ -16,29 +16,31 @@
 
 <div class="paragraphs text-left">
 
+    <p>All times are assumed to be high pressure, no soak.</p>
+
     <table id="sortable-table" class="table table-striped table-bordered w-100">
         <thead>
             <tr>
+                <th>Cook Time</th>
                 <th>Bean</th>
-                <th>Cook Settings</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Kidney Beans (Light Red)</td>
-                <td>High pressure, no soak, 45 min</td>
-            </tr>
-            <tr>
-                <td>Black Beans</td>
-                <td>High pressure, no soak, 35 min</td>
-            </tr>
-            <tr>
-                <td>Small Red Beans</td>
-                <td>High pressure, no soak, 45 min</td>
-            </tr>
-            <tr>
+                <td>30 min</td>
                 <td>Navy Beans (AKA Small White Beans)</td>
-                <td>High pressure, no soak, 30 min</td>
+            </tr>
+            <tr>
+                <td>35 min</td>
+                <td>Black Beans</td>
+            </tr>
+            <tr>
+                <td>40 min</td>
+                <td>Great Northern Beans</td>
+            </tr>
+            <tr>
+                <td>45 min</td>
+                <td>Kidney Beans (Light Red), Small Red Beans</td>
             </tr>
         </tbody>
     </table>
@@ -55,7 +57,7 @@
     $(document).ready(function() {
     $('#sortable-table').DataTable( {
         "searching": true,
-        "order": [[1, "desc"]],
+        "order": [[0, "asc"]],
         "aLengthMenu": [
             [25, 50, 100, 200, -1],
             [25, 50, 100, 200, "All"]],
