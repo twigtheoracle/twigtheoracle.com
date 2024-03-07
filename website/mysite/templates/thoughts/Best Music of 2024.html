@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Best Music of 2024{% endblock %}
+
+{% block other-head %}
+<meta name="creation-date" content="2024-03-07">
+<meta name="modification-date" content="2024-03-07">
+{% endblock %}
+
+{% block pagetitle %}The Best Music of 2024{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width">
+        <p>This page lists the best music releases of 2024. Since I am bad at writing music reviews, they are instead copied from <a rel="noopener noreferrer" target="_blank" href="https://rateyourmusic.com/">Rate Your Music</a>. The topmost release is the best, while the last release is the worst of the special entries (not that its bad, just the worst of the listed).</p>
+    </div>
+
+    <div class="container site-width">
+        <article class="row single-post mt-5 no-gutters">
+            
+            <h4 class="text-center mx-auto">
+                <div class="boxed"><a rel="noopener noreferrer" target="_blank" href="https://rateyourmusic.com/release/album/tapir/the-pilgrim-their-god-and-the-king-of-my-decrepit-mountain/">Tapir! - The Pilgrim, Their God and The King Of My Decrepit Mountain </a></div>
+            </h4>
+
+            <div class="col-sm-12">
+
+                <div class="image-wrapper float-left w-50 p-3">
+                    <img src="{% static 'mysite/the_pilgrim_their_god_and_the_king_of_my_decrepit_mountain.jpg' %}" class="w-100">
+                </div>
+
+                <div class="single-post-content-wrapper p-3">
+
+                    <p>Genre: Indie Folk<br>Release Date: January 26th, 2024<br>My Rating: 4/5</p>
+
+                    <p>Review by <a rel="noopener noreferrer" target="_blank" href="https://rateyourmusic.com/~sarkist173">sarkist173</a></p>
+
+                    <p>The Pilgrim, Their God and the King of My Decrepit Mountain is the debut album from Tapir, an English folk outfit that’s been building up to this project’s release for quite a bit now. A lot of these songs have actually already been released, with the first two acts being released as EPs annually up until this album’s release earlier in the year. Overall, I think that Tapir has struck quite a chord with me, easily one of the most promising, as well as one of the sweetest, most comforting folk debuts I've heard in quite a bit. I can’t say that it’s perfect; it plays things very safely, and I find its concept to be a bit underexplored, but I can say that the actual music here is downright fantastic at points.</p>
+
+                    <p>I love the way this album sounds. It’s so organic and lush, breathing in so much beauty that it’s smothering. This project provides wonderful fusions of electronic, rock, pop, chamber, and folk instrumentation, and it works so damn well. It’s not as breathtaking as something like Sufjan Stevens, but it’s still absolutely gorgeous at points. It’s a soft sound, but it’s not boring, and there’s just enough happening to make me ignore some of the more standard, forgettable, or awkward-sounding moments. Stuff like On a Grassy Knoll, Gymnopedle, Swallow, and Mountain Song are sweeping, and the arrangements are at otherworldly levels of satisfaction. Plus, there’s some really great singing complementing the absurdly inviting soundscapes that are crafted on them. They’re all very gentle and pretty, which can be said for just about every song on here. But that’s not to say that they’re all as good; there are some weaker songs in the mix. The interlude tracks aren’t very wowing, and the tracks of Untitled and My God (to a lesser extent) are pretty uninteresting and substanceless. Thankfully, the closer is the strongest song on the album, so the final act isn’t a letdown. The only letdown I had for this project was the concept. Maybe I just wasn’t as attentive to the lyrics as I should've been, but I couldn’t get any real meaningful point or story from this thing. Besides that, this project’s a pretty excellent folk album; I can’t wait to hear more from them. </p>
+                </div>
+
+            </div>
+        </article>
+    </div>
+
+</div>
+
+{% endblock %}
