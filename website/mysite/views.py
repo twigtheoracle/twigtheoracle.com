@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # api key validation for stock_data page
-import quandl
+import nasdaqdatalink
 import datetime
 
 # settings is needed to find the Stock-Data folder
@@ -40,29 +40,33 @@ def stock_data(request):
         errors = []
 
         # check that the api key is valid by making sure it can access both databases needed
-        quandl.ApiConfig.api_key = request.POST["api-key"]
+        nasdaqdatalink.ApiConfig.api_key = request.POST["api-key"]
 
         # check the EOD database
         eod_works = True
         try:
-            quandl.get("EOD/" + "AAPL", start_date=datetime.date(2021, 6, 8),
+            nasdaqdatalink.get("EOD/" + "AAPL", start_date=datetime.date(2021, 6, 8),
                 end_date=datetime.date(2021, 6, 10))
-        except quandl.errors.quandl_error.AuthenticationError:
-            eod_works = False
-            errors.append("The input API Key cannot access the EOD database")
-        except quandl.errors.quandl_error.LimitExceededError:
-            errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
+        # except nasdaqdatalink.errors.quandl_error.AuthenticationError:
+        #     eod_works = False
+        #     errors.append("The input API Key cannot access the EOD database")
+        # except nasdaqdatalink.errors.quandl_error.LimitExceededError:
+        #     errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
+        except:
+            pass
 
         # check the QOR database
         qor_works = True
         try:
-            quandl.get("QOR/" + "AAPL", start_date=datetime.date(2021, 6, 8),
+            nasdaqdatalink.get("QOR/" + "AAPL", start_date=datetime.date(2021, 6, 8),
                 end_date=datetime.date(2021, 6, 10))
-        except quandl.errors.quandl_error.AuthenticationError:
-            qor_works = False
-            errors.append("The input API Key cannot access the QOR database")
-        except quandl.errors.quandl_error.LimitExceededError:
-            errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
+        # except nasdaqdatalink.errors.quandl_error.AuthenticationError:
+        #     qor_works = False
+        #     errors.append("The input API Key cannot access the QOR database")
+        # except quandl.errors.quandl_error.LimitExceededError:
+        #     errors.append("Too many Quandl QPI requests, try again in 20 minutes.")
+        except:
+            pass
 
         # if the key works, then run the script with the provided stock list
         if(eod_works and qor_works):

@@ -1,7 +1,7 @@
 django==3.2.20
-quandl==3.6
 tqdm
 openpyxl
 bs4
 jupyterlab
 gitpython
+nasdaq-data-link

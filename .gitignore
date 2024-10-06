@@ -145,6 +145,9 @@ key.py
 *.xlsx
 website/static/xl/*
 
+# PyCharm
+.idea/
+
 ###################
 # LaTeX GitIgnore #
 ###################
