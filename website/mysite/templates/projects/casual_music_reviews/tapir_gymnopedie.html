@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/tapir_lp1.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: January 26th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>I've likely said this before, but my absolute favorite musical device is the caesura, aka the pregnant pause, aka that silence you sometimes hear before the bass drops. Somehow delaying the climax of music by just the fraction of a second makes the impact of it that much stronger. I would say that it's a fairly rare device in music, but more common in other forms of media like movies. Like when the detective is about to reveal the murderer but takes a deep breath right before saying the name</p>
+
+                <p>Now folk music isn't exactly known for it's climatic peaks, but strangely enough one of the best caesuras I've heard comes from the band Tapir! in their song "Gymnopédie". The song actually contains two caesuras, the first of which is a fairly standard one. Right after the very first spoken word "Dance...", the note is allowed to fade to silence with only the lightest of drums. </p>
+
+                <p>The second caesura is incredibly unique as Tapir! manage to innovate on the concept of silence. At the climatic peak, the singer sings "Sing...", the note is allowed to fade to silence, then is microtonally adjusted upward right before vanishing. With words alone, I cannot describe how cool this sound is, it really must be heard to be understood. </p>
+
+                <p>I consider the best version of this song to be a live performance from the state51 Factory, which I've linked below at the proper timestamps. The first caesura is around 8:02 and the second is around 9:40. But silence only exists in the context of the sounds around it, so you should really listen to the whole five minute song. </p>
+
+                <p>YouTube: <a href="https://youtu.be/6cNaMVvBrXA?si=WWN9wxYI4hpwwrer&t=458">https://youtu.be/6cNaMVvBrXA?si=WWN9wxYI4hpwwrer&t=458</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

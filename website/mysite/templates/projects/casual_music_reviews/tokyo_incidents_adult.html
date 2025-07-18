@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/adult.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: January 25th, 2006<br>My Rating: {{ rating }}/5</p>
+
+                <p>In my long quest to find the next Lamp, I must have listened to every single decently rated or higher Jazz Pop album released in the last 20 years. My quest still continues, but in the process I discovered some hidden gems, such as 大人 (Adult) by 東京事変 (Tokyo Incidents).</p>
+
+                <p>大人 is the opposite of the silky smooth Jazz Pop of Lamp, with the only real similarities being the fusion of Jazz with a more modern genre, in this case Rock. Whereas Lamp is low-key and mellow, even on the faster tracks, 大人 is over the top and excessive, even on the slower tracks. I think the second to last track "Invisible Man (Adult Version)" is especially emblematic of this. The tempo is not fast, but in song every instrument and the vocals are all over the place in both their sound and range. Random bells and whistles (not literally) accent while the song's tone flip-flops around the same theme. This strange variety permeates the whole album, making for a plain fun listening experience.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_nXa1_t-vkq6FtGWqjoq-f-_Kn443M0hDg">https://music.youtube.com/playlist?list=OLAK5uy_nXa1_t-vkq6FtGWqjoq-f-_Kn443M0hDg</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/2cVtur6q97JRQFquXkdTQf">https://open.spotify.com/album/2cVtur6q97JRQFquXkdTQf</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/when_stars_glide_through_solid.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: 2007<br>My Rating: {{ rating }}/5</p>
+
+                <p>I've been listening to a French duo called Natural Snow Buildings who are famous for releasing insanely long (up to six hours!) albums of Ambient/Folk/Drone music. The length of their music and the genre intersection of Ambient/Drone means listening is incredibly meditative, the kind of music you listen to when lying in bed, eyes closed, doing absolutely nothing. But, I don't want to recommend their music to anyone since listening to a six hour long album is a tough ask, especially when it comes with the caveat of "it gets a lot better after the first two hours"</p>
+
+                <p>Fortunately, one of the members of this French duo, Mehdi Ameziane (aka TwinSisterMoon) released what amounts to a short introduction to the music of Natural Snow buildings through a not even one hour long album. "When Stars Glide Through Solid" keeps the musical style of ambient folk without venturing into hypnotically long tracks. I feel like I say this far too much, but this is a (relatively) approachable introduction to a very unique genre of music</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=ExPhZxYREEc">https://www.youtube.com/watch?v=ExPhZxYREEc</a></p>
+
+                <p>If you find you enjoyed this album, I would next recommend "The Winter Ray" by the full Natural Snow Buildings duo. Clocking in at a pretty short 2.5 hours, it is probably my favorite release of theirs due to its perfect capturing of a bleak and harrowing winter night</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=lx_dEmt1alI">https://www.youtube.com/watch?v=lx_dEmt1alI</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

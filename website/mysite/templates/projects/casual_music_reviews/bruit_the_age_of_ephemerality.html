@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/the_age_of_ephemerality.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: April 25th, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>I recently attended the No Kings Protest held in San Diego, among many other locations. I didn't stay long for fear of hearing damage, but it was an illuminating experience how so many people are willing to spend time, money, and effort for a singular cause. The reason I decided to go is a recent album released by French self-described experimental/post-rock/modern classical band BRUIT ≤ (yes, the "≤" is part of the band name). The album, titled "The Age of Ephemerality", is much more than a simple piece of music. It's instead the soundtrack to a black and white movie, where each of the five tracks has it's own unique audial and visual experience based on the title of the track. The tracks go:</p>
+
+                    <p>
+                        <ol>
+                            <li>Epemeral</li>
+                            <li>Data</li>
+                            <li>Progress / Regress</li>
+                            <li>Technoslavery / Vandalism</li>
+                            <li>The Intoxication of Power</li>
+                        </ol>
+                    </p>
+
+                    <p>The last track, a reference to George Orwell's 1984, is the most explicit in it's anti-authoritarian theming. With no lyrics at all, the theming is really carried by the visuals. In addition to some protest/anti-protest footage, the visuals illustrate the idea of the human as part of the machine, whether industrial, financial, or military. And as someone who lives completely within the machine (minus all those rolling stops I do on my bike), there's very little that can be done about changing the nature of the it from within. Unless of course, enough small cogs come together to make changes. Audially, the song is nothing too special, just your typical post-rock soundscapes, with the somewhat unique feature of mournful horns. And in case the visuals weren't enough, the song ends with some of the only lyrics in the whole album, a slightly modified quote from 1984. It was this message which inspired me to no longer apathetically sit at home:</p>
+
+                    <p><i>If you want a picture of the future, imagine a boot stamping on a human face, forever<br>
+                        The moral is a simple one<br>
+                        Don't let it happen<br>
+                        It depends on you</i></p>
+
+                    <p>This album is only available as a YouTube video: <a href="https://youtu.be/8bFlXzPDF7M?si=nxreNGy7_XMqIGIv">https://youtu.be/8bFlXzPDF7M?si=nxreNGy7_XMqIGIv</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

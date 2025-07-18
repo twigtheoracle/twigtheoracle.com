@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/the_vault.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: August 30th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>Maruja have been my second favorite band for a year and a half now, ever since they released a legendary EP titled "Knocknarea", perhaps the closest a band has ever gotten to re-capturing the unique Jazz-Punk sound of Japanese band Midori. Finally, after almost ten years as a band, Maruja have released their first full album, but not in the way anyone expected them to.</p>
+
+                <p>"The Vault" is a collection of six improvised songs from their practice sessions which total about 90 minutes. Stylistically, rather than repeat the manic sounds of Jazz-Punk they've done in the past, the album see-saws between Post-Rock and long-form Jazz. The dissonance between competing musical ideas, the way sounds hypnotically ebb and flow, how you can hear each individual member perform yet eventually come together into a cohesive form, I believe Maruja have captured a small part of the shape of music.</p>
+
+                <p>YT Part 1: <a href="https://www.youtube.com/watch?v=mqg_sVf003Y">https://www.youtube.com/watch?v=mqg_sVf003Y</a></p>
+
+                <p>YT Part 2: <a href="https://www.youtube.com/watch?v=qIpCyrBfgis">https://www.youtube.com/watch?v=qIpCyrBfgis</a></p>
+
+                <p>Not on any other streaming services</p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

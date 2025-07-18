@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/zwierzakom.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: December 15th, 2000<br>My Rating: {{ rating }}/5</p>
+
+                <p>Some really cool polish experimental jazz rock. I think the first song is by far the best, but the album as a whole is really good as well</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_kEY5zzMwHgzFn0RXRk9biMT-2idswlSV8">https://music.youtube.com/playlist?list=OLAK5uy_kEY5zzMwHgzFn0RXRk9biMT-2idswlSV8</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0lttOglq5HOuqRe6ygT0MF">https://open.spotify.com/album/0lttOglq5HOuqRe6ygT0MF</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

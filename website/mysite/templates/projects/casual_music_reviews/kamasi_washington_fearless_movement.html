@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/fearless_movement.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: May 3rd, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>My boy Kamasi Washington, one of the more famous modern Jazz musicians, recently dropped a new album called "Fearless Movement". If you've heard of him but are not sure where, he was a significant but hidden driving force behind "To Pimp a Butterfly" by Kendrick Lamar. The album features genuine Jazz-Rap, excellent spiritual jazz, and features by storied individuals such as Thundercat and George Clinton, as well as a underground yet promising New Age flutist called Andre 3000. "Fearless Movement" and what Kamasi Washington is doing feels like the future of jazz.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_ku_hVMiBSyQvMndjOcB6CSgSw1eJ3uQYA">https://music.youtube.com/playlist?list=OLAK5uy_ku_hVMiBSyQvMndjOcB6CSgSw1eJ3uQYA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0Jy18n9qpKS4RyDYmaPpdL">https://open.spotify.com/album/0Jy18n9qpKS4RyDYmaPpdL</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
