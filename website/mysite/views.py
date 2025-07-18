@@ -164,8 +164,10 @@ def casual_music_reviews(request):
     metadata_path = settings.BASE_DIR / "mysite" / "templates" / "projects" / "casual_music_reviews" / "metadata.csv"
     metadata = pd.read_csv(metadata_path)
 
-    # Convert the date created/modified into actual date strings
+    # Convert the date created/modified into actual date strings. Keep a copy of raw 
+    # string values for sorting later
     for date_column in ["date_created", "date_modified"]:
+        metadata[date_column + "_sort"] = metadata[date_column] 
         metadata[date_column] = (
             pd.to_datetime(metadata[date_column], format="%Y%m%d")
             .dt
@@ -182,6 +184,17 @@ def casual_music_reviews(request):
     metadata = metadata.drop(columns=["default_file"])
 
     # Return the page
+    metadata = metadata[[
+        "date_created", 
+        "date_created_sort", 
+        "date_modified", 
+        "date_modified_sort",
+        "artist",
+        "title",
+        "genre",
+        "rating",
+        "file",
+    ]]
     return render(request, "projects/casual_music_reviews.html", {"metadata": metadata.values.tolist()})
 
 def specific_review(request, **kwargs):
