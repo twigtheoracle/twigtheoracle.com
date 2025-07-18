@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/midori_lp2.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: May 14th, 2008<br>My Rating: {{ rating }}/5</p>
+
+                <p>One of my favorite albums ever released is a Japanese jazz punk album by Midori titled "あらためまして、はじめまして、ミドリです" (translated as "Nice to meet you again, I'm Midori"). Seriously, do not get baited by the first song, the emphasis for this album is on the PUNK part of jazz punk. Here's someone else's review which I think perfectly encapsulates the music:</p>
+
+                <p>"You could go to a jazz bar and be chilling there with a drink in hand, watching the band play some classic numbers, and even though you think they may be playing it too fast, the lovely lady on the mic eases every wrong in your mind. Her voice is cute, almost childish, but the way everything just falls into place is almost unsettling. Then all of a sudden, all hell breaks loose. Literally. The tempo is upped by a good five hundred percent, the band is now playing monstrous riffs and the drummer is beating the shit out of his instrument. The lady has gone berserk, and while howling and screaming into the mic, she now proceeds to bludgeon you to death. The whole aesthetic would make any hardcore act proud."</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_lm3hNmpsw8KoC5swnHsKYvfHn8i01fYwA">https://music.youtube.com/playlist?list=OLAK5uy_lm3hNmpsw8KoC5swnHsKYvfHn8i01fYwA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/5q8Hkakvwmb5Zyk4nUZKyD">https://open.spotify.com/album/5q8Hkakvwmb5Zyk4nUZKyD</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

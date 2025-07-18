@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/spiderland.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: March 27th, 1991<br>My Rating: {{ rating }}/5</p>
+
+                <p>Spiderland by Slint is without a doubt THE album which spawned the genres of both Math Rock and Post Rock, being a massive influence on titans such as "Godspeed You! Black Emperor", Mogwai, and (at least I would argue) Swans, among many other bands. Perhaps even more incredible is that the album was recorded over four days in 1990 by a bunch of 20 years olds where all the lyrics were written in studio.</p>
+
+                <p>The album is primarily spoken word and screamed vocals over incredibly noisy yet also starkly cold and bleak instrumentals. Everything combines with extreme contrast where a whispered spoken word section builds into an emotional roar and back down again. Of particular note are tracks 4 and 6 on the album, "Washer" and "Good Morning, Captain". </p>
+
+                <p>"Washer" is likely the most emotionally crushing song I've ever heard. The lyrics themselves and their delivery is despondent. The guitar melody is melancholic and depressing. Combined with a cathartic moment at the end into a fall down, the song is heartbreaking.</p>
+
+                <p>"Good Morning, Captain" is similarly chilling and emotionally draining with an extra dosage of cold and bleak. A fascinating six minutes of simultaneously quiet and loud music builds up to the single most emotional scream in all of music. On the one hand the culmination of the song, on the other hand the finale of the album as a whole. One of my favorite (possibly apocryphal) anecdotes is that the vocalist, Brian McMahan, recorded the last vocals of the song on a whim. When he exited the recording booth, he was soaked in sweat and completely drained. After finishing recording, he checked himself into a mental hospital.</p>
+
+                <p>Not quite a 10/10 since track 5 is a little bit of a stinker (relative to the album as a whole), but possibly as close to perfect as you can get, 9.5/10</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_k62V_DypQV555aJil4o3rMio-Lmuwor74">https://music.youtube.com/playlist?list=OLAK5uy_k62V_DypQV555aJil4o3rMio-Lmuwor74</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/2NnkLRaeX33d1Mn8ZLgTo8">https://open.spotify.com/album/2NnkLRaeX33d1Mn8ZLgTo8</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

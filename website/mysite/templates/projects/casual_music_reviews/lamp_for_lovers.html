@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/for_lovers.png' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: February 11th, 2004<br>My Rating: {{ rating }}/5</p>
+
+                <p>Lamp has some of the most mellow and soothing music to ever grace the face of this planet. Their album "恋人へ" (translated as "For Lovers") is incredibly warm Jazz Pop with hints of Bossa Nova. Imagine you're walking along a Studio Ghibli-esque beachside on a peaceful summer night. Distill that feeling, butter it over silky smooth jazz, and layer mellow vocals on top. Welcome to the world of Lamp</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_mDSyH2kGcoATU9poAsdKp4RFS2poaMFTo">https://music.youtube.com/playlist?list=OLAK5uy_mDSyH2kGcoATU9poAsdKp4RFS2poaMFTo</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0gwS2D9sukMLXNvleEnYr2">https://open.spotify.com/album/0gwS2D9sukMLXNvleEnYr2</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

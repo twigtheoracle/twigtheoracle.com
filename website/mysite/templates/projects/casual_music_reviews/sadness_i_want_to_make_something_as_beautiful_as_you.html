@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/i_want_to_make_something_as_beautiful_as_you.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 15th, 2019<br>My Rating: {{ rating }}/5</p>
+
+                <p>The most prolific music artist I am aware of is small collection of solo acts all done by Damián Antón Ojeda of Mexico. His two main solo acts are Blackgaze/Shoegaze band Sadness and Black Metal band Trhä. To illustrate his prodigious output, in 2023 alone, through only these two bands, Damián released 22 collaboration albums and 9 solo albums. It's not just regurgitated slop either, I've listened to about 1/3 of his recent discography and I've never given a rating below 7/10 to any of it.</p>
+
+                <p>About one month ago, he recently went through a rough breakup with his girlfriend of 5+ years, and as such is now on indefinite hiatus. But what better way to sign off than writing, recording, and releasing three full albums over the course of two weeks dedicated to lost love.</p>
+
+                <p>Of the three albums I would recommend "i want to make something as beautiful as you", not because it is the best, but rather because it is the softest, although it is still Shoegaze. If you only listen to one track, you should listen to the third, titled "damzamkeit", which has a shining example of post-rock song structure while not being too noisy. Actually, now that I'm thinking about it, pretty much every song follows the classic post-rock progression, gradually swinging between clean and quiet guitars to heavy noise and back down again. If you're on the fence about listening to Shoegaze or noisy music in general, there aren't many better options of where to start.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_nIXW5wlpUUIAT6mh07GSa6n2dMkl_xZSU">https://music.youtube.com/playlist?list=OLAK5uy_nIXW5wlpUUIAT6mh07GSa6n2dMkl_xZSU</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/2r7PrD95aTWaIFTD3MVQTx">https://open.spotify.com/album/2r7PrD95aTWaIFTD3MVQTx</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

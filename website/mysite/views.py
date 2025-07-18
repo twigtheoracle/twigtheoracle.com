@@ -19,6 +19,10 @@ import os
 from pathlib import Path
 from bs4 import BeautifulSoup
 
+# To read the metadata csv file
+import pandas as pd
+import datetime
+
 def home(request):
     # the home page
     return render(request, "home.html")
@@ -152,3 +156,103 @@ def thoughts(request):
 def specific_thought(request, **kwargs):
 
     return render(request, f"thoughts/{kwargs['thought_name']}.html")
+
+def casual_music_reviews(request):
+    # Casual Music Reviews page
+
+    # Get the list of music reviews from the metadata file
+    metadata_path = settings.BASE_DIR / "mysite" / "templates" / "projects" / "casual_music_reviews" / "metadata.csv"
+    metadata = pd.read_csv(metadata_path)
+
+    # Convert the date created/modified into actual date strings. Keep a copy of raw 
+    # string values for sorting later
+    for date_column in ["date_created", "date_modified"]:
+        metadata[date_column + "_sort"] = metadata[date_column] 
+        metadata[date_column] = (
+            pd.to_datetime(metadata[date_column], format="%Y%m%d")
+            .dt
+            .strftime("%B %d, %Y")
+        )
+
+    # If the date created/modified are the same, replace the modified date with "N/A"
+    metadata.loc[metadata["date_created"] == metadata["date_modified"], "date_modified"] = "N/A"
+
+    # If no file is provided, that means we use the default format, a combination of the
+    # artist and title
+    metadata["default_file"] = (metadata["artist"] + " " + metadata["title"]).str.replace(" ", "_").str.lower()
+    metadata["file"] = metadata["file"].fillna(metadata["default_file"])
+    metadata = metadata.drop(columns=["default_file"])
+
+    # Return the page
+    metadata = metadata[[
+        "date_created", 
+        "date_created_sort", 
+        "date_modified", 
+        "date_modified_sort",
+        "artist",
+        "title",
+        "genre",
+        "rating",
+        "file",
+    ]]
+    return render(request, "projects/casual_music_reviews.html", {"metadata": metadata.values.tolist()})
+
+def specific_review(request, **kwargs):
+    # Get a specific review
+
+    # Store template stuff for the review page here
+    template = {}
+
+    # Get the list of music reviews from the metadata file
+    metadata_path = settings.BASE_DIR / "mysite" / "templates" / "projects" / "casual_music_reviews" / "metadata.csv"
+    metadata = pd.read_csv(metadata_path)
+
+    # If no file is provided, that means we use the default format, a combination of the
+    # artist and title
+    metadata["default_file"] = (metadata["artist"] + " " + metadata["title"]).str.replace(" ", "_").str.lower()
+    metadata["file"] = metadata["file"].fillna(metadata["default_file"])
+    metadata = metadata.drop(columns=["default_file"])
+
+    # Sort by the date created column
+    metadata = metadata.sort_values(by="date_created", ascending=True)
+
+    # Convert date strings to actual dates
+    for date_column in ["date_created", "date_modified"]:
+        metadata[date_column] = pd.to_datetime(metadata[date_column], format="%Y%m%d")
+
+    # Find the metadata for the current review
+    this_review_metadata = metadata[metadata["file"] == kwargs["review"]].to_dict("records")[0]
+
+    # Find the file path for the previous review
+    all_previous_reviews = metadata[metadata["date_created"] < this_review_metadata["date_created"]]
+    if all_previous_reviews.shape[0] > 0:
+        previous_review_metadata = all_previous_reviews.loc[all_previous_reviews["date_created"].idxmax()].to_dict()
+        template["previous_review"] = previous_review_metadata["file"]
+    else:
+        template["previous_review"] = None
+
+    # Find the file path for the next review
+    all_next_reviews = metadata[metadata["date_created"] > this_review_metadata["date_created"]]
+    if all_next_reviews.shape[0] > 0:
+        next_review_metadata = all_next_reviews.loc[all_next_reviews["date_created"].idxmin()].to_dict()
+        template["next_review"] = next_review_metadata["file"]
+    else:
+        template["next_review"] = None
+
+    # Convert the date created/modified of the current review into actual date strings
+    for date_key in ["date_created", "date_modified"]:
+        this_review_metadata[date_key] = this_review_metadata[date_key].strftime("%B %d, %Y")
+
+    # If the date created/modified are the same, replace the modified date with "N/A"
+    if this_review_metadata["date_created"] == this_review_metadata["date_modified"]:
+        this_review_metadata["date_modified"] = "N/A"
+
+    # Combine the artist and title together for this review
+    this_review_metadata["artist_title"] = f"{this_review_metadata['artist']} - {this_review_metadata['title']}"
+
+    # Get all the necessary key/value pairs for the template
+    for key in ["artist_title", "date_created", "date_modified", "genre", "rating"]:
+        template[key] = this_review_metadata[key]
+
+    # Customize the metadata for the specific review
+    return render(request, f"projects/casual_music_reviews/{kwargs['review']}.html", template)

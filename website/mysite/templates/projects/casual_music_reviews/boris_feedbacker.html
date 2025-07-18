@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/boris_at_last_feedbacker.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: December 25th, 2003<br>My Rating: {{ rating }}/5</p>
+
+                <p>Boris has been my favorite band of all time for almost a year now, and it's in large part because of their album "Flood". But this review is about my second favorite album of theirs, a legendary Drone Metal album called "Boris at Last -Feedbacker-"</p>
+
+                <p>As the album title implies, the primary tool is amplifier feedback, where the sound created by the amplifier is recycled through microphones or guitar pickups multiple times, which tends to compound noise in the electrical signal. Done on accident, this causes the sharp screeching sound you occasionally hear in live music. Done on purpose, the sound becomes hypnotically dense and crushingly loud. Boris truly demonstrate their mastery of this guitar technique on this album, using it to create pulsing and droning sounds you can hear nowhere else</p>
+
+                <p>I gave the album a 9/10, with one point taken off solely for Parts 4 and 5. Part 4 in particular I dislike because it sharply swerves into the realm of raw noise for seemingly no purpose. Feel free to also skip Part 5, which serves as a short recap of the main melody before bowing out. But the first three parts are must listen 10/10 music</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_lWd0imnQRzFnBQBlpJHq0vXNgKiUYiWQY">https://music.youtube.com/playlist?list=OLAK5uy_lWd0imnQRzFnBQBlpJHq0vXNgKiUYiWQY</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/2Xbd3EI9auhlw5WOKnNX3H">https://open.spotify.com/album/2Xbd3EI9auhlw5WOKnNX3H</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

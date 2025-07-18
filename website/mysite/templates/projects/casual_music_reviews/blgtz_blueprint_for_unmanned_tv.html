@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/blueprint_for_unmanned_tv.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: February 18th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>Do you ever just listen to a random album and get slapped in the face with generational trauma? I have no idea why "無人テレビの設計図" (Blueprint for Unmanned TV) by blgtz (named after Bill Gates) appeared on my listening list, but it certainly did not disappoint. With a special shout out to the first song, it's pretty much at the intersection of a few things I adore, with that raw and lo-fi Emo sound, in combination with the extreme highs and lows of Post-Rock.</p>
+
+                <p>The first song, titled "アタシはキレイな水滴のfilmｳﾌﾌ", which apparently translates to "I'm a beautiful film of water droplets, ufufu", is by far the best song and all you really need to listen to. The rawness, in both vocals and sound quality are most obvious here. The highs are higher, the lows are lower, and the crash between them will give you whiplash. The lows come when singer Shota Tamura does that very common Japanese thing where vocals are ethereal and delicate, fragile enough to break at a single touch. Then the highs come and he dives head-first into agonizing pain, letting it all out. I genuinely don't think I've heard more passionate screaming, all cut through with tasteful voice breaks, than in this song.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/watch?v=J4rk2j5NxZE&si=aw9XLTffQlqJ4HfR">https://music.youtube.com/watch?v=J4rk2j5NxZE&si=aw9XLTffQlqJ4HfR</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/track/26OzkKRUln0dwHjYiKXS3Q">https://open.spotify.com/track/26OzkKRUln0dwHjYiKXS3Q</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

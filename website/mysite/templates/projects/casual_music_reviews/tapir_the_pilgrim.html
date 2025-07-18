@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/tapir_lp1.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: January 26th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>My first notable release of 2024 goes to a very respectable 8/10 Indie Folk album by Tapir! titled "The Pilgrim, Their God and the King of My Decrepit Mountain". Although the album is an 8/10, I found a live recording of three highlights of the album which I'd actually put at a 10/10: <a href="https://www.youtube.com/watch?v=6cNaMVvBrXA">https://www.youtube.com/watch?v=6cNaMVvBrXA</a>.</p>
+
+                <p>The live recording has pretty much everything I've been enjoying these days. It has a unique voice, muted horns and drums, and instrumentation full of contrast, as much as you can have in a soft and warm Indie Folk recording.</p>
+
+                <p>And in case you want to listen to the whole album</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_nRVjLBODvaqPtyVeP_rQDGApF0rBskkLM">https://music.youtube.com/playlist?list=OLAK5uy_nRVjLBODvaqPtyVeP_rQDGApF0rBskkLM</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/4btBSwAto3RPLs2o4VLQJb">https://open.spotify.com/album/4btBSwAto3RPLs2o4VLQJb</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

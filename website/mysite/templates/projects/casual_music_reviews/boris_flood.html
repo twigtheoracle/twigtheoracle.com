@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/flood.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: December 15th, 2000<br>My Rating: {{ rating }}/5</p>
+
+                <p>Well, it finally happened, my favorite album of all time, "98.12.28 Otokotachi no Wakare" by Fishmans has been unseated from it's throne.</p>
+
+                <p>The new King is a Post-Rock/Drone album titled "Flood" by Boris. While technically a single track spanning 70 minutes, it is divided into four parts titled Flood I through IV. Amazingly for a new favorite album of all time, half of the runtime in Flood I and IV are simply okay. But Flood II and III are the greatest 35 minutes of music I've ever heard. They are so far beyond 10/10 it excuses the middling sounds before and after.</p>
+
+                <p>Flood II is the transcendental experience of floating without direction on a vast expanse of water. It begins with a slow and steady drum beat into the warmest and most reverb drenched chords I have ever heard. New ideas are gradually introduced and the section finishes with an incredibly melancholic guitar solo.</p>
+
+                <p>Flood III is the destructive power of a tsunami. It turns out the earlier tranquility was simply the water receding before the main wave. A simple theme combined with subtle vocals builds up to an apocalyptic climax. The density of sound and distortion blows out both your speakers and your mind.</p>
+
+                <p>Quite simply a masterpiece of Post-Rock.</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=hZDstZ1-EAI">https://www.youtube.com/watch?v=hZDstZ1-EAI</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

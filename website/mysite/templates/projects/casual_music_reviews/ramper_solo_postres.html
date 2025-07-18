@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/solo_postres.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: September 18th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>What will likely end up being my favorite album this year (and a possible candidate for my seventh 10/10 album) is titled "Solo Postres" by Spanish band Ramper. The album takes Post-Rock song structure to the extremes, with the lows being incredibly sparse and the highs being slow but heavy. As a massive plus for me, the album also features extensive classical instruments from various horns to string instruments. </p>
+
+                <p>The music cultivates a kind of dark pastoral vibe with it's extensive folk music influences while keeping the imagery of a fantastical journey across snow capped peaks and foggy plains. I lack the media literacy to fully describe my feelings about this album, but I would call it some kind of epic "Lord of the Rings" style journey composed of traveling through Lovecraft's dream books. I think the journey part is quite apt, but the Lovecraft comparison is only partially there... I only include Lovecraft for sense of surreal mystery I get from listening, but the album has only a tiny hint of futile struggle against cosmic forces. In the end though, the album managed to evoke in me emotions, feelings, and thoughts I don't have words for, and is there any higher praise for media?</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_m2zKJwUwnaRLshfpXu5XQw9X2HM9z6Dec">https://music.youtube.com/playlist?list=OLAK5uy_m2zKJwUwnaRLshfpXu5XQw9X2HM9z6Dec</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/76QaJHgcLO6G1GzkCq10Hj">https://open.spotify.com/album/76QaJHgcLO6G1GzkCq10Hj</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

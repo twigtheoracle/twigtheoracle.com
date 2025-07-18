@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/he_has_left_us_alone.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: March 13th, 2000<br>My Rating: {{ rating }}/5</p>
+
+                <p>In a classic example of pretentious Post-Rock album naming, the debut album from A Silver Mt. Zion is titled "He Has Left Us Alone but Shafts of Light Sometimes Grace the Corner of Our Rooms..." The album was written and recorded in dedication to the lead guitarist's dog, who died of cancer while on tour with "Godspeed You! Black Emperor" (perhaps the most famous Post-Rock band of all time).</p>
+
+                <p>In classic Godspeed You! style, the album is universally apocalyptic and melancholic. It's music which would be recovered from the wreckage of a planet after nuclear winter, or perhaps fired into space as the last act of our species as we cook alive. Of special note are tracks five (13 Angels Standing Guard 'Round The Side Of Your Bed) and eight (For Wanda). The two tracks elevate the somber atmosphere to the maximum</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_n880RRye0i5Fi9Cbmm_n8JLACK3AW6mPA">https://music.youtube.com/playlist?list=OLAK5uy_n880RRye0i5Fi9Cbmm_n8JLACK3AW6mPA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/298tKa2DPLT9GNmY8vsvLj">https://open.spotify.com/album/298tKa2DPLT9GNmY8vsvLj</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

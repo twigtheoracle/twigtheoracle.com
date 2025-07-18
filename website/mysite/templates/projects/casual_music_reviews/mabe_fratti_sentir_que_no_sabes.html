@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/sentir_que_no_sabes.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 28th, 2024<br>My Rating: {{ rating }}/5</p>
+
+                <p>A recent release I have really enjoyed listening to this year is "Sentir que no sabes" by Guatemalan cellist and vocalist Mabe Fratti. The primary reason why I love the album so much is that it has a sound I've never really heard before, that of duet for cello and voice (with light drum machine). And the cherry on top is that it has horn and piano accents, two features guaranteed to draw me in.</p>
+
+                <p>I cannot stress how much a difference it makes to have a cello instead of a bass. Oftentimes with low bass you don't quite "hear" the sound, rather you physically "feel" the sound, which incidentally is the reason you put subwoofers on the ground on a hard surface. With cello used instead of bass, especially the weirdly atonal cello Mabe Fratti plays, you really hear a deep and woody sound. These features are most prominent on tracks 4 (Oídos) and 8 (Márgen del índice) and I would highly recommend you listen to them first.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_n4ezVDYwd54usVPqtdWbcBIk0zVue_-bE">https://music.youtube.com/playlist?list=OLAK5uy_n4ezVDYwd54usVPqtdWbcBIk0zVue_-bE</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0lIG0tIWqZiWkL43EZvg0l">https://open.spotify.com/album/0lIG0tIWqZiWkL43EZvg0l</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

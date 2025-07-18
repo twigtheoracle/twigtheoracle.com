@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/depressive_silence_ii.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: 1996<br>My Rating: {{ rating }}/5</p>
+
+                <p>Depressive Silence [II] by Depressive Silence is anything but depressing. Possibly the best album of the Dungeon Synth genre, this music is both epic and adventurous. This is the instrumental soundtrack to a journey of discovery for forgotten lands, people, and times.</p>
+
+                <p>Here's someone else's great one sentence review: "Easily the most perfectly Lovecraftian record I've ever listened to - not because of any direct reference to Lovecraft's works, but because it captures the sense of awe before a majestic nothingness at the heart of his poetics."</p>
+
+                <p>YT Music: <a href="https://www.youtube.com/watch?v=OxgVmpAk538">https://www.youtube.com/watch?v=OxgVmpAk538</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/2NnkLRaeX33d1Mn8ZLgTo8">https://open.spotify.com/album/2NnkLRaeX33d1Mn8ZLgTo8</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
