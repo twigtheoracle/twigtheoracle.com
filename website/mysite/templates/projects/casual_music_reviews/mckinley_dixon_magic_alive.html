@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/magic_alive.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 6, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>Pretty much the only Rap I enjoy is Jazz Rap and I don't mean that jazz/funk influenced slop, but honest to god live jazz music that just so happens to have some person rapping over it. This kind of Jazz Rap is rare enough that I pretty much have a blanket dislike of Rap as a whole, but occasionally an album or two shines through.</p>
+
+                <p>McKinley Dixon, who I have been following closely every since his 2023 release of "Beloved! Paradise! Jazz!?", just released his most recent album, "Magic, Alive!". Although the focus is rightly on McKinley Dixon's lyrics and flow, he often treats his voice as just another instrument, giving space for the lush and warm jazz instrumentation, featuring sax, flute, and various horns. When McKinley Dixon is not rapping, jazz solos seamlessly take over, allowing many songs to glide from start to finish.</p>
+
+                <p>Not only is the album jazzy, but it also has it's orchestral sections. Most unusually, it's also warm and optimistic. Despite the title track being about the death of a friend, it ends with:</p>
+
+                <p>Going through this now, shit, it really got me believing<br>
+                    To live forever is to tell the stories of who light up ya eyes<br>
+                    We ran, we danced, survived, we fly<br>
+                    That's magic alive!</p>
+
+                <p>From start to finish, the 35 minute runtime never overstays it's welcome, with every song fully exploring it's own theme and gracefully fading out for the next one. Barring one or two weirder tracks, "Magic, Alive!" is a pretty definitive 10/10 for me, and a must listen for anyone who likes Rap, Jazz, or must music in general.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_n2zV5vTTpvPRwS-JW1WRGMI8LnbSOfPTU">https://music.youtube.com/playlist?list=OLAK5uy_n2zV5vTTpvPRwS-JW1WRGMI8LnbSOfPTU</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0RXsRwX4iMCKkSFPoSs8Go">https://open.spotify.com/album/0RXsRwX4iMCKkSFPoSs8Go</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
