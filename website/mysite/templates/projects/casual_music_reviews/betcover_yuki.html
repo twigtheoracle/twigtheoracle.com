@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/magic_alive.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 11, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>I may have said something along these lines before, but Jazz is definitively one of my favorite genres of music, despite my not liking the majority of Jazz music. Instead, my love for Jazz comes from the methodology and the absurd number of spin-off genres, not least of which is Jazz Rock. But staying under a single label like "Jazz Rock" is by itself not very Jazz Rock, and that wild variability is on show in Japanese band betcover!!'s newest album, titled "勇気" (Yuki).</p>
+
+                <p>The first three songs are simultaneously low-key and high energy. They aren't high volume, but somehow feel fast and contain a high density of sounds and Jazz solos. Any tiny Jazz lick is played at light speed, like the piano on track #2 ミー子のコンサート (Miko No Concert). I hesitate to describe it this way, but bandleader Jiro Yanase's vocals remind me a lot of Geordie Greep in how weirdly seductive and sultry it sounds. Backing vocals cultivate an overall quirky and playful style with their high pitch and atonal resonance. </p>
+
+                <p>The last four songs are moody Jazz Rock ballads. While they keep the same odd vocal style and wild jazz licks, the songs go low-key and melodramatic. This gives space for additional focus onto the instruments, such as the melodic (and later obscene) saxophone solos on track #5 野猿 (Yaen). I think track #5 also has a new favorite musical device of mine, where two different instruments (saxophone and voice) do completely different things with the same level of emphasis, giving a complexity you can barely grasp even with full focus. </p>
+
+                <p>"勇気" (Yuki) is a really weird album, full of odd sounds and stylistic choices. All this contrasts with the common musical tropes present making the album a simultaneously familiar and unfamiliar experience. A highly recommended listen</p>
+
+                <p>From start to finish, the 35 minute runtime never overstays it's welcome, with every song fully exploring it's own theme and gracefully fading out for the next one. Barring one or two weirder tracks, "Magic, Alive!" is a pretty definitive 10/10 for me, and a must listen for anyone who likes Rap, Jazz, or must music in general.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_m6FucRhhTGF3E8ul7Z2Yk4drn7qwK5X4E">https://music.youtube.com/playlist?list=OLAK5uy_m6FucRhhTGF3E8ul7Z2Yk4drn7qwK5X4E</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/1XNE6xQzrlW6qce2rWC14z">https://open.spotify.com/album/1XNE6xQzrlW6qce2rWC14z</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

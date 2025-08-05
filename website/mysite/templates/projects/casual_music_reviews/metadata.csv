@@ -7,8 +7,8 @@ date_created,date_modified,artist,title,genre,rating,file
 20250328,20250328,Hesse Kassel,La Brea,"Post-Rock, Art Rock",4.5,
 20250131,20250131,Natural Snow Buildings,Daughter of Darkness,"Drone, Folk",4.5,
 20250116,20250116,Steve Reich,Music for 18 Musicians,"Minimalism",4.5,
-20241218,20241218,Geordie Greep,The New Sound,"Jazz Rock",5,
-20241206,20241206,Tokyo Incidents,Adult,"Jazz Rock",4,
+20241218,20241218,Geordie Greep,The New Sound,"Jazz-Rock",5,
+20241206,20241206,Tokyo Incidents,Adult,"Jazz-Rock",4,
 20241121,20241121,屋根裏獣 (Kayoko Yoshizawa),屋根裏獣 (Attic Beast),"Jazz Pop, Art Pop",4.5,kayoko_yoshizawa_attic_beast
 20241106,20241106,Ramper,Solo Postres,"Post-Rock",4.5,
 20241011,20241011,MJ Lenderman,MJ Lenderman,"Alt-Country, Slacker Rock",4.5,
@@ -29,3 +29,4 @@ date_created,date_modified,artist,title,genre,rating,file
 20240227,20240227,Slint,Spiderland,"Post-Rock, Math Rock",4.5,
 20240131,20240131,Ciśnienie,Zwierzakom,"Post-Rock, Experimental Jazz-Rock",4.5,cisnienie_zwierzakom
 20250717,20250717,McKinley Dixon,"Magic, Alive!","Jazz Rap",4.5,mckinley_dixon_magic_alive
+20250731,20250731,betcover!!,勇気 (Yuki),"Jazz-Rock",4.5,betcover_yuki
