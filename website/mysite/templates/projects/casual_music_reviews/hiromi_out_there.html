@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/out_there.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: April 4, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>Hiromi has always written Jazz Fusion, but it seems like every album introduces new genres and influences. Sometimes the fusion works, sometimes it doesn't. On her most recent album, it mostly works, as long as you stay away from the vocal tracks. In collaboration with jazz trio Sonicwonder, "Out There", features a fusion of jazz with progressive rock and modern classical. Both progressive rock and modern classical, insofar as they can be generalized, often feature long solos on long songs. Simply replace those rock or classical solos with jazz, and you should have some idea of what "Out There" is about.</p>
+
+                <p>Simply listen to track #6 "Orion", and you'll hear highly technical jazz solos seamlessly layered between, and eventually within, the movements of a low-key prog rock song, reminiscent of a optimistic space-opera movie. I mentioned this in my last review, but a new favorite music device is when two separate melodies do completely different things. When the jazz and space-opera meld together, even for such a brief moment, it gives a complexity that attracts all your attention to it.</p>
+
+                <p>Or listen to track #7 "The Quest", which has less genre fusion, but contains call and response between wildly different jazz styles. Obscene polyrhythmic horns (and saxophone and bass?) cut in and out while highly technical piano meanders all over the range. And just like track #6, at the end the two meld together creating a nearly indecipherable synthesis of sound.</p>
+
+                <p>Outside of the two "Pendulum" tracks (#3 and #8), a highly enjoyable listen filled with playful whimsy. The album really lives up to it's name of "Out There"!</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_mvpwxOQnjHkt8KCgdx3RAP8x3oAbbSAXA">https://music.youtube.com/playlist?list=OLAK5uy_mvpwxOQnjHkt8KCgdx3RAP8x3oAbbSAXA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/5Z1XM55fh24JfLyDWWzRRl">https://open.spotify.com/album/5Z1XM55fh24JfLyDWWzRRl</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
