@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/trve_brutal_black_jazz.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: November 23, 2018<br>My Rating: {{ rating }}/5</p>
+
+                <p>I've been going through a heavy Jazz phase recently, which means I naturally listen to a whole bunch of weird Jazz Fusion albums instead of any actual Jazz. This time around, it's on the extreme edge of what you could legally (this is not legal advice) fuse with Jazz. I present to you Etienne Pelosoff's Jazz and Black Metal Fusion album, "Trve Brutal Black Jazz".</p>
+
+                <p>The Jazz is good but standard. The Black Metal is good but standard. When the two genres stand separated from each other, you get absurd transitions between the two. One moment you're listening to a clean saxophone/guitar solo and the next moment Black Metal is grinding through your ears with growled vocals.</p>
+
+                <p>When the two genres do mix, sometimes you get Black Metal fuzz underneath with everything else coming up Jazz. Other times you get a Jazz solo while chaotic Black Metal plays in the background and the vocalist screams as loud as he can.</p>
+
+                <p>No matter your opinions on either Jazz or Black Metal, this album is all about contrast and contrast as a musical device transcends any genre. A truly fascinating listen</p>
+
+                <p>YT<a href="https://youtu.be/wXvgrd5WEhY?si=a4EiHcKMAXK2pxhu">https://youtu.be/wXvgrd5WEhY?si=a4EiHcKMAXK2pxhu</a></p>
+
+                <p>This album is not available on Spotify</p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
