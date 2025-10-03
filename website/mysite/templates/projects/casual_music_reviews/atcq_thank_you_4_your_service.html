@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/astero.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: November 11, 2016<br>My Rating: {{ rating }}/5</p>
+
+                <p>A Tribe Called Quest is one of the greatest hip hop groups ever formed, and I believe their final album is their best. Therefore, by some weird transitive property, that makes "We Got It from Here... Thank You 4 Your Service" one of the greatest hip hop albums of all time? The logic there's kind of seductive right? It's certainly the best Jazz Rap album of all time, way better than anything Kendrick Lamar or Nujabes has ever done. It's even more impressive when you consider that "We Got It from Here... Thank You 4 Your Service" was written nearly twenty years after their previous release.</p>
+
+                <p>Jazz and Rap are really a match made in heaven, which makes sense given their shared evolutionary history. Where Jazz has it's improvisation over steady rhythms and chord progressions, Rap has it's rapping over similar steady rhythms and chords. The result is a layering of different rhythms that gives the music an incredible level of complexity. When it's done really well, and of course A Tribe Called Quest are experts, it's best to close your eyes and let the sounds flow through. Since I practically never listen to lyrics, it's this highly complex rhythmic layering that really makes the album for me.</p>
+
+                <p>If not for the fact that after track #5, there's a solid step down in quality, "We Got It from Here..." would be a definitive 10/10 for me. And special shout out to the opening bass line on track #2 "We The People....", which contains a sound I've personally never heard before. I've definitely replayed the first ten seconds multiple times just to listen to it over and over again. If you can't hear it very well, try disabling cross-fade, aka the Devil's curse upon album listeners. Cross-fade is great when listening to random songs on a playlist, but it can ruin listening to a full album by erasing the artists hard work on song intros/outros.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_lv4GlFNugoVj3PHeYsChvRqCXddTEg1lE">https://music.youtube.com/playlist?list=OLAK5uy_lv4GlFNugoVj3PHeYsChvRqCXddTEg1lE</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/3WvQpufOsPzkZvcSuynCf3">https://open.spotify.com/album/3WvQpufOsPzkZvcSuynCf3</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
