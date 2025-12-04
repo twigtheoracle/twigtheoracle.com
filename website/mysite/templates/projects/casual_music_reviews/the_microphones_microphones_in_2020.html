@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/microphones_in_2020.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: August 7, 2020<br>My Rating: {{ rating }}/5</p>
+
+                <p>If I were to compile a list of my favorite songs, it would be filled with "songs" that are actually album length. Examples include my favorite album/song of all time, "Flood" by Boris, as well as "The Hermit" by Richard Dawson and "Long Season" by Fishmans. There's something magical about taking one idea and spending an excessively long time exploring every nook and cranny. Additionally, these songs can feature things you'll never hear in regular (derogatory) music, such as extensive silence or a glacially slow climb to a climax</p>
+
+                <p>"Microphones in 2020" is the final song/album by The Microphones, a mostly solo folk/drone project by Phil Elverum. The 44-minute song details the life and musical career of Elverum, with a strong focus on nostalgia and bittersweet change. Seriously, the nostalgia tinge is omnipresent, from the muted guitars and drone mimicking the fuzz of memory, to the blurred photos in the accompanying video. As Elverum begins to sing, he summons ghosts of the past, from musical milestones, nature, and trivial memories, using his signature quiet voice.</p>
+
+                <p>The lyrics are by far the strongest factor here, which is really saying something as I rarely listen to lyrics. His storytelling pulls the listener into his world, though inane anecdotes and odd imagery. Reading though the lyrics feels like reading certain classical literature, like "The Old Man and the Sea" or "Siddhartha". All three share simple language and simple stories, but a complex underlying message which takes multiple reads/listens. </p>
+
+                <p>I would highly recommend watching the provided music video as well, as it adds a nice visual layer to the spoken word poetry.</p>
+
+                <p>This song/album is only available on YouTube <a href="https://www.youtube.com/watch?v=A7BkabF31ak">https://www.youtube.com/watch?v=A7BkabF31ak</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
