@@ -23,7 +23,7 @@ date_created,date_modified,artist,title,genre,rating,file
 20240521,20240521,Lamp,恋人へ (For Lovers),"Jazz Pop, Bossa Nova",4.5,lamp_for_lovers
 20240508,20240508,Kamasi Washington,Fearless Movement,"Spiritual Jazz, Jazz Fusion",4,
 20240422,20240422,ミドリ (Midori),"あらためまして、はじめまして、ミドリです。(Once Again, Nice to Meet You, Midori)","Jazz-Punk",4.5,midori_aratamemashite
-20240326,20240326,Boris,Flood,"Post-Rock, Drone",5,
+20240326,20260108,Boris,Flood,"Post-Rock, Drone",5,
 20240311,20240311,Tapir!,"The Pilgrim, Their God, and the King of my Decrepit Mountain","Indie Folk",4,tapir_the_pilgrim
 20240229,20240229,Depressive Silence,Depressive Silence [II],"Dungeon Synth",4,depressive_silence_depressive_silence_ii
 20240227,20240227,Slint,Spiderland,"Post-Rock, Math Rock",4.5,
@@ -35,3 +35,4 @@ date_created,date_modified,artist,title,genre,rating,file
 20250925,20250925,A Tribe Called Quest,We Got It from Here... Thank You 4 Your Service,"Jazz Rap",4.5,"atcq_thank_you_4_your_service"
 20251117,20251117,The Microphones,Microphones in 2020,"Folk, Drone",4,
 20251204,20251204,Weatherday,Hornet Disaster,"Emo, Noise Pop, Slacker Rock",4.5,
+20251218,20251218,Deafheaven,Lonely People With Power,"Blackgaze, Post-Metal",4.5,

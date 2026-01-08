@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/lonely_people_with_power.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: March 28, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>Now that the year is almost over, it's time to recap some of my favorite music from 2025 that I haven't talked about yet. Next up are San Francisco locals Deafheaven and their frighteningly cold album, "Lonely People With Power"</p>
+
+                <p>Calling an album cold may evoke thoughts of spare instrumentation and twinkly chimes, but Deafheaven takes the opposite path. Instead of whimsical penguins sliding along the ice, it's the crushing cold of hypothermia and the strange warmth that comes before death. It's especially evident with George Clarke's tortuous growled vocals, which can simultaneously feel like angels pulling you up and devils dragging you down.</p>
+
+                <p>In fact, it's quite a shame that Clarke's vocal delivery is incomprehensible. Even reading the lyrics as he screams, you could maybe vaguely actually hear one in three words. Which just means that you miss all the great poetry he spins. In track #11 Winona, Clarke illustrates the startling contrast in his own music:</p>
+
+                <p>The howling energy<br>
+                    Is a shining vacancy<br>
+                    Thinking I'd survive<br>
+                    With everything I was gaining<br>
+                    Behind the curtain I was sinking<br>
+                    With everything I'm supposed to be<br>
+                    I'm waiting for the fall</p>
+
+                <p>Or the visualization of fascinating imagery on track #12 The Marvelous Orange Tree:</p>
+
+                <p>My body spills into a secret well<br>
+                    God gave me the wish<br>
+                    For religious stillness<br>
+                    Showing shivering skin<br>
+                    Living with this illness</p>
+
+                <p>I wouldn't say "Lonely People With Power" is a must listen, as fuzzy black metal isn't a well loved genre. But if you have any interest at all, this is a fantastic place to start.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_nsckTko62cLH3a-j-e2u_w247jyNbRceE">https://music.youtube.com/playlist?list=OLAK5uy_nsckTko62cLH3a-j-e2u_w247jyNbRceE</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/5Eh3xMVdGFAUiYwuoPOzXc">https://open.spotify.com/album/5Eh3xMVdGFAUiYwuoPOzXc</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
