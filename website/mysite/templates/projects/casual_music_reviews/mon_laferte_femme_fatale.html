@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/femme_fatale.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: October 24, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>Now that the year is almost over, it's time to recap some of my favorite music from 2025 that I haven't talked about yet. Next up is "Femme Fatale" by Chilean/Mexican signer Mon Laferte.</p>
+
+                <p>This album practically contains the platonic ideal of vocal jazz. The kind of music that exists in your head but never matches what you hear. "Femme Fatale" teleports you to a smokey cabaret in the 1950s, the kind of place where zonked out zombies lie on the floor, but when Mon Laferte starts to sing everyone sits up and pays attention.</p>
+
+                <p>The jazz itself is lush and glamorous, somehow evoking thoughts of a drag show even though I've never been or seen one before? While obviously serving as second fiddle to Mon Laferte's theatrical vocals, it often erupts with bursts of flair, giving the music some welcome variety. </p>
+
+                <p>If not for one or two really weird tracks, this album would be a certified 10/10 mega-banger. Even so, it has been on non-stop repeat ever since it's release a few months ago.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_llXJeCXd_8GlADMOutqK7mDUq7mwdrZXA">https://music.youtube.com/playlist?list=OLAK5uy_llXJeCXd_8GlADMOutqK7mDUq7mwdrZXA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/7q2GxttTFDWOihvnSWdwWw">https://open.spotify.com/album/7q2GxttTFDWOihvnSWdwWw</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
