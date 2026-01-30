@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/the_mocking_stars.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: November 9, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>Now that the year is over, it's time to recap some of my favorite music from 2025 that I haven't talked about yet. Next up is "The Mocking Stars" by LAUSSE THE CAT, a fantastic bit of Jazz Rap with a very unique style.</p>
+
+                <p>To summarize that style in a single emoji, [insert cool cat with sunglasses]. Like the cat is super cool while also being very low-key about it. You know, just a chill dude hanging out at the Jazz bar wearing sunglasses because they're too cool. They know they're the coolest dude around, but are also too cool to show it. But occasionally they'll stupefy everyone by doing something so cool that everyone has to watch.</p>
+
+                <p>All of which leads to "The Mocking Stars" having a very muted and peaceful tone, which occasionally breaks character to show moments of unexpected flair. You can hear this very clearly track #5 "The Mocking Stars" and #6 "Space Cadet Cat". After eleven minutes of fuzzy instrumentals and almost whisper-singing vocals, you're drifting down a slow moving lazy river. Then tract #6 hits and it seems like the random percussion dude can't help it anymore and their random spasms hit you with atonal twangs. </p>
+
+                <p>Barring the genuinely too weird spoken word sections, "The Mocking Stars" is an extremely enjoyable listen, smooth vocals, smoother instrumentals, and just enough panache to keep things interesting. </p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_ls64ZC39k0U4xdm4FYso-o0LUVBEPWiuo">https://music.youtube.com/playlist?list=OLAK5uy_ls64ZC39k0U4xdm4FYso-o0LUVBEPWiuo</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/3NFrrtpiJ3FXPR5bzlnbKg">https://open.spotify.com/album/3NFrrtpiJ3FXPR5bzlnbKg</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
