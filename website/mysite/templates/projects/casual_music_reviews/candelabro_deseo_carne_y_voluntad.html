@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/deseo_carne_y_voluntad.png' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: April 27, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>And last but not least, only two months late, my favorite album from 2025 is "Deseo, Carne y Voluntad" by Chilean Art/Post/Indie/Jazz/Prog-Rock group Candelabro. Just from the genre list alone, you could probably get why I fell for this album so hard. Add on all the funky woodwinds including alto sax, soprano sax, and what I'm swear is an oboe (but it's not credited), all of which harmonize in strange brain tickling ways, and Candelabro hit nearly every single switch in my head except unique vocalist.</p>
+
+                <p>Really what more is there to say? I love listening to music for the discovery and, for lack of a better description, to expose me and the voice in my head to new things. Finding melting pot music like Candelabro where everything is melded together so perfectly feels like stretching a muscle you've never used before, like discovering a new facet of the self. </p>
+
+                <p>Like sorry for the flowerly language, but just listen to track #8 "Pecado". The song is functionally a simple call and response, but with at least four different actual/instrumental voices. At the end, when they all collapse into the singularity, chaos reigns as each voice does it's own thing. But then they gradually resolve into a single voice and it's revealed: "Rejoice! What is many is one, what is one is many!" (or something like that, I've been reading some religious fiction lately, shoutout "Unsong" by Scott Alexander)</p>
+
+                <p>All that to say "Deseo, Carne y Voluntad" is extremely vibrant and theatrical and seems to do a billion new things which I have either never heard before or have never head in these specific combinations. It surely deserves the investment of an hour and fifteen minutes of your life, and I guarantee it will pay infinite dividends down the road</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_m6YAUpjd2vlV2MxisO2uTeUn8pEjR37qU">https://music.youtube.com/playlist?list=OLAK5uy_m6YAUpjd2vlV2MxisO2uTeUn8pEjR37qU</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/4XqjkJmo5IHFQEOm8PsGut">https://open.spotify.com/album/4XqjkJmo5IHFQEOm8PsGut</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
