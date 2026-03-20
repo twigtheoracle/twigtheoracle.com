@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/american_graffiti.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 21, 2007<br>My Rating: {{ rating }}/5</p>
+
+                <p>Strawberry Girls is a prog/math rock band hailing from Salinas, California and probably my favorite live band. That's mostly because the drummer, Ben Rosett, is the most technically skilled drummer I have heard. Ben Rosett plays the drums as if in a previous life he was a suicidal downhill longboarder. The kind of idiot who bombs down the streets of San Francisco, heedless of minor concerns like cross traffic, stop signs, pedestrians, or death.</p>
+
+                <p>Basically, once he starts pounding away on his drum kit, he just keeps getting faster and faster while the rest of the band struggles to keep up. It creates this fascinating sense of urgency as a microscopic lag forms between his drums and the guitar/bass. </p>
+
+                <p>Really though, this kind of music can't be heard or seen though any kind of recording. Any studio music is far too sterile and there's not a single camera on this planet that could properly capture the movement of the drummer. While I would very strongly recommend everyone go see them live if you get a chance, there's a few recordings online which capture a small part of their greatness. A pretty short one is linked below, but if you only want to listen to one small part, I would recommend "Tasmanian Glow" and "Spanish Bay" going from roughly 5:10 to 11:25</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=WxZdYwawuu0">https://www.youtube.com/watch?v=WxZdYwawuu0</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
