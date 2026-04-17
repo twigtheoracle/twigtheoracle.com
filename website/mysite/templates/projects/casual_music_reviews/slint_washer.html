@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/spiderland.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: March 27, 1991<br>My Rating: {{ rating }}/5</p>
+
+                <p>March 27, 2026 was the 35th anniversary of the legendary album Spiderland by Slint. In terms of my personal lore, it's the foundational document behind two of my favorite genres of music, Post-Rock and Math Rock. I reviewed the album as a whole just over two years ago, but I'd like to diver deeper into one track in particular, track #4 "Washer".</p>
+
+                <p>Echoing thoughts from last review, "Washer" is not notable for the things it does, but rather for all the things it doesn't do. Instead of using a verse-chorus form, Brian McMahan whispers a depressive stream of consciousness into your ears, angel and devil both. Instead of, you know, actually playing their instruments to provide melody and accompaniment, "Washer" is filled with deliberate pulses and contemplative silence. At times, all you'll hear is McMahan's scarcely audible mumbles with a sharp hit of the snare drum every few seconds. When it's time for a guitar solo, David Pajo punches out a single tone, as if it were depression slowly bashing down the mental bastion.</p>
+
+                <p>With everything so deeply distilled, it's no wonder how mechanical and alienating the song feels. A broken clock, bare of any decorations, keeping poor time, slowly winding down until final rest. Once in a while the little birdie summons the energy to cry out, but it's just the swan song before cracked silence</p>
+
+                <p>"Washer" is a testament to less is more, how complexity can arise from the simplest sounds, how intensity can spring forth from practically nothing. </p>
+
+                <p>YT Music: <a href="https://music.youtube.com/watch?v=nmL7rXt1fvI">https://music.youtube.com/watch?v=nmL7rXt1fvI</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/track/3oNP9Gh1NY4sjqaVUaNjTQ">https://open.spotify.com/track/3oNP9Gh1NY4sjqaVUaNjTQ</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
