@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/vol_ii.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: April 3, 2026<br>My Rating: {{ rating }}/5</p>
+
+                <p>If you were to consider the entire western music canon, encompassing everything from classical music to death metal and everything in-between, there's one musical trope that's not really been explored to any degree at all, microtonality. In short, all western music divides the octave into twelve even notes, but it's a really an arbitrary distinction. A note is just a specific sound frequency and there's an infinite number of them. You could just as easily divide the octave into twenty-four even notes or even eschew even spacing between notes entirely. To my knowledge, within the western canon, King Gizzard & The Lizard Wizard's "Flying Microtonal Banana" was the only semi-famous work of microtonal music. Otherwise, I think it's only Middle Eastern music that uses this musical device to any regularity.</p>
+
+                <p>And then, a few months ago, Angine de Poitrine arrived from their alien planet (actually Quebec, but who can really tell right?) bearing gifts of microtonal math rock. Klek on the drums doesn't really do anything too fancy, just laying down a solid beat for the real star of the show. Khn, playing the double necked microtonal guitar/microtonal bass and loop machine, is the font of their "mantra-rock Dada Pythago-Cubist" music.</p>
+
+                <p>First, Khn plays a microtonal bassline. Then comes a microtonal harmony or two or three. Then he (her? it? alien?) plays a bunch of unbelievably weird microtonal solos on top of it all. Like they are still squarely in the western musical canon, following well established chords and progressions and rhythms, but all the sounds are wrong. It's like watching one of those "what english sounds like to foreigners" videos, where the sounds are right but nothing makes sense</p>
+
+                <p>Now, I know I always say my recommendations are a must listen, but Angine de Potrine plays sounds which you will literally never hear anywhere else. For all I know, this could be the one missing piece in you psyche which you never knew you were missing.</p>
+
+                <p>Their breakout performance was on KEXP, and there's no better place to listen to their music: <a href="https://www.youtube.com/watch?v=0Ssi-9wS1so">https://www.youtube.com/watch?v=0Ssi-9wS1so</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
