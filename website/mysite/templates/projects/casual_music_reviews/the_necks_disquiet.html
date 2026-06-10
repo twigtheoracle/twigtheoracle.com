@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/disquiet.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: October 10, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>The beautiful thing about Jazz is that it's more a philosophy than any one style of music. I mean, if a major pillar of your musical style is improvisation, then what's stopping you from improvising away from your standard chords and rhythms? You could take this idea to its furthest extreme in Free Jazz, where it seems the only rule is that you break the rules. This gives us bands like The Necks, whose particular brand of Free Jazz is rather impossibly based on Ambient and Drone music.</p>
+
+                <p>Assuming you don't want to listen to three hours of pulsating waves, I highly recommend the shortest (only 26 minutes) track, "Causeway", off their most recent album, "Disquiet". Like a lot of Ambient/Drone music, "Causeway" contains long sustained notes which give the song a hypnotic background. And on top, soft jazz piano caresses the brain with the care of a dying painter. It reminds me of Ryuichi Sakamoto's "Opus", his final work of solo piano before dying of cancer a few months later. It's the combination of glacial inevitability and desperate expression.</p>
+
+                <p>If you enjoy "Causeway", there's another 2.5 hours of additional content on "Disquiet" split into three songs. If you really enjoy "Causeway", The Necks have a nearly 40-year discography, with other notable albums being the 1999 "Hanging Gardens" and 2006 "Chemist"</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/watch?v=pHQ-Jjj8aIo&si=Tne80ob4gntgyGrU">https://music.youtube.com/watch?v=pHQ-Jjj8aIo&si=Tne80ob4gntgyGrU</a></p>
+
+                <p>The song is not on Spotify (yet another reason to hate)</p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
