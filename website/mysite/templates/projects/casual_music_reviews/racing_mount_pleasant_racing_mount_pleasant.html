@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/disquiet.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: October 10, 2025<br>My Rating: {{ rating }}/5</p>
+
+                <p>I think I'll have an eternal debt to Black Country, New Road for, at least in my opinion, popularizing the usage of brass and strings in the indie rock/folk scenes. The band Racing Mount Pleasant, coming out of Ann Arbor, Michigan, is just the latest example of this trend in action. I was blessed to see them at my local 200 capacity venue, where they played the entirety of their self-titled album from cover to cover.</p>
+
+                <p>Unlike the music of BCNR, which tends towards the passionate and theatrical, Racing Mount Pleasant tends towards the melancholic and atmospheric. In many ways, it's a better usage of the brass and strings, with slow sustained notes evoking all the many complex images associated with Taps, played at military funerals of the US Armed Forces.</p>
+
+                <p>Also, but like not to stereotype too hard, the music, band, and album cover really reinforce my image of Michigan as being hell frozen over, the only warmth coming from the companionship of friends and family. It's the kind of music you'd write when the 24/7 fog means the only sounds which transmit are foghorns...</p>
+
+                <p>As with a lot of the longer indie rock/folk albums, things can end up sounding a bit same-ish. The highlights are track #4 Emily, #8 Racing Mount Pleasant, and #9 Call It Easy.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_mSZd1eup6sXQtGpky72ejk27S93Gxs5vY">https://music.youtube.com/playlist?list=OLAK5uy_mSZd1eup6sXQtGpky72ejk27S93Gxs5vY</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/037axs2AfEPUD5LtjfFYSv">https://open.spotify.com/album/037axs2AfEPUD5LtjfFYSv</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
