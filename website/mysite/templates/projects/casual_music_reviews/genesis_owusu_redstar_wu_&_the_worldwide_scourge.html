@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/redstar_wu_and_the_worldwide_scourge.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: May 15, 2026<br>My Rating: {{ rating }}/5</p>
+
+                <p>Genesis Owusu is notorious for his mixing of genres with hip hop, to the extreme point that even I hated his first album, "Smiling With No Teeth", when it came out in 2021. Thus when he dropped a new album, "Redstar Wu & the Worldwide Scourge", reportedly hip hop layered over an eclectic mix of Post/Dance/Synth-Punk, I expected to hate it. But I guess in the five years since I first listened to Genesis Owusu, I've become more acclimated to, if you'll excuse the language, weird shit.</p>
+
+                <p>The first two songs of "Pirate Radio" and "Stampede" really get the blood boiling, which is unfortunately not an energy carried though the whole album. But man, those first two songs, from the pounding drums to Genesis Owusu's wild vocal delivery, get me headbanging hard in my office cubicle.</p>
+
+                <p>The other notable song is half of the title track, "The Worldwide Scourge". I just love this kind of vocal delivery, where the syllable emphasis keeps time while Genesis Owusu preaches his sermon. Something about the contrast between regular emphasis and complex polyrhythms from word breaks is hypnotic.</p>
+
+                <p>All this to say that "Redstar Wu & the Worldwide Scourge" is the first bit of interesting music I've listened to released this year, so I'm getting a little desperate given that the year is half over... If you've got any new music recommendations, I'd love to hear them</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_kYnJIco-MALhScu-3sPf6OKBEK265wEgA">https://music.youtube.com/playlist?list=OLAK5uy_kYnJIco-MALhScu-3sPf6OKBEK265wEgA</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/0nhxoQOhijxQPzPBv6OK9V">https://open.spotify.com/album/0nhxoQOhijxQPzPBv6OK9V</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
