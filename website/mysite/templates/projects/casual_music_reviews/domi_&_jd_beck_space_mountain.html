@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/space_mountain.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: July 29, 2022<br>My Rating: {{ rating }}/5</p>
+
+                <p>One late night doom-scrolling YouTube, I encountered the most surreal live jazz recording, where DOMi & JD BECK perform "SPACE MOUNTAIN" on what must be a Japanese morning talk show of some kind. It's incredibly awkward, from the language barrier, to the live translation and associated pauses, to the performers standing rigidly with no idea what to do with their hands.</p>
+
+                <p>But musically, I can only describe it as the future of Jazz coming back to the present via interdimensional cable. DOMi gets the first half of the song to show off her skills, playing an improvised solo with one hand and what I'm pretty sure is the bassline with her other hand and feet. JD BECK, to my amateur ears, seems to be the most technically gifted drummer I've ever listened to. He's doing things which are obscenely difficult and playing them in a muted understated manner. Maybe it's just the sound guy or his particular drums, but I've never heard such devilishly complex rhythms played like a stroll in the park</p>
+
+                <p>Given the song is only a few minutes long, it's well worth it to spend one listen/watch focusing exclusively on DOMi and the pianos/bass, and another on JD BECK and the drums.</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=o4td2EImaG4">https://www.youtube.com/watch?v=o4td2EImaG4</a></p>
+
+                <p>Also shout out to their NPR Tiny Desk Concert: <a href="https://www.youtube.com/watch?v=ANPbOxaRIO0">https://www.youtube.com/watch?v=ANPbOxaRIO0</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
