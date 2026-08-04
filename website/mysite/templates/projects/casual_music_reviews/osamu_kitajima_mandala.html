@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/mandala.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: December 4, 1991<br>My Rating: {{ rating }}/5</p>
+
+                <p>I recently rewatched the original Ghost in the Shell movie (1995) and it's a genuine masterpiece. Now, I'm saying this knowing it's kind of pretentious, but I think a major factor that elevates media into the world of art is that media tells you things but art asks you questions. Even skipping over the deep philosophical themes of identity and self, there's three minutes in the middle of the movie that just shows off the setting (<a href="https://www.youtube.com/watch?v=WB-ik-Bpl0c">https://www.youtube.com/watch?v=WB-ik-Bpl0c</a>). This kind of slow cinematography, forces you to watch and think and process and contemplate.</p>
+
+                <p>Anyways, all that to say the music in that scene reminded me of the least popular album from a much maligned artist that I inexplicably loved. The album is the soundtrack to the movie "Mandala", scored by Osamu Kitajima. Being about the Buddhist monk Kūkai, the music is the perfect soundtrack for a meditative journey. Long droning notes mask the noise in your head. The same theme is repeated over and over with subtle variation. Start and end are the same, yet still different enough you feel something has changed.</p>
+
+                <p>Oddly enough, the final song on the album, "Mandala The White Lotus", is probably one of a few very select songs to bring me to tears. There's an awful lot of context behind that situation which I've never replicated, but even today just listening to it in a slightly weird headspace had my eyes a little moist in my office cubicle. Like, objectively, it's not that good of a song and the album is not that good either. But it truly excels as meditative music that's not straight Drone.</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_ntwPhyr6YnjOrT-p3g0gVW1bH-O_Eudak">https://music.youtube.com/playlist?list=OLAK5uy_ntwPhyr6YnjOrT-p3g0gVW1bH-O_Eudak</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/4FqZ4bfOD7avlO0guD8mji">https://open.spotify.com/album/4FqZ4bfOD7avlO0guD8mji</a></p>
+
+                <p>(Also if you've not watched the original Ghost in the Shell, you owe it to your future self, it's not only a masterful work of art but also pretty accessible)</p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
