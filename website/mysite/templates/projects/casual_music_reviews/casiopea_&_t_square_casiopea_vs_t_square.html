@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/casiopea_vs_t_square.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: September 23, 2004<br>My Rating: {{ rating }}/5</p>
+
+                <p>As I've said before, Jazz is my absolute favorite genre of music but I actively despise listening to the vast majority of it. I'll turn on the radio to any listener-supported Jazz station (sorry 91.1 KCSM), and my reactions are certain to range from "meh" at best to turning it off at worst. Jazz really shines when paired with other genres of music and there's one particular live performance of Jazz Rock I've listened to for hundreds of hours, if not thousands. It is the default music I listen to when doing anything really, from chores to reading to exercise.</p>
+
+                <p>Basically, back in 2004, two legendary Jazz Rock bands, Casiopea and T Square jointly performed the best songs from their, at the time, combined 60-year discography. After a brief into, T Square performs for 45 minutes, then Casiopea for 45 minutes. This alone would make this live performance one of my favorites, as both bands focus on what I can only describe as unbelievably cool jazz/rock solos. If Miles Davis and Led Zeppelin were in attendance, they would all be on their knees begging for a tiny fraction of the aura of Casiopea and T Square.</p>
+
+                <p>But then, both bands merge into THE SUPER FUSION (yes, that's the actual name of the combined band) and rock out for another hour. Having traded members between each other for a literal century as of this year (both bands having been formed around 1976), they are way more than the sum of their parts. As the two bands trade off, every solo is cooler and slicker than the last. With double the drums, double the bass, double the piano, double everything, we eventually reach the global maximum of groovy Jazz Rock.</p>
+
+                <p>The literal only negative I find is the dueling drums section. In my opinion, drums are the instrument most susceptible to being poorly recorded, since drums are mostly "felt" and not "heard". There are very few recordings that capture the whole-body rumbling of live drums, and Casiopea vs T Square is not one of them.</p>
+
+                <p>Still, this is one of my absolute favorite live recordings, with nearly non-stop fun. No joke, I would probably give up one of my toes for the opportunity to be in that crowd of geriatric Japanese people clapping out of time.</p>
+
+                <p>YT: <a href="https://www.youtube.com/watch?v=wBD1_mrRUIk">https://www.youtube.com/watch?v=wBD1_mrRUIk</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

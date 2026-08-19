@@ -38,7 +38,7 @@ date_created,date_modified,artist,title,genre,rating,file
 20251218,20251218,Deafheaven,Lonely People With Power,"Blackgaze, Post-Metal",4.5,
 20260115,20260115,Mon Laferte,Femme Fatale,"Vocal Jazz",4,
 20260129,20260129,LAUSSE THE CAT,The Mocking Stars,"Jazz Rap",4,
-20260226,20260226,Candelabro,"Deseo, Carne y Voluntad","Art Rock, Post-Rock, Indie Rock, Jazz Rock",4.5,candelabro_deseo_carne_y_voluntad
+20260226,20260226,Candelabro,"Deseo, Carne y Voluntad","Art Rock, Post-Rock, Indie Rock, Jazz-Rock",4.5,candelabro_deseo_carne_y_voluntad
 20260312,20260312,Strawberry Girls,Spanish Bay,"Math Rock, Progressive Rock",4,
 20260409,20260409,Slint,Washer,"Post-Rock, Math Rock",4.5,
 20260507,20260507,Angine de Poitrine,Live on KEXP,"Math Rock",4,
@@ -47,3 +47,4 @@ date_created,date_modified,artist,title,genre,rating,file
 20260702,20260702,Genesis Owusu,Redstar Wu & the Worldwide Scourge,"Post-Punk Revival, Political Hip Hop, Neo-Soul",4,
 20260716,20260716,DOMi & JD BECK,Space Mountain,"Jazz Fusion, Nu Jazz",4,
 20260730,20260730,Osamu Kitajima,Mandala,"New Age, Japanese Folk Music",4,
+20260814,20260814,Casiopea & T Square,Casiopea vs T Square,"Jazz Fusion, Jazz-Rock",4.5,
