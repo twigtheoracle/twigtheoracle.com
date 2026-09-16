@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/live_at_thalia_hall.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: August 14, 2026<br>My Rating: {{ rating }}/5</p>
+
+                <p>I've been listening to way too much Noise/Drone music lately, so I decided to catch up on some long-lost (a few months) Punk/Emo bands to see what's up in the scene. Apparently, the dissolution of Gingerbee, one of the coolest Emo/Screamo/Chamber Pop/Jazz-Rock (?) bands around :( As an intense lover of contrast in music, I am natural sucker for people screaming incomprehensibly over beautiful strings, brass, horns, and guitar</p>
+
+                <p>At their final concert, they really turned it up to 11 with the band backed up by an 18-piece orchestra. The contrast of Gingerbee's music is super evident if you watch the video, where the orchestra is sitting sedately in their chairs while the screamo guy is nearly writhing around on the ground in a bout of demonic possession.</p>
+
+                <p>Sometimes, you get these beautiful and lush chord progressions where everyone holds hands in a circle and praises mother nature. At other times, the tempo triples, the distortion kicks in, and the demonic possession results in the forest glade burning down. In the remainder of the concert, both things happen at the same time to create some truly wild sounds</p>
+
+                <p>Although I'm sad Gingerbee is gone, they left behind a great memorial to the music they made over the last few years. The video is a full recording of the concert, with some extra B-roll included: <a href="https://youtu.be/YuUidmHj7TA?si=7th7R16XsL3SEBPs">https://youtu.be/YuUidmHj7TA?si=7th7R16XsL3SEBPs</a></p>
+
+                <p>For just the music (which cuts out between song chatter and the encore), see the usual places:</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_lO3iVSU0jwAXhaGoSA6ZcnX2yBfKi-hpY">https://music.youtube.com/playlist?list=OLAK5uy_lO3iVSU0jwAXhaGoSA6ZcnX2yBfKi-hpY</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/6YSrpy7yh2GgnSTXK2fHxo">https://open.spotify.com/album/6YSrpy7yh2GgnSTXK2fHxo</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
