@@ -1,13 +1,14 @@
-title,author,genre(s),words,date_started,date_ended
-Unsong,Scott Alexander,"Fiction, Fantasy, Science Fiction, Religion",237705,20260219,20260223
-Good Omens,Terry Pratchett and Neil Gaiman,"Fiction, Fantasy, Humor",109185,20260224,20260302
-Mother of Learning,Domagoj Kurmaić,"Fiction, Fantasy, Time Travel",850000,20260226,20260315
-Unsong,Scott Alexander,"Fiction, Fantasy, Science Fiction, Religion",237705,20260315,20260416
-A Practical Guide to Evil,David Verburg,"Fiction, Fantasy",3070180,20260315,
-Algorithms to Live By,Brian Christian and Tom Griffiths,"Non-Fiction, Computer Science",87000,20251103,20260321
-Animal Liberation Now,Peter Singer,"Non-Fiction, Philosophy, Ethics",92000,20260318,
-Imagined Communities,Benedict Anderson,"Non-Fiction, History, Politics",65000,20260606,20260808
-The Structure of Scientific Revolutions,Thomas Kuhn,"Non-Fiction, Science, Philosophy, History",75000,20260620,
-Katalepsis,Hazel Young,"Fiction, Urban Fantasy, Psychological",2515137,20260723
-Tools for Conviviality,Ivan Illich,"Non-Fiction, Philosophy, Politics, Economics",7260,20260718,20260808
-1312: Among the Ultras,James Montague,"Non-Fiction, Soccer",125753,20260904,
+title,author,genre(s),words,date_started,date_finished,date_dropped,percent_complete
+Unsong,Scott Alexander,"Fiction, Fantasy, Science Fiction, Religion",237705,20260219,20260223,,
+Good Omens,Terry Pratchett and Neil Gaiman,"Fiction, Fantasy, Humor",109185,20260224,20260302,,
+Mother of Learning,Domagoj Kurmaić,"Fiction, Fantasy, Time Travel",850000,20260226,20260315,,
+Unsong,Scott Alexander,"Fiction, Fantasy, Science Fiction, Religion",237705,20260315,20260416,,
+A Practical Guide to Evil,David Verburg,"Fiction, Fantasy",3070180,20260315,,,
+Algorithms to Live By,Brian Christian and Tom Griffiths,"Non-Fiction, Computer Science",87000,20251103,20260321,,
+Animal Liberation Now,Peter Singer,"Non-Fiction, Philosophy, Ethics",92000,20260318,20260711,,
+Imagined Communities,Benedict Anderson,"Non-Fiction, History, Politics",65000,20260606,20260808,,
+The Structure of Scientific Revolutions,Thomas Kuhn,"Non-Fiction, Science, Philosophy, History",75000,20260620,,,
+Katalepsis,Hazel Young,"Fiction, Urban Fantasy, Psychological",2515137,20260723,,20260919,57
+Tools for Conviviality,Ivan Illich,"Non-Fiction, Philosophy, Politics, Economics",7260,20260718,20260808,,
+1312: Among the Ultras,James Montague,"Non-Fiction, Soccer",125753,20260904,,,
+Pale,Johh McCrae,"",3788564,20260919,,,
