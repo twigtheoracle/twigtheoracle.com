@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/waltz_alley.jpg' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: June 21, 2007<br>My Rating: {{ rating }}/5</p>
+
+                <p>Some people may know this already, but I do strongly hate Spotify, a feeling which is like 60% serious and 40% joking. Maybe half of the serious part stems from how Spotify's algorithm pushes you to music that it's confident you'll like and that is cheap for them to play. Which of course makes sense from a bottom-line business perspective, but is really terrible if you have any interest at all in finding new music to listen to. The other half of the serious part is that Spotify is just straight up missing a lot of music. Like my favorite album of all time, "Flood" by Boris, was only added within the last year and who knows how long it will stay up...</p>
+
+                <p>Anyways, the other day I was reading about ECM records which led me to the genre of Chamber Jazz, which led to me listening to the top 10-ish albums according to Rate Your Music. From that list, I stumbled upon an extremely obscure recording which captures a sense of whimsy I have only heard in Katamari before. "Waltz Alley" by Kumonosu Quartet features an incredibly eclectic collection of instruments and vocal styles. The kind of music I would expect out of a cabinet of curiosities filled from 50 years of travels to the most obscure places possible. Or if you could imagine the music from those street performers who have attached 20 different instruments to their various limbs/joints, then multiply it by four since, well, they're a quartet (they are not a quartet, there's way more than four people).</p>
+
+                <p>But despite the street performers image, it's not loud. It's a perfect reflection of the album cover, which features two dancing cats under a streetlight. Despite the playful and bouncy percussion section, it's extremely warm and comforting. All the horns are beautifully muted and even the oboe (I think?), normally a pretty sharp and piercing sound, is delightfully comforting. Many of the vocals and instrumentals have this distinctive warbling effect which reinforce the quirky and eclectic nature of the music.</p>
+
+                <p>Naturally, music so weird could never be on Spotify. Of course, it also wasn't on YouTube until a year ago when some random person ripped the CD, but that's why we love collaborative platforms.</p>
+
+                <p>YT: <a href="https://youtu.be/aqRPX9bey68?si=I5IlygmeuIBc_9fg">https://youtu.be/aqRPX9bey68?si=I5IlygmeuIBc_9fg</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
