@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ artist_title }}{% endblock %}
+
+{% block otherhead}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+{% endblock }
+
+{% block pagetitle %}{{ artist_title }}{% endblock %}
+
+{% block content %}
+
+<div class="paragraphs text-left">
+
+    <div class="container site-width" id="website" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+
+            <div class="image-wrapper float-left w-50 p-3">
+                <img src="{% static 'mysite/deathconsciousness.png' %}" class="w-100">
+            </div>
+
+            <div class="single-post-content-wrapper p-3">
+
+                <p>Genre(s): {{ genre }}<br>Release Date: January 24, 2008<br>My Rating: {{ rating }}/5</p>
+
+                <p>A few months ago, I went to see Have a Nice Life in concert (you may have seen me wearing the shirt around, it is a 10/10 shirt and the band name is a nice message). It was, and I don't say this very lightly, a transcendental experience. They play this very unique brand of music which I could only describe as Industrial Doom-Punk. It results in this incredible heavy and abrasive atmosphere which is intentionally overpowering. But not to say it's all doom and gloom, some songs are softer and vocals are clean(ish), providing a breath of fresh air before descending down into the trenches again.</p>
+
+                <p>I just want to really highlight the uniqueness of the sound here. On their only album, "Deathconsciousness" (we don't talk about the other albums), you get this extremely heavy and abrasive atmosphere coming from the bass, which has its deserved place of prominence in songs such as the start of #2 Bloodhail. It has that kind of fuzz and haze on it that I associate with dissociation</p>
+
+                <p>The drums on the album have this lethargic lo-fi sound, as if they were played at the end of a large concrete tube and recorded by the worst dollar store mic you could find. Just take a listen to #4 Hunter, where the snare blasts into your awareness over quiet drones. And if you listen to the whole track, the climax at around six minutes is so stark and cold I shiver a little in my downtown San Diego office cubicle.</p>
+
+                <p>I'm maybe stretching a little, but "Deathconsciousness" feels like the soundtrack to some kind of defunct Siberian oil refinery. Like the snow and cold dampen sounds but the right kind of sharp sound pierces through the landscape. Like the kind of place which was warm and active at some point, but someone mentally snapped from isolation and killed a bunch of people. Like the kind of place with long periods of no sunlight, a single desperate flame holding back the cold. But uhh, maybe I'm spit balling a little too much here</p>
+
+                <p>Anyways, Have a Nice Life, amazing live band. "Deathconsciousness", one of my favorite albums of all time, maybe I'll bump it up to 10/10 some day. Definitely a hard listen though, I remember I originally put it at 6/10 and only increased the rating recently</p>
+
+                <p>YT Music: <a href="https://music.youtube.com/playlist?list=OLAK5uy_mWCOJGGyU6zbwb6hH80n8PQtlZZ__gKOc">https://music.youtube.com/playlist?list=OLAK5uy_mWCOJGGyU6zbwb6hH80n8PQtlZZ__gKOc</a></p>
+
+                <p>Spotify: <a href="https://open.spotify.com/album/6MH3CAXp8AN8ELrbex18dM">https://open.spotify.com/album/6MH3CAXp8AN8ELrbex18dM</a></p>
+
+                <p>Review Date: {{ date_created }}<br>Last Updated: {{ date_modified }}</p>
+
+            </div>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not previous_review %} disabled {% endif %}"><a class="page-link" href="{{ previous_review }}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/projects/casual_music_reviews">Home</a></li>
+                <li class="page-item {% if not next_review %} disabled {% endif %}"><a class="page-link" href="{{ next_review }}">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
